@@ -22,7 +22,7 @@ import java.util.List;
  * A UTXOProvider encapsulates functionality for returning unspent transaction outputs,
  * for use by the wallet or other code that crafts spends.
  *
- * <p>A {@link org.floj.store.FullPrunedBlockStore} is an internal implementation within floj.</p>
+ * <p>A {@link org.floj.store.FullPrunedBlockStore} is an internal implementation within bitcoinj.</p>
  */
 public interface UTXOProvider {
 

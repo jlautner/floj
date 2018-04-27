@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the floj authors
+ * Copyright 2014 the bitcoinj authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * <p>Message representing a list of unspent transaction outputs ("utxos"), returned in response to sending a
  * {@link GetUTXOsMessage} ("getutxos"). Note that both this message and the query that generates it are not
- * supported by FLO Core. An implementation is available in <a href="https://github.com/floxt/floxt">FLO XT</a>,
+ * supported by FLO Core. An implementation is available in <a href="https://github.com/bitcoinxt/bitcoinxt">FLO XT</a>,
  * a patch set on top of Core. Thus if you want to use it, you must find some XT peers to connect to. This can be done
  * using a {@link org.floj.net.discovery.HttpDiscovery} class combined with an HTTP/Cartographer seed.</p>
  *

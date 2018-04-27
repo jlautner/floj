@@ -50,7 +50,7 @@ import java.math.BigInteger;
  * the minting of new coins. A Transaction object corresponds to the equivalent in the FLO C++ implementation.</p>
  *
  * <p>Transactions are the fundamental atoms of FLO and have many powerful features. Read
- * <a href="https://floj.github.io/working-with-transactions">"Working with transactions"</a> in the
+ * <a href="https://bitcoinj.github.io/working-with-transactions">"Working with transactions"</a> in the
  * documentation to learn more about how to use this class.</p>
  *
  * <p>All FLO transactions are at risk of being reversed, though the risk is much less than with traditional payment
@@ -621,15 +621,15 @@ public class Transaction extends ChildMessage {
         
         //only read floData if tx version>=2
         if(version>=2) {
-	        // read floData size
-	        long floDataSize=readVarInt();
-	        // add the bytes needed to store the size of the floData bytes
-	        optimalEncodingMessageSize += VarInt.sizeOf(floDataSize);
-	        
-	        //read floData into byte array
-	        floData=readBytes((int)floDataSize);
-	        // add the number of floData bytes, if any
-	        optimalEncodingMessageSize += floDataSize;
+        // read floData size
+        long floDataSize=readVarInt();
+        // add the bytes needed to store the size of the floData bytes
+        optimalEncodingMessageSize += VarInt.sizeOf(floDataSize);
+        
+        //read floData into byte array
+        floData=readBytes((int)floDataSize);
+        // add the number of floData bytes, if any
+        optimalEncodingMessageSize += floDataSize;
         }
         
         length = cursor - offset;
@@ -1050,8 +1050,8 @@ public class Transaction extends ChildMessage {
                 tx.inputs.get(i).clearScriptBytes();
             }
 
-            // This step has no purpose beyond being synchronized with Bitcoin Core's bugs. OP_CODESEPARATOR
-            // is a legacy holdover from a previous, broken design of executing scripts that shipped in Bitcoin 0.1.
+            // This step has no purpose beyond being synchronized with FLO Core's bugs. OP_CODESEPARATOR
+            // is a legacy holdover from a previous, broken design of executing scripts that shipped in FLO 0.1.
             // It was seriously flawed and would have let anyone take anyone elses money. Later versions switched to
             // the design we use today where scripts are executed independently but share a stack. This left the
             // OP_CODESEPARATOR instruction having no purpose as it was only meant to be used internally, not actually
@@ -1128,14 +1128,14 @@ public class Transaction extends ChildMessage {
         for (TransactionOutput out : outputs)
             out.floSerialize(stream);
         uint32ToByteStreamLE(lockTime, stream);
-        //only write floData if tx version >=2
+        
         if(version>=2) {
-	        //write VarInt of floData.length
-	        VarInt size=new VarInt(floData.length);
-	        stream.write(size.encode());
-	        //if length > 0 output the floData bytes
-	        if(floData.length>0) {
-	        	stream.write(floData);
+        //write VarInt of floData.length
+        VarInt size=new VarInt(floData.length);
+        stream.write(size.encode());
+        //if length > 0 output the floData bytes
+        if(floData.length>0) {
+        	stream.write(floData);
 	        }
         }
     }
@@ -1181,7 +1181,7 @@ public class Transaction extends ChildMessage {
     public void setFloData(byte[] value) throws ProtocolException {
     	if(value.length>MAX_FLO_DATA_SIZE) {
     		throw new ProtocolException("FLO Data cannot be > "+MAX_FLO_DATA_SIZE+", received: " + value.length);
-//    		//limit FLO data size by truncating
+    		//limit FLO data size by truncating
 //    		floData=Arrays.copyOfRange(value, 0, MAX_FLO_DATA_SIZE);
     	} else {
     		floData=value;
@@ -1191,7 +1191,7 @@ public class Transaction extends ChildMessage {
     public void setFloData(String value) throws ProtocolException {
     	//limit FLO data size by truncating
     	if(value.length()>MAX_FLO_DATA_SIZE) {
-    		throw new ProtocolException("FLO Data cannot be > "+MAX_FLO_DATA_SIZE+", received: " + value.length);
+    		throw new ProtocolException("FLO Data cannot be > "+MAX_FLO_DATA_SIZE+", received: " + value.length());
 //    		floData=value.substring(0, MAX_FLO_DATA_SIZE).getBytes();
     	} else {
     		floData=value.getBytes();

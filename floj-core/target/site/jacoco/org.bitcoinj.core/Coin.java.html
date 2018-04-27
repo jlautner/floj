@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Coin.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">Coin.java</span></div><h1>Coin.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Coin.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">Coin.java</span></div><h1>Coin.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Andreas Schildbach
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.floj.core;
+package org.bitcoinj.core;
 
-import org.floj.utils.MonetaryFormat;
+import org.bitcoinj.utils.MonetaryFormat;
 import com.google.common.math.LongMath;
 import com.google.common.primitives.Longs;
 
@@ -37,7 +37,7 @@ public final class Coin implements Monetary, Comparable&lt;Coin&gt;, Serializabl
     public static final int SMALLEST_UNIT_EXPONENT = 8;
 
     /**
-     * The number of satoshis equal to one flo.
+     * The number of satoshis equal to one bitcoin.
      */
 <span class="fc" id="L42">    private static final long COIN_VALUE = LongMath.pow(10, SMALLEST_UNIT_EXPONENT);</span>
 

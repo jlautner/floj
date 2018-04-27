@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LevelDBFullPrunedBlockStore.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.store</a> &gt; <span class="el_source">LevelDBFullPrunedBlockStore.java</span></div><h1>LevelDBFullPrunedBlockStore.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LevelDBFullPrunedBlockStore.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.store</a> &gt; <span class="el_source">LevelDBFullPrunedBlockStore.java</span></div><h1>LevelDBFullPrunedBlockStore.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2016 Robin Owens
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.floj.store;
+package org.bitcoinj.store;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -28,19 +28,19 @@ import java.util.concurrent.TimeUnit;
 import java.io.*;
 import java.nio.ByteBuffer;
 
-import org.floj.core.Address;
-import org.floj.core.AddressFormatException;
-import org.floj.core.NetworkParameters;
-import org.floj.core.ScriptException;
-import org.floj.core.Sha256Hash;
-import org.floj.core.StoredBlock;
-import org.floj.core.StoredUndoableBlock;
-import org.floj.core.Transaction;
-import org.floj.core.TransactionOutputChanges;
-import org.floj.core.UTXO;
-import org.floj.core.UTXOProviderException;
-import org.floj.core.VerificationException;
-import org.floj.script.Script;
+import org.bitcoinj.core.Address;
+import org.bitcoinj.core.AddressFormatException;
+import org.bitcoinj.core.NetworkParameters;
+import org.bitcoinj.core.ScriptException;
+import org.bitcoinj.core.Sha256Hash;
+import org.bitcoinj.core.StoredBlock;
+import org.bitcoinj.core.StoredUndoableBlock;
+import org.bitcoinj.core.Transaction;
+import org.bitcoinj.core.TransactionOutputChanges;
+import org.bitcoinj.core.UTXO;
+import org.bitcoinj.core.UTXOProviderException;
+import org.bitcoinj.core.VerificationException;
+import org.bitcoinj.script.Script;
 import org.iq80.leveldb.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -518,7 +518,7 @@ public class LevelDBFullPrunedBlockStore implements FullPrunedBlockStore {
 <span class="fc" id="L518">                bos.write((int) (0xFF &amp; (numTxn &gt;&gt; 16)));</span>
 <span class="fc" id="L519">                bos.write((int) (0xFF &amp; (numTxn &gt;&gt; 24)));</span>
 <span class="fc bfc" id="L520" title="All 2 branches covered.">                for (Transaction tx : undoableBlock.getTransactions())</span>
-<span class="fc" id="L521">                    tx.floSerialize(bos);</span>
+<span class="fc" id="L521">                    tx.bitcoinSerialize(bos);</span>
 <span class="fc" id="L522">                transactions = bos.toByteArray();</span>
             }
 <span class="fc" id="L524">            bos.close();</span>

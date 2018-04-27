@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Wallet.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.wallet</a> &gt; <span class="el_source">Wallet.java</span></div><h1>Wallet.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Wallet.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.wallet</a> &gt; <span class="el_source">Wallet.java</span></div><h1>Wallet.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.floj.wallet;
+package org.bitcoinj.wallet;
 
 import com.google.common.annotations.*;
 import com.google.common.base.*;
@@ -24,53 +24,53 @@ import com.google.common.primitives.*;
 import com.google.common.util.concurrent.*;
 import com.google.protobuf.*;
 import net.jcip.annotations.*;
-import org.flo.protocols.payments.Protos.*;
-import org.floj.core.listeners.*;
-import org.floj.core.AbstractBlockChain;
-import org.floj.core.Address;
-import org.floj.core.BlockChain;
-import org.floj.core.BloomFilter;
-import org.floj.core.Coin;
-import org.floj.core.Context;
-import org.floj.core.ECKey;
-import org.floj.core.FilteredBlock;
-import org.floj.core.InsufficientMoneyException;
-import org.floj.core.Message;
-import org.floj.core.NetworkParameters;
-import org.floj.core.Peer;
-import org.floj.core.PeerFilterProvider;
-import org.floj.core.PeerGroup;
-import org.floj.core.ScriptException;
-import org.floj.core.Sha256Hash;
-import org.floj.core.StoredBlock;
-import org.floj.core.Transaction;
-import org.floj.core.TransactionBag;
-import org.floj.core.TransactionBroadcast;
-import org.floj.core.TransactionBroadcaster;
-import org.floj.core.TransactionConfidence;
-import org.floj.core.TransactionInput;
-import org.floj.core.TransactionOutPoint;
-import org.floj.core.TransactionOutput;
-import org.floj.core.UTXO;
-import org.floj.core.UTXOProvider;
-import org.floj.core.UTXOProviderException;
-import org.floj.core.Utils;
-import org.floj.core.VarInt;
-import org.floj.core.VerificationException;
-import org.floj.core.TransactionConfidence.*;
-import org.floj.crypto.*;
-import org.floj.script.*;
-import org.floj.signers.*;
-import org.floj.utils.*;
-import org.floj.wallet.Protos.Wallet.*;
-import org.floj.wallet.WalletTransaction.*;
-import org.floj.wallet.listeners.KeyChainEventListener;
-import org.floj.wallet.listeners.ScriptsChangeEventListener;
-import org.floj.wallet.listeners.WalletChangeEventListener;
-import org.floj.wallet.listeners.WalletCoinsReceivedEventListener;
-import org.floj.wallet.listeners.WalletCoinsSentEventListener;
-import org.floj.wallet.listeners.WalletEventListener;
-import org.floj.wallet.listeners.WalletReorganizeEventListener;
+import org.bitcoin.protocols.payments.Protos.*;
+import org.bitcoinj.core.listeners.*;
+import org.bitcoinj.core.AbstractBlockChain;
+import org.bitcoinj.core.Address;
+import org.bitcoinj.core.BlockChain;
+import org.bitcoinj.core.BloomFilter;
+import org.bitcoinj.core.Coin;
+import org.bitcoinj.core.Context;
+import org.bitcoinj.core.ECKey;
+import org.bitcoinj.core.FilteredBlock;
+import org.bitcoinj.core.InsufficientMoneyException;
+import org.bitcoinj.core.Message;
+import org.bitcoinj.core.NetworkParameters;
+import org.bitcoinj.core.Peer;
+import org.bitcoinj.core.PeerFilterProvider;
+import org.bitcoinj.core.PeerGroup;
+import org.bitcoinj.core.ScriptException;
+import org.bitcoinj.core.Sha256Hash;
+import org.bitcoinj.core.StoredBlock;
+import org.bitcoinj.core.Transaction;
+import org.bitcoinj.core.TransactionBag;
+import org.bitcoinj.core.TransactionBroadcast;
+import org.bitcoinj.core.TransactionBroadcaster;
+import org.bitcoinj.core.TransactionConfidence;
+import org.bitcoinj.core.TransactionInput;
+import org.bitcoinj.core.TransactionOutPoint;
+import org.bitcoinj.core.TransactionOutput;
+import org.bitcoinj.core.UTXO;
+import org.bitcoinj.core.UTXOProvider;
+import org.bitcoinj.core.UTXOProviderException;
+import org.bitcoinj.core.Utils;
+import org.bitcoinj.core.VarInt;
+import org.bitcoinj.core.VerificationException;
+import org.bitcoinj.core.TransactionConfidence.*;
+import org.bitcoinj.crypto.*;
+import org.bitcoinj.script.*;
+import org.bitcoinj.signers.*;
+import org.bitcoinj.utils.*;
+import org.bitcoinj.wallet.Protos.Wallet.*;
+import org.bitcoinj.wallet.WalletTransaction.*;
+import org.bitcoinj.wallet.listeners.KeyChainEventListener;
+import org.bitcoinj.wallet.listeners.ScriptsChangeEventListener;
+import org.bitcoinj.wallet.listeners.WalletChangeEventListener;
+import org.bitcoinj.wallet.listeners.WalletCoinsReceivedEventListener;
+import org.bitcoinj.wallet.listeners.WalletCoinsSentEventListener;
+import org.bitcoinj.wallet.listeners.WalletEventListener;
+import org.bitcoinj.wallet.listeners.WalletReorganizeEventListener;
 import org.slf4j.*;
 import org.spongycastle.crypto.params.*;
 
@@ -108,18 +108,18 @@ import static com.google.common.base.Preconditions.*;
  * it is able to create new transactions that spend the recorded transactions, and this is the fundamental operation
  * of the FLO protocol.&lt;/p&gt;
  *
- * &lt;p&gt;To learn more about this class, read &lt;b&gt;&lt;a href=&quot;https://floj.github.io/working-with-the-wallet&quot;&gt;
+ * &lt;p&gt;To learn more about this class, read &lt;b&gt;&lt;a href=&quot;https://bitcoinj.github.io/working-with-the-wallet&quot;&gt;
  *     working with the wallet.&lt;/a&gt;&lt;/b&gt;&lt;/p&gt;
  *
  * &lt;p&gt;To fill up a Wallet with transactions, you need to use it in combination with a {@link BlockChain} and various
- * other objects, see the &lt;a href=&quot;https://floj.github.io/getting-started&quot;&gt;Getting started&lt;/a&gt; tutorial
+ * other objects, see the &lt;a href=&quot;https://bitcoinj.github.io/getting-started&quot;&gt;Getting started&lt;/a&gt; tutorial
  * on the website to learn more about how to set everything up.&lt;/p&gt;
  *
  * &lt;p&gt;Wallets can be serialized using protocol buffers. You need to save the wallet whenever it changes, there is an
  * auto-save feature that simplifies this for you although you're still responsible for manually triggering a save when
  * your app is about to quit because the auto-save feature waits a moment before actually committing to disk to avoid IO
  * thrashing when the wallet is changing very fast (eg due to a block chain sync). See
- * {@link Wallet#autosaveToFile(java.io.File, long, java.util.concurrent.TimeUnit, org.floj.wallet.WalletFiles.Listener)}
+ * {@link Wallet#autosaveToFile(java.io.File, long, java.util.concurrent.TimeUnit, org.bitcoinj.wallet.WalletFiles.Listener)}
  * for more information about this.&lt;/p&gt;
  */
 public class Wallet extends BaseTaggableObject
@@ -404,7 +404,7 @@ public class Wallet extends BaseTaggableObject
     /**
      * Returns a key that hasn't been seen in a transaction yet, and which is suitable for displaying in a wallet
      * user interface as &quot;a convenient key to receive funds on&quot; when the purpose parameter is
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS}. The returned key is stable until
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS}. The returned key is stable until
      * it's actually seen in a pending or confirmed transaction, at which point this method will start returning
      * a different key (for each purpose independently).
      */
@@ -419,15 +419,15 @@ public class Wallet extends BaseTaggableObject
     }
 
     /**
-     * An alias for calling {@link #currentKey(org.floj.wallet.KeyChain.KeyPurpose)} with
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
+     * An alias for calling {@link #currentKey(org.bitcoinj.wallet.KeyChain.KeyPurpose)} with
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
      */
     public DeterministicKey currentReceiveKey() {
 <span class="fc" id="L426">        return currentKey(KeyChain.KeyPurpose.RECEIVE_FUNDS);</span>
     }
 
     /**
-     * Returns address for a {@link #currentKey(org.floj.wallet.KeyChain.KeyPurpose)}
+     * Returns address for a {@link #currentKey(org.bitcoinj.wallet.KeyChain.KeyPurpose)}
      */
     public Address currentAddress(KeyChain.KeyPurpose purpose) {
 <span class="fc" id="L433">        keyChainGroupLock.lock();</span>
@@ -440,8 +440,8 @@ public class Wallet extends BaseTaggableObject
     }
 
     /**
-     * An alias for calling {@link #currentAddress(org.floj.wallet.KeyChain.KeyPurpose)} with
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
+     * An alias for calling {@link #currentAddress(org.bitcoinj.wallet.KeyChain.KeyPurpose)} with
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
      */
     public Address currentReceiveAddress() {
 <span class="fc" id="L447">        return currentAddress(KeyChain.KeyPurpose.RECEIVE_FUNDS);</span>
@@ -450,8 +450,8 @@ public class Wallet extends BaseTaggableObject
     /**
      * Returns a key that has not been returned by this method before (fresh). You can think of this as being
      * a newly created key, although the notion of &quot;create&quot; is not really valid for a
-     * {@link org.floj.wallet.DeterministicKeyChain}. When the parameter is
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} the returned key is suitable for being put
+     * {@link org.bitcoinj.wallet.DeterministicKeyChain}. When the parameter is
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} the returned key is suitable for being put
      * into a receive coins wizard type UI. You should use this when the user is definitely going to hand this key out
      * to someone who wishes to send money.
      */
@@ -462,8 +462,8 @@ public class Wallet extends BaseTaggableObject
     /**
      * Returns a key/s that has not been returned by this method before (fresh). You can think of this as being
      * a newly created key/s, although the notion of &quot;create&quot; is not really valid for a
-     * {@link org.floj.wallet.DeterministicKeyChain}. When the parameter is
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} the returned key is suitable for being put
+     * {@link org.bitcoinj.wallet.DeterministicKeyChain}. When the parameter is
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} the returned key is suitable for being put
      * into a receive coins wizard type UI. You should use this when the user is definitely going to hand this key/s out
      * to someone who wishes to send money.
      */
@@ -483,15 +483,15 @@ public class Wallet extends BaseTaggableObject
     }
 
     /**
-     * An alias for calling {@link #freshKey(org.floj.wallet.KeyChain.KeyPurpose)} with
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
+     * An alias for calling {@link #freshKey(org.bitcoinj.wallet.KeyChain.KeyPurpose)} with
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
      */
     public DeterministicKey freshReceiveKey() {
 <span class="fc" id="L490">        return freshKey(KeyChain.KeyPurpose.RECEIVE_FUNDS);</span>
     }
 
     /**
-     * Returns address for a {@link #freshKey(org.floj.wallet.KeyChain.KeyPurpose)}
+     * Returns address for a {@link #freshKey(org.bitcoinj.wallet.KeyChain.KeyPurpose)}
      */
     public Address freshAddress(KeyChain.KeyPurpose purpose) {
         Address key;
@@ -506,8 +506,8 @@ public class Wallet extends BaseTaggableObject
     }
 
     /**
-     * An alias for calling {@link #freshAddress(org.floj.wallet.KeyChain.KeyPurpose)} with
-     * {@link org.floj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
+     * An alias for calling {@link #freshAddress(org.bitcoinj.wallet.KeyChain.KeyPurpose)} with
+     * {@link org.bitcoinj.wallet.KeyChain.KeyPurpose#RECEIVE_FUNDS} as the parameter.
      */
     public Address freshReceiveAddress() {
 <span class="fc" id="L513">        return freshAddress(KeyChain.KeyPurpose.RECEIVE_FUNDS);</span>
@@ -540,7 +540,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Upgrades the wallet to be deterministic (BIP32). You should call this, possibly providing the users encryption
-     * key, after loading a wallet produced by previous versions of floj. If the wallet is encrypted the key
+     * key, after loading a wallet produced by previous versions of bitcoinj. If the wallet is encrypted the key
      * &lt;b&gt;must&lt;/b&gt; be provided, due to the way the seed is derived deterministically from private key bytes: failing
      * to do this will result in an exception being thrown. For non-encrypted wallets, the upgrade will be done for
      * you automatically the first time a new key is requested (this happens when spending due to the change address).
@@ -687,7 +687,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Imports the given keys to the wallet.
-     * If {@link Wallet#autosaveToFile(java.io.File, long, java.util.concurrent.TimeUnit, org.floj.wallet.WalletFiles.Listener)}
+     * If {@link Wallet#autosaveToFile(java.io.File, long, java.util.concurrent.TimeUnit, org.bitcoinj.wallet.WalletFiles.Listener)}
      * has been called, triggers an auto save bypassing the normal coalescing delay and event handlers.
      * Returns the number of keys added, after duplicates are ignored. The onKeyAdded event will be called for each key
      * in the list that was not already present.
@@ -755,7 +755,7 @@ public class Wallet extends BaseTaggableObject
 <span class="pc" id="L755">        }</span>
 <span class="fc" id="L756">    }</span>
 
-    /** See {@link org.floj.wallet.DeterministicKeyChain#setLookaheadSize(int)} for more info on this. */
+    /** See {@link org.bitcoinj.wallet.DeterministicKeyChain#setLookaheadSize(int)} for more info on this. */
     public void setKeyChainGroupLookaheadSize(int lookaheadSize) {
 <span class="fc" id="L760">        keyChainGroupLock.lock();</span>
         try {
@@ -765,7 +765,7 @@ public class Wallet extends BaseTaggableObject
 <span class="pc" id="L765">        }</span>
 <span class="fc" id="L766">    }</span>
 
-    /** See {@link org.floj.wallet.DeterministicKeyChain#setLookaheadSize(int)} for more info on this. */
+    /** See {@link org.bitcoinj.wallet.DeterministicKeyChain#setLookaheadSize(int)} for more info on this. */
     public int getKeyChainGroupLookaheadSize() {
 <span class="fc" id="L770">        keyChainGroupLock.lock();</span>
         try {
@@ -775,7 +775,7 @@ public class Wallet extends BaseTaggableObject
 <span class="nc" id="L775">        }</span>
     }
 
-    /** See {@link org.floj.wallet.DeterministicKeyChain#setLookaheadThreshold(int)} for more info on this. */
+    /** See {@link org.bitcoinj.wallet.DeterministicKeyChain#setLookaheadThreshold(int)} for more info on this. */
     public void setKeyChainGroupLookaheadThreshold(int num) {
 <span class="fc" id="L780">        keyChainGroupLock.lock();</span>
         try {
@@ -786,7 +786,7 @@ public class Wallet extends BaseTaggableObject
 <span class="pc" id="L786">        }</span>
 <span class="fc" id="L787">    }</span>
 
-    /** See {@link org.floj.wallet.DeterministicKeyChain#setLookaheadThreshold(int)} for more info on this. */
+    /** See {@link org.bitcoinj.wallet.DeterministicKeyChain#setLookaheadThreshold(int)} for more info on this. */
     public int getKeyChainGroupLookaheadThreshold() {
 <span class="fc" id="L791">        keyChainGroupLock.lock();</span>
         try {
@@ -1055,7 +1055,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Marks all keys used in the transaction output as used in the wallet.
-     * See {@link org.floj.wallet.DeterministicKeyChain#markKeyAsUsed(DeterministicKey)} for more info on this.
+     * See {@link org.bitcoinj.wallet.DeterministicKeyChain#markKeyAsUsed(DeterministicKey)} for more info on this.
      */
     private void markKeysAsUsed(Transaction tx) {
 <span class="fc" id="L1061">        keyChainGroupLock.lock();</span>
@@ -1085,7 +1085,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Returns the immutable seed for the current active HD chain.
-     * @throws org.floj.core.ECKey.MissingPrivateKeyException if the seed is unavailable (watching wallet)
+     * @throws org.bitcoinj.core.ECKey.MissingPrivateKeyException if the seed is unavailable (watching wallet)
      */
     public DeterministicSeed getKeyChainSeed() {
 <span class="fc" id="L1091">        keyChainGroupLock.lock();</span>
@@ -1114,7 +1114,7 @@ public class Wallet extends BaseTaggableObject
     }
 
     /**
-     * Convenience wrapper around {@link Wallet#encrypt(org.floj.crypto.KeyCrypter,
+     * Convenience wrapper around {@link Wallet#encrypt(org.bitcoinj.crypto.KeyCrypter,
      * org.spongycastle.crypto.params.KeyParameter)} which uses the default Scrypt key derivation algorithm and
      * parameters to derive a key from the given password.
      */
@@ -1131,7 +1131,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Encrypt the wallet using the KeyCrypter and the AES key. A good default KeyCrypter to use is
-     * {@link org.floj.crypto.KeyCrypterScrypt}.
+     * {@link org.bitcoinj.crypto.KeyCrypterScrypt}.
      *
      * @param keyCrypter The KeyCrypter that specifies how to encrypt/ decrypt a key
      * @param aesKey AES key to use (normally created using KeyCrypter#deriveKey and cached as it is time consuming to create from a password)
@@ -1431,7 +1431,7 @@ public class Wallet extends BaseTaggableObject
     /**
      * &lt;p&gt;
      * Disables auto-saving, after it had been enabled with
-     * {@link Wallet#autosaveToFile(java.io.File, long, java.util.concurrent.TimeUnit, org.floj.wallet.WalletFiles.Listener)}
+     * {@link Wallet#autosaveToFile(java.io.File, long, java.util.concurrent.TimeUnit, org.bitcoinj.wallet.WalletFiles.Listener)}
      * before. This method blocks until finished.
      * &lt;/p&gt;
      */
@@ -3288,7 +3288,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Returns the earliest creation time of keys or watched scripts in this wallet, in seconds since the epoch, ie the min
-     * of {@link org.floj.core.ECKey#getCreationTimeSeconds()}. This can return zero if at least one key does
+     * of {@link org.bitcoinj.core.ECKey#getCreationTimeSeconds()}. This can return zero if at least one key does
      * not have that data (was created before key timestamping was implemented). &lt;p&gt;
      *
      * This method is most often used in conjunction with {@link PeerGroup#setFastCatchupTimeSecs(long)} in order to
@@ -3545,7 +3545,7 @@ public class Wallet extends BaseTaggableObject
      * money to fail! Finally please be aware that any listeners on the future will run either on the calling thread
      * if it completes immediately, or eventually on a background thread if the balance is not yet at the right
      * level. If you do something that means you know the balance should be sufficient to trigger the future,
-     * you can use {@link org.floj.utils.Threading#waitForUserCode()} to block until the future had a
+     * you can use {@link org.bitcoinj.utils.Threading#waitForUserCode()} to block until the future had a
      * chance to be updated.&lt;/p&gt;
      */
     public ListenableFuture&lt;Coin&gt; getBalanceFuture(final Coin value, final BalanceType type) {
@@ -3594,7 +3594,7 @@ public class Wallet extends BaseTaggableObject
 <span class="fc" id="L3594">    }</span>
 
     /**
-     * Returns the amount of flo ever received via output. &lt;b&gt;This is not the balance!&lt;/b&gt; If an output spends from a
+     * Returns the amount of bitcoin ever received via output. &lt;b&gt;This is not the balance!&lt;/b&gt; If an output spends from a
      * transaction whose inputs are also to our wallet, the input amounts are deducted from the outputs contribution, with a minimum of zero
      * contribution. The idea behind this is we avoid double counting money sent to us.
      * @return the total amount of satoshis received, regardless of whether it was spent or not.
@@ -3625,7 +3625,7 @@ public class Wallet extends BaseTaggableObject
     }
 
     /**
-     * Returns the amount of flo ever sent via output. If an output is sent to our own wallet, because of change or
+     * Returns the amount of bitcoin ever sent via output. If an output is sent to our own wallet, because of change or
      * rotating keys or whatever, we do not count it. If the wallet was
      * involved in a shared transaction, i.e. there is some input to the transaction that we don't have the key for, then
      * we multiply the sum of the output values by the proportion of satoshi coming in to our inputs. Essentially we treat
@@ -3697,7 +3697,7 @@ public class Wallet extends BaseTaggableObject
          */
 <span class="fc" id="L3698">        USE_DUMMY_SIG,</span>
         /**
-         * If signature is missing, {@link org.floj.signers.TransactionSigner.MissingSignatureException}
+         * If signature is missing, {@link org.bitcoinj.signers.TransactionSigner.MissingSignatureException}
          * will be thrown for P2SH and {@link ECKey.MissingPrivateKeyException} for other tx types.
          */
 <span class="fc" id="L3703">        THROW</span>
@@ -5036,7 +5036,7 @@ public class Wallet extends BaseTaggableObject
      * re-organisation of the wallet contents on the block chain. For instance, in future the wallet may choose to
      * optimise itself to reduce fees or improve privacy.&lt;/p&gt;
      */
-    public void setTransactionBroadcaster(@Nullable org.floj.core.TransactionBroadcaster broadcaster) {
+    public void setTransactionBroadcaster(@Nullable org.bitcoinj.core.TransactionBroadcaster broadcaster) {
 <span class="fc" id="L5040">        Transaction[] toBroadcast = {};</span>
 <span class="fc" id="L5041">        lock.lock();</span>
         try {
@@ -5130,7 +5130,7 @@ public class Wallet extends BaseTaggableObject
      * @param aesKey the users password, if any.
      * @param signAndSend if true, send the transactions via the tx broadcaster and return them, if false just return them.
      * @return A list of transactions that the wallet just made/will make for internal maintenance. Might be empty.
-     * @throws org.floj.wallet.DeterministicUpgradeRequiresPassword if key rotation requires the users password.
+     * @throws org.bitcoinj.wallet.DeterministicUpgradeRequiresPassword if key rotation requires the users password.
      */
     public ListenableFuture&lt;List&lt;Transaction&gt;&gt; doMaintenance(@Nullable KeyParameter aesKey, boolean signAndSend) throws DeterministicUpgradeRequiresPassword {
         List&lt;Transaction&gt; txns;

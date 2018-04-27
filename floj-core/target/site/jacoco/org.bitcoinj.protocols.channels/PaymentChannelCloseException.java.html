@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaymentChannelCloseException.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.protocols.channels</a> &gt; <span class="el_source">PaymentChannelCloseException.java</span></div><h1>PaymentChannelCloseException.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaymentChannelCloseException.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.protocols.channels</a> &gt; <span class="el_source">PaymentChannelCloseException.java</span></div><h1>PaymentChannelCloseException.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.floj.protocols.channels;
+package org.bitcoinj.protocols.channels;
 
 /**
  * Used to indicate that a channel was closed before it was expected to be closed.
@@ -34,7 +34,7 @@ public class PaymentChannelCloseException extends Exception {
         // Values after here indicate its probably possible to try reopening channel again
 
         /**
-         * &lt;p&gt;The {@link org.floj.protocols.channels.PaymentChannelClient#settle()} method was called or the
+         * &lt;p&gt;The {@link org.bitcoinj.protocols.channels.PaymentChannelClient#settle()} method was called or the
          * client sent a CLOSE message.&lt;/p&gt;
          * &lt;p&gt;As long as the server received the CLOSE message, this means that the channel is settling and the payment
          * transaction (if any) will be broadcast. If the client attempts to open a new connection, a new channel will
@@ -43,7 +43,7 @@ public class PaymentChannelCloseException extends Exception {
 <span class="fc" id="L43">        CLIENT_REQUESTED_CLOSE,</span>
 
         /**
-         * &lt;p&gt;The {@link org.floj.protocols.channels.PaymentChannelServer#close()} method was called or server
+         * &lt;p&gt;The {@link org.bitcoinj.protocols.channels.PaymentChannelServer#close()} method was called or server
          * sent a CLOSE message.&lt;/p&gt;
          *
          * &lt;p&gt;This may occur if the server opts to close the connection for some reason, or automatically if the channel

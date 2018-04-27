@@ -21,7 +21,7 @@ import java.math.BigInteger;
 import org.floj.core.*;
 
 /**
- * Network parameters used by the floj unit tests (and potentially your own). This lets you solve a block using
+ * Network parameters used by the bitcoinj unit tests (and potentially your own). This lets you solve a block using
  * {@link org.floj.core.Block#solve()} by setting difficulty to the easiest possible.
  */
 public class UnitTestParams extends AbstractFLONetParams {

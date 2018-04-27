@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>KeyChainGroup.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.wallet</a> &gt; <span class="el_source">KeyChainGroup.java</span></div><h1>KeyChainGroup.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>KeyChainGroup.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.wallet</a> &gt; <span class="el_source">KeyChainGroup.java</span></div><h1>KeyChainGroup.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Mike Hearn
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,15 +15,15 @@
  * limitations under the License.
  */
 
-package org.floj.wallet;
+package org.bitcoinj.wallet;
 
 import com.google.common.collect.*;
 import com.google.protobuf.*;
-import org.floj.core.*;
-import org.floj.crypto.*;
-import org.floj.script.*;
-import org.floj.utils.*;
-import org.floj.wallet.listeners.KeyChainEventListener;
+import org.bitcoinj.core.*;
+import org.bitcoinj.crypto.*;
+import org.bitcoinj.script.*;
+import org.bitcoinj.utils.*;
+import org.bitcoinj.wallet.listeners.KeyChainEventListener;
 import org.slf4j.*;
 import org.spongycastle.crypto.params.*;
 
@@ -35,7 +35,7 @@ import java.util.concurrent.*;
 import static com.google.common.base.Preconditions.*;
 
 /**
- * &lt;p&gt;A KeyChainGroup is used by the {@link org.floj.wallet.Wallet} and
+ * &lt;p&gt;A KeyChainGroup is used by the {@link org.bitcoinj.wallet.Wallet} and
  * manages: a {@link BasicKeyChain} object (which will normally be empty), and zero or more
  * {@link DeterministicKeyChain}s. A deterministic key chain will be created lazily/on demand
  * when a fresh or current key is requested, possibly being initialized from the private key bytes of the earliest non
@@ -472,7 +472,7 @@ public class KeyChainGroup implements KeyBag {
     /**
      * Whether the active keychain is married.  A keychain is married when it vends P2SH addresses
      * from multiple keychains in a multisig relationship.
-     * @see org.floj.wallet.MarriedKeyChain
+     * @see org.bitcoinj.wallet.MarriedKeyChain
      */
     public final boolean isMarried() {
 <span class="fc bfc" id="L478" title="All 4 branches covered.">        return !chains.isEmpty() &amp;&amp; getActiveKeyChain().isMarried();</span>
@@ -480,9 +480,9 @@ public class KeyChainGroup implements KeyBag {
 
     /**
      * Encrypt the keys in the group using the KeyCrypter and the AES key. A good default KeyCrypter to use is
-     * {@link org.floj.crypto.KeyCrypterScrypt}.
+     * {@link org.bitcoinj.crypto.KeyCrypterScrypt}.
      *
-     * @throws org.floj.crypto.KeyCrypterException Thrown if the wallet encryption fails for some reason,
+     * @throws org.bitcoinj.crypto.KeyCrypterException Thrown if the wallet encryption fails for some reason,
      *         leaving the group unchanged.
      * @throws DeterministicUpgradeRequiredException Thrown if there are random keys but no HD chain.
      */
@@ -507,9 +507,9 @@ public class KeyChainGroup implements KeyBag {
 
     /**
      * Decrypt the keys in the group using the previously given key crypter and the AES key. A good default
-     * KeyCrypter to use is {@link org.floj.crypto.KeyCrypterScrypt}.
+     * KeyCrypter to use is {@link org.bitcoinj.crypto.KeyCrypterScrypt}.
      *
-     * @throws org.floj.crypto.KeyCrypterException Thrown if the wallet decryption fails for some reason, leaving the group unchanged.
+     * @throws org.bitcoinj.crypto.KeyCrypterException Thrown if the wallet decryption fails for some reason, leaving the group unchanged.
      */
     public void decrypt(KeyParameter aesKey) {
         // This code must be exception safe.

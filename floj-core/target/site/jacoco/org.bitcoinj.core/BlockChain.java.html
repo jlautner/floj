@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BlockChain.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">BlockChain.java</span></div><h1>BlockChain.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BlockChain.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">BlockChain.java</span></div><h1>BlockChain.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,13 +15,13 @@
  * limitations under the License.
  */
 
-package org.floj.core;
+package org.bitcoinj.core;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import org.floj.store.BlockStore;
-import org.floj.store.BlockStoreException;
-import org.floj.wallet.Wallet;
+import org.bitcoinj.store.BlockStore;
+import org.bitcoinj.store.BlockStoreException;
+import org.bitcoinj.wallet.Wallet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,8 +42,8 @@ public class BlockChain extends AbstractBlockChain {
      * one from scratch, or you can deserialize a saved wallet from disk using
      * {@link Wallet#loadFromFile(java.io.File, WalletExtension...)}&lt;/p&gt;
      *
-     * &lt;p&gt;For the store, you should use {@link org.floj.store.SPVBlockStore} or you could also try a
-     * {@link org.floj.store.MemoryBlockStore} if you want to hold all headers in RAM and don't care about
+     * &lt;p&gt;For the store, you should use {@link org.bitcoinj.store.SPVBlockStore} or you could also try a
+     * {@link org.bitcoinj.store.MemoryBlockStore} if you want to hold all headers in RAM and don't care about
      * disk serialization (this is rare).&lt;/p&gt;
      */
     public BlockChain(Context context, Wallet wallet, BlockStore blockStore) throws BlockStoreException {

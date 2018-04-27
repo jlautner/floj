@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LocalTransactionSigner.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.signers</a> &gt; <span class="el_source">LocalTransactionSigner.java</span></div><h1>LocalTransactionSigner.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>LocalTransactionSigner.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.signers</a> &gt; <span class="el_source">LocalTransactionSigner.java</span></div><h1>LocalTransactionSigner.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Kosta Korenkov
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,24 +14,24 @@
  * limitations under the License.
  */
 
-package org.floj.signers;
+package org.bitcoinj.signers;
 
 import java.util.EnumSet;
-import org.floj.core.ECKey;
-import org.floj.core.ScriptException;
-import org.floj.core.Transaction;
-import org.floj.core.TransactionInput;
-import org.floj.crypto.DeterministicKey;
-import org.floj.crypto.TransactionSignature;
-import org.floj.script.Script;
-import org.floj.script.Script.VerifyFlag;
-import org.floj.wallet.KeyBag;
-import org.floj.wallet.RedeemData;
+import org.bitcoinj.core.ECKey;
+import org.bitcoinj.core.ScriptException;
+import org.bitcoinj.core.Transaction;
+import org.bitcoinj.core.TransactionInput;
+import org.bitcoinj.crypto.DeterministicKey;
+import org.bitcoinj.crypto.TransactionSignature;
+import org.bitcoinj.script.Script;
+import org.bitcoinj.script.Script.VerifyFlag;
+import org.bitcoinj.wallet.KeyBag;
+import org.bitcoinj.wallet.RedeemData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * &lt;p&gt;{@link TransactionSigner} implementation for signing inputs using keys from provided {@link org.floj.wallet.KeyBag}.&lt;/p&gt;
+ * &lt;p&gt;{@link TransactionSigner} implementation for signing inputs using keys from provided {@link org.bitcoinj.wallet.KeyBag}.&lt;/p&gt;
  * &lt;p&gt;This signer doesn't create input scripts for tx inputs. Instead it expects inputs to contain scripts with
  * empty sigs and replaces one of the empty sigs with calculated signature.
  * &lt;/p&gt;
@@ -40,7 +40,7 @@ import org.slf4j.LoggerFactory;
  * {@link ProposedTransaction} object that will be also passed then to the next signer in chain. This allows other
  * signers to use correct signing key for P2SH inputs, because all the keys involved in a single P2SH address have
  * the same derivation path.&lt;/p&gt;
- * &lt;p&gt;This signer always uses {@link org.floj.core.Transaction.SigHash#ALL} signing mode.&lt;/p&gt;
+ * &lt;p&gt;This signer always uses {@link org.bitcoinj.core.Transaction.SigHash#ALL} signing mode.&lt;/p&gt;
  */
 <span class="fc" id="L45">public class LocalTransactionSigner extends StatelessTransactionSigner {</span>
 <span class="fc" id="L46">    private static final Logger log = LoggerFactory.getLogger(LocalTransactionSigner.class);</span>

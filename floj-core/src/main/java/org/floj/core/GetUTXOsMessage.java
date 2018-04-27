@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the floj authors
+ * Copyright 2014 the bitcoinj authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ import java.io.OutputStream;
 import java.util.List;
 
 /**
- * <p>This command is supported only by <a href="http://github.com/floxt/floxt">FLO XT</a> nodes, which
+ * <p>This command is supported only by <a href="http://github.com/bitcoinxt/bitcoinxt">FLO XT</a> nodes, which
  * advertise themselves using the second service bit flag. It requests a query of the UTXO set keyed by a set of
  * outpoints (i.e. tx hash and output index). The result contains a bitmap of spentness flags, and the contents of
  * the associated outputs if they were found. The results aren't authenticated by anything, so the peer could lie,

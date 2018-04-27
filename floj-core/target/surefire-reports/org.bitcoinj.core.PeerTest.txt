@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.floj.core.PeerTest
+Test set: org.bitcoinj.core.PeerTest
 -------------------------------------------------------------------------------
-Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.657 sec - in org.floj.core.PeerTest
+Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.657 sec - in org.bitcoinj.core.PeerTest

@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 The floj authors.
+ * Copyright 2014 The bitcoinj authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ import java.util.List;
 /**
  * X509Utils provides tools for working with X.509 certificates and keystores, as used in the BIP 70 payment protocol.
  * For more details on this, see {@link org.floj.protocols.payments.PaymentSession}, the article "Working with
- * the payment protocol" on the floj website, or the FLO developer guide.
+ * the payment protocol" on the bitcoinj website, or the FLO developer guide.
  */
 public class X509Utils {
     /**

@@ -824,7 +824,7 @@ public class WalletTest extends TestWithWallet {
         Transaction send1 = checkNotNull(wallet.createSend(OTHER_ADDRESS, value2));
         Transaction send2 = checkNotNull(wallet.createSend(OTHER_ADDRESS, value2));
         byte[] buf = send1.floSerialize();
-        buf[43] = 0;  // Break the signature: floj won't check in SPV mode and this is easier than other mutations.
+        buf[43] = 0;  // Break the signature: bitcoinj won't check in SPV mode and this is easier than other mutations.
         send1 = PARAMS.getDefaultSerializer().makeTransaction(buf);
         wallet.commitTx(send2);
         wallet.allowSpendingUnconfirmedTransactions();

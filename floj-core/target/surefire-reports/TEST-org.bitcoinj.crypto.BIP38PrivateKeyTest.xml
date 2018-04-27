@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.floj.crypto.BIP38PrivateKeyTest" time="27.12" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="27.12" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
     <property name="java.vm.version" value="25.162-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\floj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\bitcoinj"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\FLO\desoto\floj"/>
+    <property name="user.dir" value="E:\FLO\desoto\bitcoinj"/>
     <property name="java.runtime.version" value="1.8.0_162-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
@@ -64,19 +64,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="bip38testvector_noCompression_noEcMultiply_test1" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.202"/>
-  <testcase name="bip38testvector_noCompression_noEcMultiply_test2" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.264"/>
-  <testcase name="bip38testvector_noCompression_noEcMultiply_test3" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.246"/>
-  <testcase name="bitaddress_testnet" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.318"/>
-  <testcase name="testJavaSerialization" classname="org.floj.crypto.BIP38PrivateKeyTest" time="0.002"/>
-  <testcase name="flopaperwallet_testnet" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.287"/>
-  <testcase name="bip38testvector_compression_noEcMultiply_test1" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.248"/>
-  <testcase name="bip38testvector_compression_noEcMultiply_test2" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.256"/>
-  <testcase name="badPassphrase" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.303"/>
-  <testcase name="bip38testvector_ecMultiply_noCompression_noLotAndSequence_test1" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.285"/>
-  <testcase name="bip38testvector_ecMultiply_noCompression_noLotAndSequence_test2" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.264"/>
-  <testcase name="cloning" classname="org.floj.crypto.BIP38PrivateKeyTest" time="0"/>
-  <testcase name="bip38testvector_ecMultiply_noCompression_lotAndSequence_test1" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.218"/>
-  <testcase name="bip38testvector_ecMultiply_noCompression_lotAndSequence_test2" classname="org.floj.crypto.BIP38PrivateKeyTest" time="2.225"/>
-  <testcase name="roundtripBase58" classname="org.floj.crypto.BIP38PrivateKeyTest" time="0"/>
+  <testcase name="bip38testvector_noCompression_noEcMultiply_test1" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.202"/>
+  <testcase name="bip38testvector_noCompression_noEcMultiply_test2" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.264"/>
+  <testcase name="bip38testvector_noCompression_noEcMultiply_test3" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.246"/>
+  <testcase name="bitaddress_testnet" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.318"/>
+  <testcase name="testJavaSerialization" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="0.002"/>
+  <testcase name="bitcoinpaperwallet_testnet" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.287"/>
+  <testcase name="bip38testvector_compression_noEcMultiply_test1" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.248"/>
+  <testcase name="bip38testvector_compression_noEcMultiply_test2" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.256"/>
+  <testcase name="badPassphrase" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.303"/>
+  <testcase name="bip38testvector_ecMultiply_noCompression_noLotAndSequence_test1" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.285"/>
+  <testcase name="bip38testvector_ecMultiply_noCompression_noLotAndSequence_test2" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.264"/>
+  <testcase name="cloning" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="0"/>
+  <testcase name="bip38testvector_ecMultiply_noCompression_lotAndSequence_test1" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.218"/>
+  <testcase name="bip38testvector_ecMultiply_noCompression_lotAndSequence_test2" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="2.225"/>
+  <testcase name="roundtripBase58" classname="org.bitcoinj.crypto.BIP38PrivateKeyTest" time="0"/>
 </testsuite>

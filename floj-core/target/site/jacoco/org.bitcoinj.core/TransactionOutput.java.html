@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionOutput.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">TransactionOutput.java</span></div><h1>TransactionOutput.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionOutput.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">TransactionOutput.java</span></div><h1>TransactionOutput.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-package org.floj.core;
+package org.bitcoinj.core;
 
 import com.google.common.base.Objects;
-import org.floj.script.*;
-import org.floj.wallet.Wallet;
+import org.bitcoinj.script.*;
+import org.bitcoinj.wallet.Wallet;
 import org.slf4j.*;
 
 import javax.annotation.*;
@@ -119,7 +119,7 @@ public class TransactionOutput extends ChildMessage {
     }
 
     /**
-     * &lt;p&gt;If the output script pays to an address as in &lt;a href=&quot;https://flo.org/en/developer-guide#term-p2pkh&quot;&gt;
+     * &lt;p&gt;If the output script pays to an address as in &lt;a href=&quot;https://bitcoin.org/en/developer-guide#term-p2pkh&quot;&gt;
      * P2PKH&lt;/a&gt;, return the address of the receiver, i.e., a base58 encoded hash of the public key in the script. &lt;/p&gt;
      *
      * @param networkParameters needed to specify an address
@@ -140,8 +140,8 @@ public class TransactionOutput extends ChildMessage {
      * i.e., a base58 encoding of [one-byte version][20-byte hash][4-byte checksum], where the 20-byte hash refers to
      * the redeem script.&lt;/p&gt;
      *
-     * &lt;p&gt;P2SH is described by &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0016.mediawiki&quot;&gt;BIP 16&lt;/a&gt; and
-     * &lt;a href=&quot;https://flo.org/en/developer-guide#p2sh-scripts&quot;&gt;documented in the FLO Developer Guide&lt;/a&gt;.&lt;/p&gt;
+     * &lt;p&gt;P2SH is described by &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0016.mediawiki&quot;&gt;BIP 16&lt;/a&gt; and
+     * &lt;a href=&quot;https://bitcoin.org/en/developer-guide#p2sh-scripts&quot;&gt;documented in the FLO Developer Guide&lt;/a&gt;.&lt;/p&gt;
      *
      * @param networkParameters needed to specify an address
      * @return null if the output script does not pay to a script hash
@@ -164,7 +164,7 @@ public class TransactionOutput extends ChildMessage {
 <span class="fc" id="L164">    }</span>
 
     @Override
-    protected void floSerializeToStream(OutputStream stream) throws IOException {
+    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
 <span class="fc" id="L168">        checkNotNull(scriptBytes);</span>
 <span class="fc" id="L169">        Utils.int64ToByteStreamLE(value, stream);</span>
         // TODO: Move script serialization into the Script class, where it belongs.
@@ -223,7 +223,7 @@ public class TransactionOutput extends ChildMessage {
      * so we call them &quot;dust outputs&quot; and they're made non standard. The choice of one third is somewhat arbitrary and
      * may change in future.&lt;/p&gt;
      *
-     * &lt;p&gt;You probably should use {@link org.floj.core.TransactionOutput#getMinNonDustValue()} which uses
+     * &lt;p&gt;You probably should use {@link org.bitcoinj.core.TransactionOutput#getMinNonDustValue()} which uses
      * a safe fee-per-kb by default.&lt;/p&gt;
      *
      * @param feePerKb The fee required per kilobyte. Note that this is the same as FLO Core's -minrelaytxfee * 3

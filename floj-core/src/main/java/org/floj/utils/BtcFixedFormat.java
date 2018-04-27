@@ -67,7 +67,7 @@ public final class BtcFixedFormat extends BtcFormat {
     public static final int[] REPEATING_TRIPLETS = {3,3,3,3,3};
 
     /** The number of places the decimal point of formatted values is shifted rightward from
-     *  thet same value expressed in flos. */
+     *  thet same value expressed in bitcoins. */
     private final int scale;
 
     /** Constructor */
@@ -83,7 +83,7 @@ public final class BtcFixedFormat extends BtcFormat {
     }
 
     /** Return the decimal-place shift for this object's unit-denomination.  For example, if
-     * the denomination is milliflos, this method will return the value {@code 3}.  As
+     * the denomination is millibitcoins, this method will return the value {@code 3}.  As
      * a side-effect, prefixes the currency signs of the underlying NumberFormat object.  This
      * method is invoked by the superclass when formatting.  The arguments are ignored because
      * the denomination is fixed regardless of the value being formatted.
@@ -95,14 +95,14 @@ public final class BtcFixedFormat extends BtcFormat {
     }
 
     /** Return the decimal-place shift for this object's fixed unit-denomination.  For example, if
-     *  the denomination is milliflos, this method will return the value {@code 3}.  */
+     *  the denomination is millibitcoins, this method will return the value {@code 3}.  */
     @Override
     public int scale() { return scale; }
 
     /**
      * Return the currency code that identifies the units in which values formatted and
      * (by-default) parsed by this instance are denominated.  For example, if the formatter's
-     * denomination is milliflos, then this method will return {@code "mFLO"},
+     * denomination is millibitcoins, then this method will return {@code "mFLO"},
      * assuming the default base currency-code is not overridden using a
      * {@link BtcFormat.Builder}.  */
     public String code() { return prefixCode(coinCode(), scale); }
@@ -110,7 +110,7 @@ public final class BtcFixedFormat extends BtcFormat {
     /**
      * Return the currency symbol that identifies the units in which values formatted by this
      * instance are denominated. For example, when invoked on an instance denominated in
-     * milliflos, this method by default returns {@code "₥฿"}, depending on the
+     * millibitcoins, this method by default returns {@code "₥฿"}, depending on the
      * locale.  */
     public String symbol() { return prefixSymbol(coinSymbol(), scale); }
 

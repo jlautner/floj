@@ -25,7 +25,7 @@ import org.floj.core.NetworkParameters;
 /**
  * <p>A full pruned block store using the MySQL database engine. As an added bonus an address index is calculated,
  * so you can use {@link #calculateBalanceForAddress(org.floj.core.Address)} to quickly look up
- * the quantity of flos controlled by that address.</p>
+ * the quantity of bitcoins controlled by that address.</p>
  */
 public class MySQLFullPrunedBlockStore extends DatabaseFullPrunedBlockStore {
     private static final String MYSQL_DUPLICATE_KEY_ERROR_CODE = "23000";

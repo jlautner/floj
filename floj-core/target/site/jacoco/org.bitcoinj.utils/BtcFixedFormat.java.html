@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BtcFixedFormat.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.utils</a> &gt; <span class="el_source">BtcFixedFormat.java</span></div><h1>BtcFixedFormat.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BtcFixedFormat.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.utils</a> &gt; <span class="el_source">BtcFixedFormat.java</span></div><h1>BtcFixedFormat.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Adam Mackler
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.floj.utils;
+package org.bitcoinj.utils;
 
-import static org.floj.core.Coin.SMALLEST_UNIT_EXPONENT;
+import static org.bitcoinj.core.Coin.SMALLEST_UNIT_EXPONENT;
 import static com.google.common.base.Preconditions.checkArgument;
 import com.google.common.base.Objects;
 import java.math.BigInteger;
@@ -42,7 +42,7 @@ import java.util.List;
  * @see          java.text.Format
  * @see          java.text.NumberFormat
  * @see          java.text.DecimalFormat
- * @see          org.floj.core.Coin
+ * @see          org.bitcoinj.core.Coin
  */
 
 public final class BtcFixedFormat extends BtcFormat {
@@ -66,7 +66,7 @@ public final class BtcFixedFormat extends BtcFormat {
 <span class="fc" id="L66">    public static final int[] REPEATING_TRIPLETS = {3,3,3,3,3};</span>
 
     /** The number of places the decimal point of formatted values is shifted rightward from
-     *  thet same value expressed in flos. */
+     *  thet same value expressed in bitcoins. */
     private final int scale;
 
     /** Constructor */
@@ -82,7 +82,7 @@ public final class BtcFixedFormat extends BtcFormat {
 <span class="fc" id="L82">    }</span>
 
     /** Return the decimal-place shift for this object's unit-denomination.  For example, if
-     * the denomination is milliflos, this method will return the value {@code 3}.  As
+     * the denomination is millibitcoins, this method will return the value {@code 3}.  As
      * a side-effect, prefixes the currency signs of the underlying NumberFormat object.  This
      * method is invoked by the superclass when formatting.  The arguments are ignored because
      * the denomination is fixed regardless of the value being formatted.
@@ -94,14 +94,14 @@ public final class BtcFixedFormat extends BtcFormat {
     }
 
     /** Return the decimal-place shift for this object's fixed unit-denomination.  For example, if
-     *  the denomination is milliflos, this method will return the value {@code 3}.  */
+     *  the denomination is millibitcoins, this method will return the value {@code 3}.  */
     @Override
 <span class="fc" id="L99">    public int scale() { return scale; }</span>
 
     /**
      * Return the currency code that identifies the units in which values formatted and
      * (by-default) parsed by this instance are denominated.  For example, if the formatter's
-     * denomination is milliflos, then this method will return {@code &quot;mBTC&quot;},
+     * denomination is millibitcoins, then this method will return {@code &quot;mBTC&quot;},
      * assuming the default base currency-code is not overridden using a
      * {@link BtcFormat.Builder}.  */
 <span class="fc" id="L107">    public String code() { return prefixCode(coinCode(), scale); }</span>
@@ -109,7 +109,7 @@ public final class BtcFixedFormat extends BtcFormat {
     /**
      * Return the currency symbol that identifies the units in which values formatted by this
      * instance are denominated. For example, when invoked on an instance denominated in
-     * milliflos, this method by default returns {@code &quot;₥฿&quot;}, depending on the
+     * millibitcoins, this method by default returns {@code &quot;₥฿&quot;}, depending on the
      * locale.  */
 <span class="fc" id="L114">    public String symbol() { return prefixSymbol(coinSymbol(), scale); }</span>
 

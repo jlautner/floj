@@ -493,7 +493,7 @@ public class FullBlockTestGenerator {
         checkState(b24.block.getMessageSize() == Block.MAX_BLOCK_SIZE + 1);
         blocks.add(new BlockAndValidity(b24, false, true, b23.getHash(), chainHeadHeight + 7, "b24"));
 
-        // Extend the b24 chain to make sure flod isn't accepting b24
+        // Extend the b24 chain to make sure bitcoind isn't accepting b24
         NewBlock b25 = createNextBlock(b24, chainHeadHeight + 8, out7, null);
         blocks.add(new BlockAndValidity(b25, false, false, b23.getHash(), chainHeadHeight + 7, "b25"));
 
@@ -510,7 +510,7 @@ public class FullBlockTestGenerator {
         b26.solve();
         blocks.add(new BlockAndValidity(b26, false, true, b23.getHash(), chainHeadHeight + 7, "b26"));
 
-        // Extend the b26 chain to make sure flod isn't accepting b26
+        // Extend the b26 chain to make sure bitcoind isn't accepting b26
         NewBlock b27 = createNextBlock(b26, chainHeadHeight + 8, out7, null);
         blocks.add(new BlockAndValidity(b27, false, false, b23.getHash(), chainHeadHeight + 7, "b27"));
 
@@ -524,7 +524,7 @@ public class FullBlockTestGenerator {
         b28.solve();
         blocks.add(new BlockAndValidity(b28, false, true, b23.getHash(), chainHeadHeight + 7, "b28"));
 
-        // Extend the b28 chain to make sure flod isn't accepting b28
+        // Extend the b28 chain to make sure bitcoind isn't accepting b28
         NewBlock b29 = createNextBlock(b28, chainHeadHeight + 8, out7, null);
         blocks.add(new BlockAndValidity(b29, false, false, b23.getHash(), chainHeadHeight + 7, "b29"));
 
@@ -1853,7 +1853,7 @@ public class FullBlockTestGenerator {
         Sha256Hash blockHash;
         boolean connects;
         boolean throwsException;
-        boolean sendOnce; // We can throw away the memory for this block once we send it the first time (if flod asks again, its broken)
+        boolean sendOnce; // We can throw away the memory for this block once we send it the first time (if bitcoind asks again, its broken)
         Sha256Hash hashChainTipAfterBlock;
         int heightAfterBlock;
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.floj.core.TransactionTest" time="0.202" tests="24" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.bitcoinj.core.TransactionTest" time="0.202" tests="24" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
     <property name="java.vm.version" value="25.162-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\floj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\bitcoinj"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\FLO\desoto\floj"/>
+    <property name="user.dir" value="E:\FLO\desoto\bitcoinj"/>
     <property name="java.runtime.version" value="1.8.0_162-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
@@ -64,28 +64,28 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testPrioSizeCalc" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testIsMatureReturnsFalseIfTransactionIsCoinbaseAndConfidenceTypeIsNotEqualToBuilding" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="duplicateOutPoint" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testHashForSignatureThreadSafety" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testCoinbaseHeightCheck" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testCLTVPaymentChannelTransactionSpending" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="emptyOutputs" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="tooHuge" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="exceedsMaxMoney2" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testCLTVPaymentChannelTransactionRefund" classname="org.floj.core.TransactionTest" time="0.007"/>
-  <testcase name="coinbaseInputInNonCoinbaseTX" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="coinbaseScriptSigTooLarge" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="coinbaseScriptSigTooSmall" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testOptimalEncodingMessageSize" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testAddSignedInputThrowsExceptionWhenScriptIsNotToRawPubKeyAndIsNotToAddress" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testTheTXByHeightComparator" classname="org.floj.core.TransactionTest" time="0.003"/>
-  <testcase name="testToStringWhenThereAreZeroInputs" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testEstimatedLockTime_WhenParameterSignifiesBlockHeight" classname="org.floj.core.TransactionTest" time="0.184"/>
-  <testcase name="emptyInputs" classname="org.floj.core.TransactionTest" time="0.001"/>
-  <testcase name="testToStringWhenIteratingOverAnInputCatchesAnException" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="optInFullRBF" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="testToStringWhenLockTimeIsSpecifiedInBlockHeight" classname="org.floj.core.TransactionTest" time="0.001"/>
-  <testcase name="testCoinbaseHeightCheckWithDamagedScript" classname="org.floj.core.TransactionTest" time="0"/>
-  <testcase name="negativeOutput" classname="org.floj.core.TransactionTest" time="0"/>
+  <testcase name="testPrioSizeCalc" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testIsMatureReturnsFalseIfTransactionIsCoinbaseAndConfidenceTypeIsNotEqualToBuilding" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="duplicateOutPoint" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testHashForSignatureThreadSafety" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testCoinbaseHeightCheck" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testCLTVPaymentChannelTransactionSpending" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="emptyOutputs" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="tooHuge" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="exceedsMaxMoney2" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testCLTVPaymentChannelTransactionRefund" classname="org.bitcoinj.core.TransactionTest" time="0.007"/>
+  <testcase name="coinbaseInputInNonCoinbaseTX" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="coinbaseScriptSigTooLarge" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="coinbaseScriptSigTooSmall" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testOptimalEncodingMessageSize" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testAddSignedInputThrowsExceptionWhenScriptIsNotToRawPubKeyAndIsNotToAddress" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testTheTXByHeightComparator" classname="org.bitcoinj.core.TransactionTest" time="0.003"/>
+  <testcase name="testToStringWhenThereAreZeroInputs" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testEstimatedLockTime_WhenParameterSignifiesBlockHeight" classname="org.bitcoinj.core.TransactionTest" time="0.184"/>
+  <testcase name="emptyInputs" classname="org.bitcoinj.core.TransactionTest" time="0.001"/>
+  <testcase name="testToStringWhenIteratingOverAnInputCatchesAnException" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="optInFullRBF" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="testToStringWhenLockTimeIsSpecifiedInBlockHeight" classname="org.bitcoinj.core.TransactionTest" time="0.001"/>
+  <testcase name="testCoinbaseHeightCheckWithDamagedScript" classname="org.bitcoinj.core.TransactionTest" time="0"/>
+  <testcase name="negativeOutput" classname="org.bitcoinj.core.TransactionTest" time="0"/>
 </testsuite>

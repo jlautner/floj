@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Threading.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.utils</a> &gt; <span class="el_source">Threading.java</span></div><h1>Threading.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Threading.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.utils</a> &gt; <span class="el_source">Threading.java</span></div><h1>Threading.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.floj.utils;
+package org.bitcoinj.utils;
 
 import com.google.common.util.concurrent.CycleDetectingLockFactory;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.common.util.concurrent.MoreExecutors;
 import com.google.common.util.concurrent.Uninterruptibles;
-import org.floj.core.*;
+import org.bitcoinj.core.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,7 +31,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Various threading related utilities. Provides a wrapper around explicit lock creation that lets you control whether
- * floj performs cycle detection or not. Cycle detection is useful to detect bugs but comes with a small cost.
+ * bitcoinj performs cycle detection or not. Cycle detection is useful to detect bugs but comes with a small cost.
  * Also provides a worker thread that is designed for event listeners to be dispatched on.
  */
 <span class="nc" id="L37">public class Threading {</span>
@@ -45,7 +45,7 @@ import java.util.concurrent.locks.ReentrantLock;
     /**
      * An executor with one thread that is intended for running event listeners on. This ensures all event listener code
      * runs without any locks being held. It's intended for the API user to run things on. Callbacks registered by
-     * floj internally shouldn't normally run here, although currently there are a few exceptions.
+     * bitcoinj internally shouldn't normally run here, although currently there are a few exceptions.
      */
     public static Executor USER_THREAD;
 
@@ -79,7 +79,7 @@ import java.util.concurrent.locks.ReentrantLock;
      * any unhandled exceptions that are caught whilst the framework is processing network traffic or doing other
      * background tasks. The purpose of this is to allow you to report back unanticipated crashes from your users
      * to a central collection center for analysis and debugging. You should configure this &lt;b&gt;before&lt;/b&gt; any
-     * floj library code is run, setting it after you started network traffic and other forms of processing
+     * bitcoinj library code is run, setting it after you started network traffic and other forms of processing
      * may result in the change not taking effect.
      */
     @Nullable
@@ -93,7 +93,7 @@ import java.util.concurrent.locks.ReentrantLock;
         private LinkedBlockingQueue&lt;Runnable&gt; tasks;
 
         public UserThread() {
-<span class="fc" id="L96">            super(&quot;floj user thread&quot;);</span>
+<span class="fc" id="L96">            super(&quot;bitcoinj user thread&quot;);</span>
 <span class="fc" id="L97">            setDaemon(true);</span>
 <span class="fc" id="L98">            tasks = new LinkedBlockingQueue&lt;Runnable&gt;();</span>
 <span class="fc" id="L99">            start();</span>
@@ -130,7 +130,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
     static {
         // Default policy goes here. If you want to change this, use one of the static methods before
-        // instantiating any floj objects. The policy change will take effect only on new objects
+        // instantiating any bitcoinj objects. The policy change will take effect only on new objects
         // from that point onwards.
 <span class="fc" id="L135">        throwOnLockCycles();</span>
 

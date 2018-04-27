@@ -157,7 +157,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Verify the dependency chain: see https://github.com/gary-rowe/BitcoinjEnforcerRules for
+            <!-- Verify the dependency chain: see https://github.com/gary-rowe/FLOjEnforcerRules for
                more information on this.
             -->
             <plugin>
@@ -334,7 +334,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Coveralls is a online code coverage tool, you can track code coverage here: https://coveralls.io/r/floj/floj -->
+            <!-- Coveralls is a online code coverage tool, you can track code coverage here: https://coveralls.io/r/bitcoinj/bitcoinj -->
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
@@ -356,7 +356,7 @@
             <version>3.2</version>
             <scope>test</scope>
         </dependency>
-        <!-- floj consumers are expected to provide their own SLF4J adapters
+        <!-- bitcoinj consumers are expected to provide their own SLF4J adapters
              such as logback, slf4j-log4j12, slf4j-jcl and so on
              see http://www.slf4j.org/faq.html -->
         <dependency>
@@ -430,7 +430,7 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.floj</groupId>
+            <groupId>org.bitcoinj</groupId>
             <artifactId>orchid</artifactId>
             <version>1.2.1</version>
         </dependency>

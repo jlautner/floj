@@ -554,7 +554,7 @@ public class Peer extends PeerSocketHandler {
                 vPeerVersionMessage.localServices,
                 String.format(Locale.US, "%tF %tT", peerTime, peerTime),
                 vPeerVersionMessage.bestHeight);
-        // floj is a client mode implementation. That means there's not much point in us talking to other client
+        // bitcoinj is a client mode implementation. That means there's not much point in us talking to other client
         // mode nodes because we can't download the data from them we need to find/verify transactions. Some bogus
         // implementations claim to have a block chain in their services field but then report a height of zero, filter
         // them out here.
@@ -657,7 +657,7 @@ public class Peer extends PeerSocketHandler {
             }
         } catch (Throwable t) {
             // Signature checking can FAIL on Android platforms before Gingerbread apparently due to bugs in their
-            // BigInteger implementations! See https://github.com/floj/floj/issues/526 for discussion. As
+            // BigInteger implementations! See https://github.com/bitcoinj/bitcoinj/issues/526 for discussion. As
             // alerts are just optional and not that useful, we just swallow the error here.
             log.error("Failed to check signature: bug in platform libraries?", t);
         }

@@ -53,8 +53,8 @@ import java.util.*;
 import java.util.concurrent.atomic.*;
 
 /**
- * A tool for comparing the blocks which are accepted/rejected by flod/floj
- * It is designed to run as a testnet-in-a-box network between a single flod node and floj
+ * A tool for comparing the blocks which are accepted/rejected by bitcoind/bitcoinj
+ * It is designed to run as a testnet-in-a-box network between a single bitcoind node and bitcoinj
  * It is not an automated unit-test because it requires a bit more set-up...read comments below
  */
 public class FLOdComparisonTool {
@@ -122,7 +122,7 @@ public class FLOdComparisonTool {
                     System.out.println();
                 }
                 log.info("flod connected");
-                // Make sure flod has no blocks
+                // Make sure bitcoind has no blocks
                 flod.setDownloadParameters(0, false);
                 flod.startBlockChainDownload();
                 connectedFuture.set(null);
@@ -222,7 +222,7 @@ public class FLOdComparisonTool {
         
         flodChainHead = params.getGenesisBlock().getHash();
         
-        // flod MUST be on localhost or we will get banned as a DoSer
+        // bitcoind MUST be on localhost or we will get banned as a DoSer
         new NioClient(new InetSocketAddress(InetAddress.getByName("127.0.0.1"), args.length > 2 ? Integer.parseInt(args[2]) : params.getPort()), flod, 1000);
 
         connectedFuture.get();
@@ -294,7 +294,7 @@ public class FLOdComparisonTool {
                     flod.sendMessage(nextBlock);
                     log.info("Sent full block " + nextBlock.getHashAsString());
                 }
-                // flod doesn't request blocks inline so we can't rely on a ping for synchronization
+                // bitcoind doesn't request blocks inline so we can't rely on a ping for synchronization
                 for (int i = 0; !shouldntRequest && !blocksRequested.contains(nextBlock.getHash()); i++) {
                     int SLEEP_TIME = 1;
                     if (i % 1000/SLEEP_TIME == 1000/SLEEP_TIME - 1)
@@ -312,10 +312,10 @@ public class FLOdComparisonTool {
                         rulesSinceFirstFail++;
                     }
                 }
-                // If the block throws, we may want to get flod to request the same block again
+                // If the block throws, we may want to get bitcoind to request the same block again
                 if (block.throwsException)
                     blocksRequested.remove(nextBlock.getHash());
-                //flod.sendMessage(nextBlock);
+                //bitcoind.sendMessage(nextBlock);
                 locator.clear();
                 locator.add(flodChainHead);
                 flod.sendMessage(new GetHeadersMessage(params, locator, hashTo));

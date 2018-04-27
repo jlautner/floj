@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MainNetParams.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.params</a> &gt; <span class="el_source">MainNetParams.java</span></div><h1>MainNetParams.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MainNetParams.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.params</a> &gt; <span class="el_source">MainNetParams.java</span></div><h1>MainNetParams.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  * Copyright 2015 Andreas Schildbach
  *
@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package org.floj.params;
+package org.bitcoinj.params;
 
-import org.floj.core.*;
-import org.floj.net.discovery.*;
+import org.bitcoinj.core.*;
+import org.bitcoinj.net.discovery.*;
 
 import java.net.*;
 
@@ -71,20 +71,20 @@ public class MainNetParams extends AbstractFLONetParams {
 <span class="fc" id="L71">        checkpoints.put(200000, Sha256Hash.wrap(&quot;000000000000034a7dedef4a161fa058a2d67a173a90155f3a2fe6fc132e0ebf&quot;));</span>
 
 <span class="fc" id="L73">        dnsSeeds = new String[] {</span>
-                &quot;seed.flo.sipa.be&quot;,         // Pieter Wuille
+                &quot;seed.bitcoin.sipa.be&quot;,         // Pieter Wuille
                 &quot;dnsseed.bluematt.me&quot;,          // Matt Corallo
-                &quot;dnsseed.flo.dashjr.org&quot;,   // Luke Dashjr
-                &quot;seed.flostats.com&quot;,        // Chris Decker
+                &quot;dnsseed.bitcoin.dashjr.org&quot;,   // Luke Dashjr
+                &quot;seed.bitcoinstats.com&quot;,        // Chris Decker
                 &quot;seed.bitnodes.io&quot;,             // Addy Yeow
                 &quot;bitseed.xf2.org&quot;,              // Jeff Garzik
-                &quot;seed.flo.jonasschnelli.ch&quot;,// Jonas Schnelli
-                &quot;flo.bloqseeds.net&quot;,        // Bloq
+                &quot;seed.bitcoin.jonasschnelli.ch&quot;,// Jonas Schnelli
+                &quot;bitcoin.bloqseeds.net&quot;,        // Bloq
         };
 <span class="fc" id="L83">        httpSeeds = new HttpDiscovery.Details[] {</span>
                 // Andreas Schildbach
                 new HttpDiscovery.Details(
 <span class="fc" id="L86">                        ECKey.fromPublicOnly(Utils.HEX.decode(&quot;0238746c59d46d5408bf8b1d0af5740fe1a6e1703fcb56b2953f0b965c740d256f&quot;)),</span>
-<span class="fc" id="L87">                        URI.create(&quot;http://httpseed.flo.schildbach.de/peers&quot;)</span>
+<span class="fc" id="L87">                        URI.create(&quot;http://httpseed.bitcoin.schildbach.de/peers&quot;)</span>
                 )
         };
 

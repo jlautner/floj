@@ -169,7 +169,7 @@ public class WalletSettingsController {
 
         long birthday = datePicker.getValue().atStartOfDay().toEpochSecond(ZoneOffset.UTC);
         DeterministicSeed seed = new DeterministicSeed(Splitter.on(' ').splitToList(wordsArea.getText()), null, "", birthday);
-        // Shut down floj and restart it with the new seed.
+        // Shut down bitcoinj and restart it with the new seed.
         Main.flo.addListener(new Service.Listener() {
             @Override
             public void terminated(Service.State from) {

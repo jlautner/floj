@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.floj.core.ECKeyTest
+Test set: org.bitcoinj.core.ECKeyTest
 -------------------------------------------------------------------------------
-Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.025 sec - in org.floj.core.ECKeyTest
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.025 sec - in org.bitcoinj.core.ECKeyTest

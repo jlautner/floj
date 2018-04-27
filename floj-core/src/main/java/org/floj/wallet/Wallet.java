@@ -112,11 +112,11 @@ import static com.google.common.base.Preconditions.*;
  * it is able to create new transactions that spend the recorded transactions, and this is the fundamental operation
  * of the FLO protocol.</p>
  *
- * <p>To learn more about this class, read <b><a href="https://floj.github.io/working-with-the-wallet">
+ * <p>To learn more about this class, read <b><a href="https://bitcoinj.github.io/working-with-the-wallet">
  *     working with the wallet.</a></b></p>
  *
  * <p>To fill up a Wallet with transactions, you need to use it in combination with a {@link BlockChain} and various
- * other objects, see the <a href="https://floj.github.io/getting-started">Getting started</a> tutorial
+ * other objects, see the <a href="https://bitcoinj.github.io/getting-started">Getting started</a> tutorial
  * on the website to learn more about how to set everything up.</p>
  *
  * <p>Wallets can be serialized using protocol buffers. You need to save the wallet whenever it changes, there is an
@@ -544,7 +544,7 @@ public class Wallet extends BaseTaggableObject
 
     /**
      * Upgrades the wallet to be deterministic (BIP32). You should call this, possibly providing the users encryption
-     * key, after loading a wallet produced by previous versions of floj. If the wallet is encrypted the key
+     * key, after loading a wallet produced by previous versions of bitcoinj. If the wallet is encrypted the key
      * <b>must</b> be provided, due to the way the seed is derived deterministically from private key bytes: failing
      * to do this will result in an exception being thrown. For non-encrypted wallets, the upgrade will be done for
      * you automatically the first time a new key is requested (this happens when spending due to the change address).
@@ -3750,7 +3750,7 @@ public class Wallet extends BaseTaggableObject
          */
         USE_DUMMY_SIG,
         /**
-         * If signature is missing, {@link org.floj.signers.TransactionSigner.MissingSignatureException}
+         * If signature is missing, {@link org.bitcoinj.signers.TransactionSigner.MissingSignatureException}
          * will be thrown for P2SH and {@link ECKey.MissingPrivateKeyException} for other tx types.
          */
         THROW

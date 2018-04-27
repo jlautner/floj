@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * <p>A full pruned block store using the Postgres database engine. As an added bonus an address index is calculated,
  * so you can use {@link #calculateBalanceForAddress(org.floj.core.Address)} to quickly look up
- * the quantity of flos controlled by that address.</p>
+ * the quantity of bitcoins controlled by that address.</p>
  */
 public class PostgresFullPrunedBlockStore extends DatabaseFullPrunedBlockStore {
     private static final Logger log = LoggerFactory.getLogger(PostgresFullPrunedBlockStore.class);
@@ -209,7 +209,7 @@ public class PostgresFullPrunedBlockStore extends DatabaseFullPrunedBlockStore {
                 findS.close();
 
                 // Postgres insert-or-updates are very complex (and finnicky).  This level of transaction isolation
-                // seems to work for floj
+                // seems to work for bitcoinj
                 PreparedStatement s =
                         conn.get().prepareStatement(getUpdateUndoableBlocksSQL());
                 s.setBytes(3, hashBytes);

@@ -29,7 +29,7 @@ import static com.google.common.base.Preconditions.*;
 
 /**
  * <p>The Context object holds various objects and pieces of configuration that are scoped to a specific instantiation of
- * floj for a specific network. You can get an instance of this class through calling {@link #get()}.</p>
+ * bitcoinj for a specific network. You can get an instance of this class through calling {@link #get()}.</p>
  *
  * <p>Context is new in 0.13 and the library is currently in a transitional period: you should create a Context that
  * wraps your chosen network parameters before using the rest of the library. However if you don't, things will still
@@ -87,7 +87,7 @@ public class Context {
      * object. This method returns that. Note that to help you develop, this method will <i>also</i> propagate whichever
      * context was created last onto the current thread, if it's missing. However it will print an error when doing so
      * because propagation of contexts is meant to be done manually: this is so two libraries or subsystems that
-     * independently use floj (or possibly alt coin forks of it) can operate correctly.
+     * independently use bitcoinj (or possibly alt coin forks of it) can operate correctly.
      *
      * @throws java.lang.IllegalStateException if no context exists at all or if we are in strict mode and there is no context.
      */

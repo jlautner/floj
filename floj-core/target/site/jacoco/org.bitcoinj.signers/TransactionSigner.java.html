@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionSigner.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.signers</a> &gt; <span class="el_source">TransactionSigner.java</span></div><h1>TransactionSigner.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionSigner.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.signers</a> &gt; <span class="el_source">TransactionSigner.java</span></div><h1>TransactionSigner.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Kosta Korenkov
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.floj.signers;
+package org.bitcoinj.signers;
 
-import org.floj.core.Transaction;
-import org.floj.crypto.ChildNumber;
-import org.floj.script.Script;
-import org.floj.wallet.KeyBag;
+import org.bitcoinj.core.Transaction;
+import org.bitcoinj.crypto.ChildNumber;
+import org.bitcoinj.script.Script;
+import org.bitcoinj.wallet.KeyBag;
 
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +29,7 @@ import java.util.Map;
  * &lt;p&gt;Implementations of this interface are intended to sign inputs of the given transaction. Given transaction may already
  * be partially signed or somehow altered by other signers.&lt;/p&gt;
  * &lt;p&gt;To make use of the signer, you need to add it into the  wallet by
- * calling {@link org.floj.wallet.Wallet#addTransactionSigner(TransactionSigner)}. Signer will be serialized
+ * calling {@link org.bitcoinj.wallet.Wallet#addTransactionSigner(TransactionSigner)}. Signer will be serialized
  * along with the wallet data. In order for a wallet to recreate signer after deserialization, each signer
  * should have no-args constructor&lt;/p&gt;
  */

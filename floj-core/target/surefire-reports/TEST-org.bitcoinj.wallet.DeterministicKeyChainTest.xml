@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.floj.wallet.DeterministicKeyChainTest" time="4.115" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.bitcoinj.wallet.DeterministicKeyChainTest" time="4.115" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
     <property name="java.vm.version" value="25.162-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\floj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\bitcoinj"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\FLO\desoto\floj"/>
+    <property name="user.dir" value="E:\FLO\desoto\bitcoinj"/>
     <property name="java.runtime.version" value="1.8.0_162-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
@@ -64,19 +64,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="deriveAccountOne" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.041"/>
-  <testcase name="encryptTwice" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.3"/>
-  <testcase name="encryption" classname="org.floj.wallet.DeterministicKeyChainTest" time="3.138"/>
-  <testcase name="bloom1" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.032"/>
-  <testcase name="bloom2" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.12"/>
-  <testcase name="derive" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.029"/>
-  <testcase name="events" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.057"/>
-  <testcase name="random" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.054"/>
-  <testcase name="signMessage" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.029"/>
-  <testcase name="getKeys" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.031"/>
-  <testcase name="watchingChain" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.087"/>
-  <testcase name="serializeAccountOne" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.098"/>
-  <testcase name="watchingCannotEncrypt" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.031"/>
-  <testcase name="serializeUnencrypted" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.041"/>
-  <testcase name="notEncrypted" classname="org.floj.wallet.DeterministicKeyChainTest" time="0.026"/>
+  <testcase name="deriveAccountOne" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.041"/>
+  <testcase name="encryptTwice" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.3"/>
+  <testcase name="encryption" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="3.138"/>
+  <testcase name="bloom1" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.032"/>
+  <testcase name="bloom2" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.12"/>
+  <testcase name="derive" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.029"/>
+  <testcase name="events" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.057"/>
+  <testcase name="random" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.054"/>
+  <testcase name="signMessage" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.029"/>
+  <testcase name="getKeys" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.031"/>
+  <testcase name="watchingChain" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.087"/>
+  <testcase name="serializeAccountOne" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.098"/>
+  <testcase name="watchingCannotEncrypt" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.031"/>
+  <testcase name="serializeUnencrypted" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.041"/>
+  <testcase name="notEncrypted" classname="org.bitcoinj.wallet.DeterministicKeyChainTest" time="0.026"/>
 </testsuite>

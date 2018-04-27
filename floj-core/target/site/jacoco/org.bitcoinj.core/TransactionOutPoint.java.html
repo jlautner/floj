@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionOutPoint.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">TransactionOutPoint.java</span></div><h1>TransactionOutPoint.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionOutPoint.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">TransactionOutPoint.java</span></div><h1>TransactionOutPoint.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2015 Andreas Schildbach
  *
@@ -15,11 +15,11 @@
  * limitations under the License.
  */
 
-package org.floj.core;
+package org.bitcoinj.core;
 
 import com.google.common.base.Objects;
-import org.floj.script.*;
-import org.floj.wallet.*;
+import org.bitcoinj.script.*;
+import org.bitcoinj.wallet.*;
 
 import javax.annotation.*;
 import java.io.*;
@@ -40,7 +40,7 @@ public class TransactionOutPoint extends ChildMessage {
     /** Which output of that transaction we are talking about. */
     private long index;
 
-    // This is not part of flo serialization. It points to the connected transaction.
+    // This is not part of bitcoin serialization. It points to the connected transaction.
     Transaction fromTx;
 
     // The connected output.
@@ -98,7 +98,7 @@ public class TransactionOutPoint extends ChildMessage {
 <span class="fc" id="L98">    }</span>
 
     @Override
-    protected void floSerializeToStream(OutputStream stream) throws IOException {
+    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
 <span class="fc" id="L102">        stream.write(hash.getReversedBytes());</span>
 <span class="fc" id="L103">        Utils.uint32ToByteStreamLE(index, stream);</span>
 <span class="fc" id="L104">    }</span>
@@ -130,7 +130,7 @@ public class TransactionOutPoint extends ChildMessage {
 
     /**
      * Returns the ECKey identified in the connected output, for either pay-to-address scripts or pay-to-key scripts.
-     * For P2SH scripts you can use {@link #getConnectedRedeemData(org.floj.wallet.KeyBag)} and then get the
+     * For P2SH scripts you can use {@link #getConnectedRedeemData(org.bitcoinj.wallet.KeyBag)} and then get the
      * key from RedeemData.
      * If the script form cannot be understood, throws ScriptException.
      *

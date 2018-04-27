@@ -295,7 +295,7 @@ public class PaymentChannelStateTest extends TestWithWallet {
         assertEquals(multisigContract.getHash(), clientWalletMultisigContract.getHash());
         assertFalse(clientWalletMultisigContract.getInput(0).getConnectedOutput().getSpentBy().getParentTransaction().getHash().equals(refund.getHash()));
 
-        // Both client and server are now in the ready state. Simulate a few micropayments of 0.005 flos.
+        // Both client and server are now in the ready state. Simulate a few micropayments of 0.005 bitcoins.
         Coin size = HALF_COIN.divide(100);
         Coin totalPayment = Coin.ZERO;
         for (int i = 0; i < 4; i++) {
@@ -624,7 +624,7 @@ public class PaymentChannelStateTest extends TestWithWallet {
         assertEquals(multisigStateFuture.get(), serverState);
         assertEquals(PaymentChannelServerState.State.READY, serverState.getState());
 
-        // Both client and server are now in the ready state. Simulate a few micropayments of 0.005 flos.
+        // Both client and server are now in the ready state. Simulate a few micropayments of 0.005 bitcoins.
         Coin size = HALF_COIN.divide(100);
         Coin totalPayment = Coin.ZERO;
         try {
@@ -987,7 +987,7 @@ public class PaymentChannelStateTest extends TestWithWallet {
         assertEquals(multisigContract.getHash(), clientWalletMultisigContract.getHash());
         assertFalse(clientWalletMultisigContract.getInput(0).getConnectedOutput().getSpentBy().getParentTransaction().getHash().equals(refund.getHash()));
 
-        // Both client and server are now in the ready state. Simulate a few micropayments of 0.005 flos.
+        // Both client and server are now in the ready state. Simulate a few micropayments of 0.005 bitcoins.
         Coin size = HALF_COIN.divide(100);
         Coin totalPayment = Coin.ZERO;
         for (int i = 0; i < 5; i++) {

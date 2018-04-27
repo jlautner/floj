@@ -83,7 +83,7 @@ public class CheckpointManager {
 
     public static final BaseEncoding BASE64 = BaseEncoding.base64().omitPadding();
 
-    /** Loads the default checkpoints bundled with floj */
+    /** Loads the default checkpoints bundled with bitcoinj */
     public CheckpointManager(Context context) throws IOException {
         this(context.getParams(), null);
     }
@@ -106,7 +106,7 @@ public class CheckpointManager {
             throw new IOException("Unsupported format.");
     }
 
-    /** Returns a checkpoints stream pointing to inside the floj JAR */
+    /** Returns a checkpoints stream pointing to inside the bitcoinj JAR */
     public static InputStream openStream(NetworkParameters params) {
         return CheckpointManager.class.getResourceAsStream("/" + params.getId() + ".checkpoints.txt");
     }
