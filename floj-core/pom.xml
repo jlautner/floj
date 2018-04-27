@@ -157,7 +157,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Verify the dependency chain: see https://github.com/gary-rowe/FLOjEnforcerRules for
+            <!-- Verify the dependency chain: see https://github.com/gary-rowe/BitcoinjEnforcerRules for
                more information on this.
             -->
             <plugin>
