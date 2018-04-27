@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BloomFilter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">BloomFilter.java</span></div><h1>BloomFilter.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BloomFilter.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">BloomFilter.java</span></div><h1>BloomFilter.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2012 Matt Corallo
  * Copyright 2015 Andreas Schildbach
  *
@@ -15,10 +15,10 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
-import org.bitcoinj.script.Script;
-import org.bitcoinj.script.ScriptChunk;
+import org.floj.script.Script;
+import org.floj.script.ScriptChunk;
 import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 
@@ -103,7 +103,7 @@ public class BloomFilter extends Message {
      * It should be a random value, however secureness of the random value is of no great consequence.&lt;/p&gt;
      * 
      * &lt;p&gt;updateFlag is used to control filter behaviour on the server (remote node) side when it encounters a hit.
-     * See {@link org.bitcoinj.core.BloomFilter.BloomUpdate} for a brief description of each mode. The purpose
+     * See {@link org.floj.core.BloomFilter.BloomUpdate} for a brief description of each mode. The purpose
      * of this flag is to reduce network round-tripping and avoid over-dirtying the filter for the most common
      * wallet configurations.&lt;/p&gt;
      */
@@ -146,10 +146,10 @@ public class BloomFilter extends Message {
 <span class="fc" id="L146">    }</span>
     
     /**
-     * Serializes this message to the provided stream. If you just want the raw bytes use bitcoinSerialize().
+     * Serializes this message to the provided stream. If you just want the raw bytes use floSerialize().
      */
     @Override
-    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
+    protected void floSerializeToStream(OutputStream stream) throws IOException {
 <span class="fc" id="L153">        stream.write(new VarInt(data.length).encode());</span>
 <span class="fc" id="L154">        stream.write(data);</span>
 <span class="fc" id="L155">        Utils.uint32ToByteStreamLE(hashFuncs, stream);</span>
@@ -268,7 +268,7 @@ public class BloomFilter extends Message {
 <span class="fc" id="L268">    }</span>
 
     /**
-     * Returns true if this filter will match anything. See {@link org.bitcoinj.core.BloomFilter#setMatchAll()}
+     * Returns true if this filter will match anything. See {@link org.floj.core.BloomFilter#setMatchAll()}
      * for when this can be a useful thing to do.
      */
     public synchronized boolean matchesAll() {

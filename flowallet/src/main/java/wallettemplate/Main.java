@@ -100,7 +100,7 @@ public class Main extends Application {
 
         // Make log output concise.
         BriefLogFormatter.init();
-        // Tell bitcoinj to run event handlers on the JavaFX UI thread. This keeps things simple and means
+        // Tell floj to run event handlers on the JavaFX UI thread. This keeps things simple and means
         // we cannot forget to switch threads when adding event handlers. Unfortunately, the DownloadListener
         // we give to the app kit is currently an exception and runs on a library thread. It'll get fixed in
         // a future version.
@@ -143,7 +143,7 @@ public class Main extends Application {
         // Now configure and start the appkit. This will take a second or two - we could show a temporary splash screen
         // or progress widget to keep the user engaged whilst we initialise, but we don't.
         if (params == RegTestParams.get()) {
-            flo.connectToLocalHost();   // You should run a regtest mode bitcoind locally.
+            flo.connectToLocalHost();   // You should run a regtest mode flod locally.
         } else if (params == TestNet3Params.get()) {
             // As an example!
 //            flo.useTor();

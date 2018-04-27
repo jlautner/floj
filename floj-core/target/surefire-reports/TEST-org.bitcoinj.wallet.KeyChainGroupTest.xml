@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.bitcoinj.wallet.KeyChainGroupTest" time="1.494" tests="29" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.floj.wallet.KeyChainGroupTest" time="1.494" tests="29" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
     <property name="java.vm.version" value="25.162-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\bitcoinj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\floj"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\FLO\desoto\bitcoinj"/>
+    <property name="user.dir" value="E:\FLO\desoto\floj"/>
     <property name="java.runtime.version" value="1.8.0_162-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
@@ -64,33 +64,33 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="isWatchingNoKeys" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.011"/>
-  <testcase name="isWatchingMixedKeys" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.027"/>
-  <testcase name="serializeWatching" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.031"/>
-  <testcase name="freshAddress" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.059"/>
-  <testcase name="events" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.031"/>
-  <testcase name="encryptionWithoutImported" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.028"/>
-  <testcase name="freshCurrentKeys" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.03"/>
-  <testcase name="findKey" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.027"/>
-  <testcase name="earliestKeyTime" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.026"/>
-  <testcase name="encryptionWithImported" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.029"/>
-  <testcase name="isNotWatching" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.026"/>
-  <testcase name="isWatching" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.027"/>
-  <testcase name="deterministicUpgradeUnencrypted" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.078"/>
-  <testcase name="constructFromSeed" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.029"/>
-  <testcase name="markAsUsed" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.027"/>
-  <testcase name="bloom" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.032"/>
-  <testcase name="findRedeemScriptFromPubHash" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.096"/>
-  <testcase name="deterministicUpgradeEncrypted" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.327"/>
-  <testcase name="currentP2SHAddress" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.059"/>
-  <testcase name="bloomFilterForMarriedChains" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.066"/>
-  <testcase name="addFollowingAccounts" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.051"/>
-  <testcase name="deterministicUpgradeRequired" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.027"/>
-  <testcase name="findRedeemData" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.058"/>
-  <testcase name="serialization" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.04"/>
-  <testcase name="freshCurrentKeysForMarriedKeychain" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.051"/>
-  <testcase name="deterministicUpgradeRotating" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.053"/>
-  <testcase name="serializeMarried" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.059"/>
-  <testcase name="imports" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.031"/>
-  <testcase name="encryptionWhilstEmpty" classname="org.bitcoinj.wallet.KeyChainGroupTest" time="0.056"/>
+  <testcase name="isWatchingNoKeys" classname="org.floj.wallet.KeyChainGroupTest" time="0.011"/>
+  <testcase name="isWatchingMixedKeys" classname="org.floj.wallet.KeyChainGroupTest" time="0.027"/>
+  <testcase name="serializeWatching" classname="org.floj.wallet.KeyChainGroupTest" time="0.031"/>
+  <testcase name="freshAddress" classname="org.floj.wallet.KeyChainGroupTest" time="0.059"/>
+  <testcase name="events" classname="org.floj.wallet.KeyChainGroupTest" time="0.031"/>
+  <testcase name="encryptionWithoutImported" classname="org.floj.wallet.KeyChainGroupTest" time="0.028"/>
+  <testcase name="freshCurrentKeys" classname="org.floj.wallet.KeyChainGroupTest" time="0.03"/>
+  <testcase name="findKey" classname="org.floj.wallet.KeyChainGroupTest" time="0.027"/>
+  <testcase name="earliestKeyTime" classname="org.floj.wallet.KeyChainGroupTest" time="0.026"/>
+  <testcase name="encryptionWithImported" classname="org.floj.wallet.KeyChainGroupTest" time="0.029"/>
+  <testcase name="isNotWatching" classname="org.floj.wallet.KeyChainGroupTest" time="0.026"/>
+  <testcase name="isWatching" classname="org.floj.wallet.KeyChainGroupTest" time="0.027"/>
+  <testcase name="deterministicUpgradeUnencrypted" classname="org.floj.wallet.KeyChainGroupTest" time="0.078"/>
+  <testcase name="constructFromSeed" classname="org.floj.wallet.KeyChainGroupTest" time="0.029"/>
+  <testcase name="markAsUsed" classname="org.floj.wallet.KeyChainGroupTest" time="0.027"/>
+  <testcase name="bloom" classname="org.floj.wallet.KeyChainGroupTest" time="0.032"/>
+  <testcase name="findRedeemScriptFromPubHash" classname="org.floj.wallet.KeyChainGroupTest" time="0.096"/>
+  <testcase name="deterministicUpgradeEncrypted" classname="org.floj.wallet.KeyChainGroupTest" time="0.327"/>
+  <testcase name="currentP2SHAddress" classname="org.floj.wallet.KeyChainGroupTest" time="0.059"/>
+  <testcase name="bloomFilterForMarriedChains" classname="org.floj.wallet.KeyChainGroupTest" time="0.066"/>
+  <testcase name="addFollowingAccounts" classname="org.floj.wallet.KeyChainGroupTest" time="0.051"/>
+  <testcase name="deterministicUpgradeRequired" classname="org.floj.wallet.KeyChainGroupTest" time="0.027"/>
+  <testcase name="findRedeemData" classname="org.floj.wallet.KeyChainGroupTest" time="0.058"/>
+  <testcase name="serialization" classname="org.floj.wallet.KeyChainGroupTest" time="0.04"/>
+  <testcase name="freshCurrentKeysForMarriedKeychain" classname="org.floj.wallet.KeyChainGroupTest" time="0.051"/>
+  <testcase name="deterministicUpgradeRotating" classname="org.floj.wallet.KeyChainGroupTest" time="0.053"/>
+  <testcase name="serializeMarried" classname="org.floj.wallet.KeyChainGroupTest" time="0.059"/>
+  <testcase name="imports" classname="org.floj.wallet.KeyChainGroupTest" time="0.031"/>
+  <testcase name="encryptionWhilstEmpty" classname="org.floj.wallet.KeyChainGroupTest" time="0.056"/>
 </testsuite>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DeterministicKey.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.crypto</a> &gt; <span class="el_source">DeterministicKey.java</span></div><h1>DeterministicKey.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>DeterministicKey.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.crypto</a> &gt; <span class="el_source">DeterministicKey.java</span></div><h1>DeterministicKey.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Matija Mazi.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,9 +15,9 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.crypto;
+package org.floj.crypto;
 
-import org.bitcoinj.core.*;
+import org.floj.core.*;
 
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
@@ -31,12 +31,12 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import static org.bitcoinj.core.Utils.HEX;
+import static org.floj.core.Utils.HEX;
 import static com.google.common.base.Preconditions.*;
 
 /**
  * A deterministic key is a node in a {@link DeterministicHierarchy}. As per
- * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki&quot;&gt;the BIP 32 specification&lt;/a&gt; it is a pair
+ * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0032.mediawiki&quot;&gt;the BIP 32 specification&lt;/a&gt; it is a pair
  * (key, chaincode). If you know its path in the tree and its chain code you can derive more keys from this. To obtain
  * one of these, you can call {@link HDKeyDerivation#createMasterPrivateKey(byte[])}.
  */
@@ -338,7 +338,7 @@ public class DeterministicKey extends ECKey {
     }
 
     /**
-     * Returns this keys {@link org.bitcoinj.crypto.KeyCrypter} &lt;b&gt;or&lt;/b&gt; the keycrypter of its parent key.
+     * Returns this keys {@link org.floj.crypto.KeyCrypter} &lt;b&gt;or&lt;/b&gt; the keycrypter of its parent key.
      */
     @Override @Nullable
     public KeyCrypter getKeyCrypter() {
@@ -559,7 +559,7 @@ public class DeterministicKey extends ECKey {
 
     /**
      * The creation time of a deterministic key is equal to that of its parent, unless this key is the root of a tree
-     * in which case the time is stored alongside the key as per normal, see {@link org.bitcoinj.core.ECKey#getCreationTimeSeconds()}.
+     * in which case the time is stored alongside the key as per normal, see {@link org.floj.core.ECKey#getCreationTimeSeconds()}.
      */
     @Override
     public long getCreationTimeSeconds() {

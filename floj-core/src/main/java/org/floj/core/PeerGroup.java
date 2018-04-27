@@ -270,9 +270,9 @@ public class PeerGroup implements TransactionBroadcaster {
     /**
      * The default Bloom filter false positive rate, which is selected to be extremely low such that you hardly ever
      * download false positives. This provides maximum performance. Although this default can be overridden to push
-     * the FP rate higher, due to <a href="https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ">
+     * the FP rate higher, due to <a href="https://groups.google.com/forum/#!msg/floj/Ys13qkTwcNg/9qxnhwnkeoIJ">
      * various complexities</a> there are still ways a remote peer can deanonymize the users wallet. This is why the
-     * FP rate is chosen for performance rather than privacy. If a future version of bitcoinj fixes the known
+     * FP rate is chosen for performance rather than privacy. If a future version of floj fixes the known
      * de-anonymization attacks this FP rate may rise again (or more likely, become expressed as a bandwidth allowance).
      */
     public static final double DEFAULT_BLOOM_FILTER_FP_RATE = 0.00001;
@@ -2368,7 +2368,7 @@ public class PeerGroup implements TransactionBroadcaster {
     /**
      * When true (the default), PeerGroup will attempt to connect to a FLO node running on localhost before
      * attempting to use the P2P network. If successful, only localhost will be used. This makes for a simple
-     * and easy way for a user to upgrade a bitcoinj based app running in SPV mode to fully validating security.
+     * and easy way for a user to upgrade a floj based app running in SPV mode to fully validating security.
      */
     public void setUseLocalhostPeerWhenPossible(boolean useLocalhostPeerWhenPossible) {
         lock.lock();

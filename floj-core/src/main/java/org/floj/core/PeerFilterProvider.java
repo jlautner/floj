@@ -19,7 +19,7 @@ package org.floj.core;
 
 /**
  * An interface which provides the information required to properly filter data downloaded from Peers.
- * Note that an implementer is responsible for calling {@link PeerGroup#recalculateFastCatchupAndFilter(org.bitcoinj.core.PeerGroup.FilterRecalculateMode)}
+ * Note that an implementer is responsible for calling {@link PeerGroup#recalculateFastCatchupAndFilter(org.floj.core.PeerGroup.FilterRecalculateMode)}
  * whenever a change occurs which effects the data provided via this interface.
  */
 public interface PeerFilterProvider {

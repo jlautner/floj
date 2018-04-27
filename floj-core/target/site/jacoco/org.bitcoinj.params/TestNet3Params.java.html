@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TestNet3Params.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.params</a> &gt; <span class="el_source">TestNet3Params.java</span></div><h1>TestNet3Params.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TestNet3Params.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.params</a> &gt; <span class="el_source">TestNet3Params.java</span></div><h1>TestNet3Params.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,18 +15,18 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.params;
+package org.floj.params;
 
 import java.math.BigInteger;
 import java.util.Date;
 
-import org.bitcoinj.core.Block;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.core.StoredBlock;
-import org.bitcoinj.core.Utils;
-import org.bitcoinj.core.VerificationException;
-import org.bitcoinj.store.BlockStore;
-import org.bitcoinj.store.BlockStoreException;
+import org.floj.core.Block;
+import org.floj.core.NetworkParameters;
+import org.floj.core.StoredBlock;
+import org.floj.core.Utils;
+import org.floj.core.VerificationException;
+import org.floj.store.BlockStore;
+import org.floj.store.BlockStoreException;
 
 import static com.google.common.base.Preconditions.checkState;
 
@@ -58,11 +58,11 @@ public class TestNet3Params extends AbstractFLONetParams {
 <span class="fc" id="L58">        alertSigningKey = Utils.HEX.decode(&quot;04302390343f91cc401d56d68b123028bf52e5fca1939df127f63c6467cdf9c8e2c14b61104cf817d0b780da337893ecc4aaff1309e536162dabbdb45200ca2b0a&quot;);</span>
 
 <span class="fc" id="L60">        dnsSeeds = new String[] {</span>
-                &quot;testnet-seed.bitcoin.jonasschnelli.ch&quot;, // Jonas Schnelli
+                &quot;testnet-seed.flo.jonasschnelli.ch&quot;, // Jonas Schnelli
                 &quot;testnet-seed.bluematt.me&quot;,              // Matt Corallo
-                &quot;testnet-seed.bitcoin.petertodd.org&quot;,    // Peter Todd
-                &quot;testnet-seed.bitcoin.schildbach.de&quot;,    // Andreas Schildbach
-                &quot;bitcoin-testnet.bloqseeds.net&quot;,         // Bloq
+                &quot;testnet-seed.flo.petertodd.org&quot;,    // Peter Todd
+                &quot;testnet-seed.flo.schildbach.de&quot;,    // Andreas Schildbach
+                &quot;flo-testnet.bloqseeds.net&quot;,         // Bloq
         };
 <span class="fc" id="L67">        addrSeeds = null;</span>
 <span class="fc" id="L68">        bip32HeaderPub = 0x043587CF;</span>
@@ -99,7 +99,7 @@ public class TestNet3Params extends AbstractFLONetParams {
             // and then leaving, making it too hard to mine a block. On non-difficulty transition points, easy
             // blocks are allowed if there has been a span of 20 minutes without one.
 <span class="nc" id="L101">            final long timeDelta = nextBlock.getTimeSeconds() - prev.getTimeSeconds();</span>
-            // There is an integer underflow bug in bitcoin-qt that means mindiff blocks are accepted when time
+            // There is an integer underflow bug in flo-qt that means mindiff blocks are accepted when time
             // goes backwards.
 <span class="nc bnc" id="L104" title="All 4 branches missed.">            if (timeDelta &gt;= 0 &amp;&amp; timeDelta &lt;= NetworkParameters.TARGET_SPACING * 2) {</span>
         	// Walk backwards until we find a block that doesn't have the easiest proof of work, then check

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="13.277" tests="34" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.floj.protocols.channels.ChannelConnectionTest" time="13.277" tests="34" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
     <property name="java.vm.version" value="25.162-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\bitcoinj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\floj"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\FLO\desoto\bitcoinj"/>
+    <property name="user.dir" value="E:\FLO\desoto\floj"/>
     <property name="java.runtime.version" value="1.8.0_162-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
@@ -64,38 +64,38 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testDontResumeEmptyChannels[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.26"/>
-  <testcase name="testServerErrorHandling_killSocketOnClose[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.062"/>
-  <testcase name="testServerErrorHandling_killSocketOnError[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.06"/>
-  <testcase name="testClientUnknownVersion[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.058"/>
-  <testcase name="testChannelResume[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="2.11"/>
-  <testcase name="repeatedChannels[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.075"/>
-  <testcase name="testClientErrorHandlingIncreasePaymentError[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.064"/>
-  <testcase name="testValuesAreRespected[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.082"/>
-  <testcase name="testClientRandomMessage[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.058"/>
-  <testcase name="testClientTimeWindowUnacceptable[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.066"/>
-  <testcase name="testClientResumeNothing[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.052"/>
-  <testcase name="testSimpleChannel[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="1.49"/>
-  <testcase name="testEncryptedClientWallet[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="2.05"/>
-  <testcase name="testEmptyWallet[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.097"/>
-  <testcase name="testBadResumeHash[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.064"/>
-  <testcase name="testClientRefusesNonCanonicalKey[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.069"/>
-  <testcase name="testServerErrorHandling_badTransaction[0: ChannelConnectionTest(VERSION_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.067"/>
-  <testcase name="testDontResumeEmptyChannels[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.069"/>
-  <testcase name="testServerErrorHandling_killSocketOnClose[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.065"/>
-  <testcase name="testServerErrorHandling_killSocketOnError[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.064"/>
-  <testcase name="testClientUnknownVersion[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.088"/>
-  <testcase name="testChannelResume[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="2.097"/>
-  <testcase name="repeatedChannels[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.075"/>
-  <testcase name="testClientErrorHandlingIncreasePaymentError[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.078"/>
-  <testcase name="testValuesAreRespected[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.065"/>
-  <testcase name="testClientRandomMessage[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.058"/>
-  <testcase name="testClientTimeWindowUnacceptable[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.059"/>
-  <testcase name="testClientResumeNothing[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.066"/>
-  <testcase name="testSimpleChannel[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="1.423"/>
-  <testcase name="testEncryptedClientWallet[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="2.009"/>
-  <testcase name="testEmptyWallet[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.085"/>
-  <testcase name="testBadResumeHash[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.059"/>
-  <testcase name="testClientRefusesNonCanonicalKey[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.06"/>
-  <testcase name="testServerErrorHandling_badTransaction[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.bitcoinj.protocols.channels.ChannelConnectionTest" time="0.059"/>
+  <testcase name="testDontResumeEmptyChannels[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.26"/>
+  <testcase name="testServerErrorHandling_killSocketOnClose[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.062"/>
+  <testcase name="testServerErrorHandling_killSocketOnError[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.06"/>
+  <testcase name="testClientUnknownVersion[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.058"/>
+  <testcase name="testChannelResume[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="2.11"/>
+  <testcase name="repeatedChannels[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.075"/>
+  <testcase name="testClientErrorHandlingIncreasePaymentError[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.064"/>
+  <testcase name="testValuesAreRespected[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.082"/>
+  <testcase name="testClientRandomMessage[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.058"/>
+  <testcase name="testClientTimeWindowUnacceptable[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.066"/>
+  <testcase name="testClientResumeNothing[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.052"/>
+  <testcase name="testSimpleChannel[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="1.49"/>
+  <testcase name="testEncryptedClientWallet[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="2.05"/>
+  <testcase name="testEmptyWallet[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.097"/>
+  <testcase name="testBadResumeHash[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.064"/>
+  <testcase name="testClientRefusesNonCanonicalKey[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.069"/>
+  <testcase name="testServerErrorHandling_badTransaction[0: ChannelConnectionTest(VERSION_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.067"/>
+  <testcase name="testDontResumeEmptyChannels[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.069"/>
+  <testcase name="testServerErrorHandling_killSocketOnClose[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.065"/>
+  <testcase name="testServerErrorHandling_killSocketOnError[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.064"/>
+  <testcase name="testClientUnknownVersion[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.088"/>
+  <testcase name="testChannelResume[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="2.097"/>
+  <testcase name="repeatedChannels[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.075"/>
+  <testcase name="testClientErrorHandlingIncreasePaymentError[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.078"/>
+  <testcase name="testValuesAreRespected[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.065"/>
+  <testcase name="testClientRandomMessage[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.058"/>
+  <testcase name="testClientTimeWindowUnacceptable[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.059"/>
+  <testcase name="testClientResumeNothing[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.066"/>
+  <testcase name="testSimpleChannel[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="1.423"/>
+  <testcase name="testEncryptedClientWallet[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="2.009"/>
+  <testcase name="testEmptyWallet[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.085"/>
+  <testcase name="testBadResumeHash[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.059"/>
+  <testcase name="testClientRefusesNonCanonicalKey[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.06"/>
+  <testcase name="testServerErrorHandling_badTransaction[1: ChannelConnectionTest(VERSION_2_ALLOW_1)]" classname="org.floj.protocols.channels.ChannelConnectionTest" time="0.059"/>
 </testsuite>

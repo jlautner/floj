@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WalletAppKit.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.kits</a> &gt; <span class="el_source">WalletAppKit.java</span></div><h1>WalletAppKit.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>WalletAppKit.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.kits</a> &gt; <span class="el_source">WalletAppKit.java</span></div><h1>WalletAppKit.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,17 +15,17 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.kits;
+package org.floj.kits;
 
 import com.google.common.collect.*;
 import com.google.common.util.concurrent.*;
 import com.subgraph.orchid.*;
-import org.bitcoinj.core.listeners.*;
-import org.bitcoinj.core.*;
-import org.bitcoinj.net.discovery.*;
-import org.bitcoinj.protocols.channels.*;
-import org.bitcoinj.store.*;
-import org.bitcoinj.wallet.*;
+import org.floj.core.listeners.*;
+import org.floj.core.*;
+import org.floj.net.discovery.*;
+import org.floj.protocols.channels.*;
+import org.floj.store.*;
+import org.floj.wallet.*;
 import org.slf4j.*;
 
 import javax.annotation.*;
@@ -38,7 +38,7 @@ import java.util.concurrent.*;
 import static com.google.common.base.Preconditions.*;
 
 /**
- * &lt;p&gt;Utility class that wraps the boilerplate needed to set up a new SPV bitcoinj app. Instantiate it with a directory
+ * &lt;p&gt;Utility class that wraps the boilerplate needed to set up a new SPV floj app. Instantiate it with a directory
  * and file prefix, optionally configure a few things, then use startAsync and optionally awaitRunning. The object will
  * construct and configure a {@link BlockChain}, {@link SPVBlockStore}, {@link Wallet} and {@link PeerGroup}. Depending
  * on the value of the blockingStartup property, startup will be considered complete once the block chain has fully
@@ -50,8 +50,8 @@ import static com.google.common.base.Preconditions.*;
  * access the objects this class creates until startup is complete.&lt;/p&gt;
  *
  * &lt;p&gt;The asynchronous design of this class may seem puzzling (just use {@link #awaitRunning()} if you don't want that).
- * It is to make it easier to fit bitcoinj into GUI apps, which require a high degree of responsiveness on their main
- * thread which handles all the animation and user interaction. Even when blockingStart is false, initializing bitcoinj
+ * It is to make it easier to fit floj into GUI apps, which require a high degree of responsiveness on their main
+ * thread which handles all the animation and user interaction. Even when blockingStart is false, initializing floj
  * means doing potentially blocking file IO, generating keys and other potentially intensive operations. By running it
  * on a background thread, there's no risk of accidentally causing UI lag.&lt;/p&gt;
  *
@@ -130,7 +130,7 @@ public class WalletAppKit extends AbstractIdleService {
 
     /**
      * If you want to learn about the sync process, you can provide a listener here. For instance, a
-     * {@link org.bitcoinj.core.DownloadProgressTracker} is a good choice. This has no effect unless setBlockingStartup(false) has been called
+     * {@link org.floj.core.DownloadProgressTracker} is a good choice. This has no effect unless setBlockingStartup(false) has been called
      * too, due to some missing implementation code.
      */
     public WalletAppKit setDownloadListener(DownloadProgressTracker listener) {
@@ -146,7 +146,7 @@ public class WalletAppKit extends AbstractIdleService {
 
     /**
      * If set, the file is expected to contain a checkpoints file calculated with BuildCheckpoints. It makes initial
-     * block sync faster for new users - please refer to the documentation on the bitcoinj website for further details.
+     * block sync faster for new users - please refer to the documentation on the floj website for further details.
      */
     public WalletAppKit setCheckpoints(InputStream checkpoints) {
 <span class="nc bnc" id="L152" title="All 2 branches missed.">        if (this.checkpoints != null)</span>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Message.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">Message.java</span></div><h1>Message.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Message.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">Message.java</span></div><h1>Message.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -111,7 +111,7 @@ public abstract class Message {
 <span class="nc bnc" id="L111" title="All 2 branches missed.">        if (!(this instanceof VersionMessage)) {</span>
 <span class="nc" id="L112">            byte[] payloadBytes = new byte[cursor - offset];</span>
 <span class="nc" id="L113">            System.arraycopy(payload, offset, payloadBytes, 0, cursor - offset);</span>
-<span class="nc" id="L114">            byte[] reserialized = bitcoinSerialize();</span>
+<span class="nc" id="L114">            byte[] reserialized = floSerialize();</span>
 <span class="nc bnc" id="L115" title="All 2 branches missed.">            if (!Arrays.equals(reserialized, payloadBytes))</span>
 <span class="nc" id="L116">                throw new RuntimeException(&quot;Serialization is wrong: \n&quot; +</span>
 <span class="nc" id="L117">                        Utils.HEX.encode(reserialized) + &quot; vs \n&quot; +</span>
@@ -177,7 +177,7 @@ public abstract class Message {
      *
      * @return a freshly allocated serialized byte array
      */
-    public byte[] bitcoinSerialize() {
+    public byte[] floSerialize() {
 <span class="fc" id="L181">        byte[] bytes = unsafeFLOSerialize();</span>
 <span class="fc" id="L182">        byte[] copy = new byte[bytes.length];</span>
 <span class="fc" id="L183">        System.arraycopy(bytes, 0, copy, 0, bytes.length);</span>
@@ -185,7 +185,7 @@ public abstract class Message {
     }
 
     /**
-     * Serialize this message to a byte array that conforms to the bitcoin wire protocol.
+     * Serialize this message to a byte array that conforms to the flo wire protocol.
      * &lt;br/&gt;
      * This method may return the original byte array used to construct this message if the
      * following conditions are met:
@@ -218,7 +218,7 @@ public abstract class Message {
         // No cached array available so serialize parts by stream.
 <span class="fc bfc" id="L219" title="All 2 branches covered.">        ByteArrayOutputStream stream = new UnsafeByteArrayOutputStream(length &lt; 32 ? 32 : length + 32);</span>
         try {
-<span class="fc" id="L221">            bitcoinSerializeToStream(stream);</span>
+<span class="fc" id="L221">            floSerializeToStream(stream);</span>
 <span class="nc" id="L222">        } catch (IOException e) {</span>
             // Cannot happen, we are serializing to a memory stream.
 <span class="fc" id="L224">        }</span>
@@ -230,7 +230,7 @@ public abstract class Message {
             // This give a dual benefit.  Releasing references to the larger byte array so that it
             // it is more likely to be GC'd.  And preventing double serializations.  E.g. calculating
             // merkle root calls this method.  It is will frequently happen prior to serializing the block
-            // which means another call to bitcoinSerialize is coming.  If we didn't recache then internal
+            // which means another call to floSerialize is coming.  If we didn't recache then internal
             // serialization would occur a 2nd time and every subsequent time the message is serialized.
 <span class="fc" id="L235">            payload = stream.toByteArray();</span>
 <span class="fc" id="L236">            cursor = cursor - offset;</span>
@@ -248,26 +248,26 @@ public abstract class Message {
     }
 
     /**
-     * Serialize this message to the provided OutputStream using the bitcoin wire format.
+     * Serialize this message to the provided OutputStream using the flo wire format.
      *
      * @param stream
      * @throws IOException
      */
-    public final void bitcoinSerialize(OutputStream stream) throws IOException {
+    public final void floSerialize(OutputStream stream) throws IOException {
         // 1st check for cached bytes.
 <span class="pc bpc" id="L258" title="1 of 4 branches missed.">        if (payload != null &amp;&amp; length != UNKNOWN_LENGTH) {</span>
 <span class="fc" id="L259">            stream.write(payload, offset, length);</span>
 <span class="fc" id="L260">            return;</span>
         }
 
-<span class="fc" id="L263">        bitcoinSerializeToStream(stream);</span>
+<span class="fc" id="L263">        floSerializeToStream(stream);</span>
 <span class="fc" id="L264">    }</span>
 
     /**
-     * Serializes this message to the provided stream. If you just want the raw bytes use bitcoinSerialize().
+     * Serializes this message to the provided stream. If you just want the raw bytes use floSerialize().
      */
-    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
-<span class="nc" id="L270">        log.error(&quot;Error: {} class has not implemented bitcoinSerializeToStream method.  Generating message with no payload&quot;, getClass());</span>
+    protected void floSerializeToStream(OutputStream stream) throws IOException {
+<span class="nc" id="L270">        log.error(&quot;Error: {} class has not implemented floSerializeToStream method.  Generating message with no payload&quot;, getClass());</span>
 <span class="nc" id="L271">    }</span>
 
     /**

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PeerGroup.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">PeerGroup.java</span></div><h1>PeerGroup.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PeerGroup.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">PeerGroup.java</span></div><h1>PeerGroup.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import com.google.common.annotations.*;
 import com.google.common.base.*;
@@ -26,17 +26,17 @@ import com.google.common.util.concurrent.*;
 import com.squareup.okhttp.*;
 import com.subgraph.orchid.*;
 import net.jcip.annotations.*;
-import org.bitcoinj.core.listeners.*;
-import org.bitcoinj.crypto.*;
-import org.bitcoinj.net.*;
-import org.bitcoinj.net.discovery.*;
-import org.bitcoinj.script.*;
-import org.bitcoinj.utils.*;
-import org.bitcoinj.utils.Threading;
-import org.bitcoinj.wallet.Wallet;
-import org.bitcoinj.wallet.listeners.KeyChainEventListener;
-import org.bitcoinj.wallet.listeners.ScriptsChangeEventListener;
-import org.bitcoinj.wallet.listeners.WalletCoinsReceivedEventListener;
+import org.floj.core.listeners.*;
+import org.floj.crypto.*;
+import org.floj.net.*;
+import org.floj.net.discovery.*;
+import org.floj.script.*;
+import org.floj.utils.*;
+import org.floj.utils.Threading;
+import org.floj.wallet.Wallet;
+import org.floj.wallet.listeners.KeyChainEventListener;
+import org.floj.wallet.listeners.ScriptsChangeEventListener;
+import org.floj.wallet.listeners.WalletCoinsReceivedEventListener;
 import org.slf4j.*;
 
 import javax.annotation.*;
@@ -268,9 +268,9 @@ public class PeerGroup implements TransactionBroadcaster {
     /**
      * The default Bloom filter false positive rate, which is selected to be extremely low such that you hardly ever
      * download false positives. This provides maximum performance. Although this default can be overridden to push
-     * the FP rate higher, due to &lt;a href=&quot;https://groups.google.com/forum/#!msg/bitcoinj/Ys13qkTwcNg/9qxnhwnkeoIJ&quot;&gt;
+     * the FP rate higher, due to &lt;a href=&quot;https://groups.google.com/forum/#!msg/floj/Ys13qkTwcNg/9qxnhwnkeoIJ&quot;&gt;
      * various complexities&lt;/a&gt; there are still ways a remote peer can deanonymize the users wallet. This is why the
-     * FP rate is chosen for performance rather than privacy. If a future version of bitcoinj fixes the known
+     * FP rate is chosen for performance rather than privacy. If a future version of floj fixes the known
      * de-anonymization attacks this FP rate may rise again (or more likely, become expressed as a bandwidth allowance).
      */
     public static final double DEFAULT_BLOOM_FILTER_FP_RATE = 0.00001;
@@ -641,7 +641,7 @@ public class PeerGroup implements TransactionBroadcaster {
      * Sets the {@link VersionMessage} that will be announced on newly created connections. A version message is
      * primarily interesting because it lets you customize the &quot;subVer&quot; field which is used a bit like the User-Agent
      * field from HTTP. It means your client tells the other side what it is, see
-     * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0014.mediawiki&quot;&gt;BIP 14&lt;/a&gt;.
+     * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0014.mediawiki&quot;&gt;BIP 14&lt;/a&gt;.
      *
      * The VersionMessage you provide is copied and the best chain height/time filled in for each new connection,
      * therefore you don't have to worry about setting that. The provided object is really more of a template.
@@ -1425,7 +1425,7 @@ public class PeerGroup implements TransactionBroadcaster {
 
     /**
      * Returns the number of currently connected peers. To be informed when this count changes, register a 
-     * {@link org.bitcoinj.core.listeners.PeerConnectionEventListener} and use the onPeerConnected/onPeerDisconnected methods.
+     * {@link org.floj.core.listeners.PeerConnectionEventListener} and use the onPeerConnected/onPeerDisconnected methods.
      */
     public int numConnectedPeers() {
 <span class="fc" id="L1431">        return peers.size();</span>
@@ -1437,7 +1437,7 @@ public class PeerGroup implements TransactionBroadcaster {
      * 
      * @param address destination IP and port.
      * @return The newly created Peer object or null if the peer could not be connected.
-     *         Use {@link org.bitcoinj.core.Peer#getConnectionOpenFuture()} if you
+     *         Use {@link org.floj.core.Peer#getConnectionOpenFuture()} if you
      *         want a future which completes when the connection is open.
      */
     @Nullable
@@ -1994,7 +1994,7 @@ public class PeerGroup implements TransactionBroadcaster {
 
     /**
      * Returns a future that is triggered when the number of connected peers is equal to the given number of
-     * peers. By using this with {@link org.bitcoinj.core.PeerGroup#getMaxConnections()} you can wait until the
+     * peers. By using this with {@link org.floj.core.PeerGroup#getMaxConnections()} you can wait until the
      * network is fully online. To block immediately, just call get() on the result. Just calls
      * {@link #waitForPeersOfVersion(int, long)} with zero as the protocol version.
      *
@@ -2100,7 +2100,7 @@ public class PeerGroup implements TransactionBroadcaster {
      * enough, {@link PeerGroup#broadcastTransaction(Transaction)} will wait until the minimum number is reached so
      * propagation across the network can be observed. If no value has been set using
      * {@link PeerGroup#setMinBroadcastConnections(int)} a default of 80% of whatever
-     * {@link org.bitcoinj.core.PeerGroup#getMaxConnections()} returns is used.
+     * {@link org.floj.core.PeerGroup#getMaxConnections()} returns is used.
      */
     public int getMinBroadcastConnections() {
 <span class="fc" id="L2106">        lock.lock();</span>
@@ -2119,7 +2119,7 @@ public class PeerGroup implements TransactionBroadcaster {
     }
 
     /**
-     * See {@link org.bitcoinj.core.PeerGroup#getMinBroadcastConnections()}.
+     * See {@link org.floj.core.PeerGroup#getMinBroadcastConnections()}.
      */
     public void setMinBroadcastConnections(int value) {
 <span class="fc" id="L2125">        lock.lock();</span>
@@ -2142,7 +2142,7 @@ public class PeerGroup implements TransactionBroadcaster {
     /**
      * &lt;p&gt;Given a transaction, sends it un-announced to one peer and then waits for it to be received back from other
      * peers. Once all connected peers have announced the transaction, the future available via the
-     * {@link org.bitcoinj.core.TransactionBroadcast#future()} method will be completed. If anything goes
+     * {@link org.floj.core.TransactionBroadcast#future()} method will be completed. If anything goes
      * wrong the exception will be thrown when get() is called, or you can receive it via a callback on the
      * {@link ListenableFuture}. This method returns immediately, so if you want it to block just call get() on the
      * result.&lt;/p&gt;
@@ -2154,7 +2154,7 @@ public class PeerGroup implements TransactionBroadcaster {
      * A good choice for proportion would be between 0.5 and 0.8 but if you want faster transmission during initial
      * bringup of the peer group you can lower it.&lt;/p&gt;
      *
-     * &lt;p&gt;The returned {@link org.bitcoinj.core.TransactionBroadcast} object can be used to get progress feedback,
+     * &lt;p&gt;The returned {@link org.floj.core.TransactionBroadcast} object can be used to get progress feedback,
      * which is calculated by watching the transaction propagate across the network and be announced by peers.&lt;/p&gt;
      */
     public TransactionBroadcast broadcastTransaction(final Transaction tx, final int minConnections) {
@@ -2205,7 +2205,7 @@ public class PeerGroup implements TransactionBroadcaster {
 
     /**
      * Returns the period between pings for an individual peer. Setting this lower means more accurate and timely ping
-     * times are available via {@link org.bitcoinj.core.Peer#getLastPingTime()} but it increases load on the
+     * times are available via {@link org.floj.core.Peer#getLastPingTime()} but it increases load on the
      * remote node. It defaults to {@link PeerGroup#DEFAULT_PING_INTERVAL_MSEC}.
      */
     public long getPingIntervalMsec() {
@@ -2219,10 +2219,10 @@ public class PeerGroup implements TransactionBroadcaster {
 
     /**
      * Sets the period between pings for an individual peer. Setting this lower means more accurate and timely ping
-     * times are available via {@link org.bitcoinj.core.Peer#getLastPingTime()} but it increases load on the
+     * times are available via {@link org.floj.core.Peer#getLastPingTime()} but it increases load on the
      * remote node. It defaults to {@link PeerGroup#DEFAULT_PING_INTERVAL_MSEC}.
      * Setting the value to be &lt;= 0 disables pinging entirely, although you can still request one yourself
-     * using {@link org.bitcoinj.core.Peer#ping()}.
+     * using {@link org.floj.core.Peer#ping()}.
      */
     public void setPingIntervalMsec(long pingIntervalMsec) {
 <span class="fc" id="L2228">        lock.lock();</span>
@@ -2366,7 +2366,7 @@ public class PeerGroup implements TransactionBroadcaster {
     /**
      * When true (the default), PeerGroup will attempt to connect to a FLO node running on localhost before
      * attempting to use the P2P network. If successful, only localhost will be used. This makes for a simple
-     * and easy way for a user to upgrade a bitcoinj based app running in SPV mode to fully validating security.
+     * and easy way for a user to upgrade a floj based app running in SPV mode to fully validating security.
      */
     public void setUseLocalhostPeerWhenPossible(boolean useLocalhostPeerWhenPossible) {
 <span class="fc" id="L2372">        lock.lock();</span>

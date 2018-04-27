@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionInput.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">TransactionInput.java</span></div><h1>TransactionInput.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionInput.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">TransactionInput.java</span></div><h1>TransactionInput.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
-import org.bitcoinj.script.Script;
-import org.bitcoinj.wallet.DefaultRiskAnalysis;
-import org.bitcoinj.wallet.KeyBag;
-import org.bitcoinj.wallet.RedeemData;
+import org.floj.script.Script;
+import org.floj.wallet.DefaultRiskAnalysis;
+import org.floj.wallet.KeyBag;
+import org.floj.wallet.RedeemData;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Objects;
@@ -145,8 +145,8 @@ public class TransactionInput extends ChildMessage {
 <span class="fc" id="L145">    }</span>
 
     @Override
-    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
-<span class="fc" id="L149">        outpoint.bitcoinSerialize(stream);</span>
+    protected void floSerializeToStream(OutputStream stream) throws IOException {
+<span class="fc" id="L149">        outpoint.floSerialize(stream);</span>
 <span class="fc" id="L150">        stream.write(new VarInt(scriptBytes.length).encode());</span>
 <span class="fc" id="L151">        stream.write(scriptBytes);</span>
 <span class="fc" id="L152">        Utils.uint32ToByteStreamLE(sequence, stream);</span>
@@ -291,7 +291,7 @@ public class TransactionInput extends ChildMessage {
 
     /**
      * Alias for getOutpoint().getConnectedRedeemData(keyBag)
-     * @see TransactionOutPoint#getConnectedRedeemData(org.bitcoinj.wallet.KeyBag)
+     * @see TransactionOutPoint#getConnectedRedeemData(org.floj.wallet.KeyBag)
      */
     @Nullable
     public RedeemData getConnectedRedeemData(KeyBag keyBag) throws ScriptException {
@@ -384,7 +384,7 @@ public class TransactionInput extends ChildMessage {
 
     /**
      * Returns whether this input will cause a transaction to opt into the
-     * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0125.mediawiki&quot;&gt;full replace-by-fee &lt;/a&gt; semantics.
+     * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0125.mediawiki&quot;&gt;full replace-by-fee &lt;/a&gt; semantics.
      */
     public boolean isOptInFullRBF() {
 <span class="fc bfc" id="L390" title="All 2 branches covered.">        return sequence &lt; NO_SEQUENCE - 1;</span>
@@ -392,7 +392,7 @@ public class TransactionInput extends ChildMessage {
 
     /**
      * Returns whether this input, if it belongs to a version 2 (or higher) transaction, has
-     * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0068.mediawiki&quot;&gt;relative lock-time&lt;/a&gt; enabled.
+     * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0068.mediawiki&quot;&gt;relative lock-time&lt;/a&gt; enabled.
      */
     public boolean hasRelativeLockTime() {
 <span class="pc bpc" id="L398" title="1 of 2 branches missed.">        return (sequence &amp; SEQUENCE_LOCKTIME_DISABLE_FLAG) == 0;</span>
@@ -453,7 +453,7 @@ public class TransactionInput extends ChildMessage {
 
     /** Returns a copy of the input detached from its containing transaction, if need be. */
     public TransactionInput duplicateDetached() {
-<span class="fc" id="L456">        return new TransactionInput(params, null, bitcoinSerialize(), 0);</span>
+<span class="fc" id="L456">        return new TransactionInput(params, null, floSerialize(), 0);</span>
     }
 
     /**

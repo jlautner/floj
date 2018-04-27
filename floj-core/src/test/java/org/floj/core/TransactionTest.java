@@ -369,7 +369,7 @@ public class TransactionTest {
 
     /**
      * Test a coinbase transaction whose script has nonsense after the block height.
-     * See https://github.com/bitcoinj/bitcoinj/issues/1097
+     * See https://github.com/floj/floj/issues/1097
      */
     @Test
     public void testCoinbaseHeightCheckWithDamagedScript() throws VerificationException {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaymentSession.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.protocols.payments</a> &gt; <span class="el_source">PaymentSession.java</span></div><h1>PaymentSession.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaymentSession.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.protocols.payments</a> &gt; <span class="el_source">PaymentSession.java</span></div><h1>PaymentSession.java</h1><pre class="source lang-java linenums">/*
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,22 +12,22 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.protocols.payments;
+package org.floj.protocols.payments;
 
-import org.bitcoinj.core.*;
-import org.bitcoinj.crypto.TrustStoreLoader;
-import org.bitcoinj.params.MainNetParams;
-import org.bitcoinj.protocols.payments.PaymentProtocol.PkiVerificationData;
-import org.bitcoinj.uri.FLOURI;
-import org.bitcoinj.utils.Threading;
-import org.bitcoinj.wallet.SendRequest;
+import org.floj.core.*;
+import org.floj.crypto.TrustStoreLoader;
+import org.floj.params.MainNetParams;
+import org.floj.protocols.payments.PaymentProtocol.PkiVerificationData;
+import org.floj.uri.FLOURI;
+import org.floj.utils.Threading;
+import org.floj.wallet.SendRequest;
 
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.common.util.concurrent.ListeningExecutorService;
 import com.google.protobuf.InvalidProtocolBufferException;
 
-import org.bitcoin.protocols.payments.Protos;
+import org.flo.protocols.payments.Protos;
 
 import javax.annotation.Nullable;
 
@@ -59,12 +59,12 @@ import java.util.concurrent.Callable;
  *
  * &lt;p&gt;Call sendPayment with a list of transactions that will be broadcast. A {@link Protos.Payment} message will be sent
  * to the merchant if a payment url is provided in the PaymentRequest. NOTE: sendPayment does NOT broadcast the
- * transactions to the bitcoin network. Instead it returns a ListenableFuture that will be notified when a
+ * transactions to the flo network. Instead it returns a ListenableFuture that will be notified when a
  * {@link Protos.PaymentACK} is received from the merchant. Typically a wallet will show the message to the user
  * as a confirmation message that the payment is now &quot;processing&quot; or that an error occurred, and then broadcast the
  * tx itself later if needed.&lt;/p&gt;
  *
- * @see &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0070.mediawiki&quot;&gt;BIP 0070&lt;/a&gt;
+ * @see &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0070.mediawiki&quot;&gt;BIP 0070&lt;/a&gt;
  */
 public class PaymentSession {
 <span class="fc" id="L70">    private static ListeningExecutorService executor = Threading.THREAD_POOL;</span>
@@ -241,7 +241,7 @@ public class PaymentSession {
     }
 
     /**
-     * Returns the total amount of bitcoins requested.
+     * Returns the total amount of flos requested.
      */
     public Coin getValue() {
 <span class="fc" id="L247">        return totalValue;</span>
@@ -305,7 +305,7 @@ public class PaymentSession {
     /**
      * Generates a Payment message and sends the payment to the merchant who sent the PaymentRequest.
      * Provide transactions built by the wallet.
-     * NOTE: This does not broadcast the transactions to the bitcoin network, it merely sends a Payment message to the
+     * NOTE: This does not broadcast the transactions to the flo network, it merely sends a Payment message to the
      * merchant confirming the payment.
      * Returns an object wrapping PaymentACK once received.
      * If the PaymentRequest did not specify a payment_url, returns null and does nothing.

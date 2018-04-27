@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GetUTXOsMessage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">GetUTXOsMessage.java</span></div><h1>GetUTXOsMessage.java</h1><pre class="source lang-java linenums">/*
- * Copyright 2014 the bitcoinj authors
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>GetUTXOsMessage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">GetUTXOsMessage.java</span></div><h1>GetUTXOsMessage.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 the floj authors
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
@@ -24,12 +24,12 @@ import java.io.OutputStream;
 import java.util.List;
 
 /**
- * &lt;p&gt;This command is supported only by &lt;a href=&quot;http://github.com/bitcoinxt/bitcoinxt&quot;&gt;FLO XT&lt;/a&gt; nodes, which
+ * &lt;p&gt;This command is supported only by &lt;a href=&quot;http://github.com/floxt/floxt&quot;&gt;FLO XT&lt;/a&gt; nodes, which
  * advertise themselves using the second service bit flag. It requests a query of the UTXO set keyed by a set of
  * outpoints (i.e. tx hash and output index). The result contains a bitmap of spentness flags, and the contents of
  * the associated outputs if they were found. The results aren't authenticated by anything, so the peer could lie,
  * or a man in the middle could swap out its answer for something else. Please consult
- * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki&quot;&gt;BIP 65&lt;/a&gt; for more information on this
+ * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0065.mediawiki&quot;&gt;BIP 65&lt;/a&gt; for more information on this
  * message.&lt;/p&gt;
  *
  * &lt;p&gt;Note that this message does not let you query the UTXO set by address, script or any other criteria. The
@@ -81,11 +81,11 @@ public class GetUTXOsMessage extends Message {
     }
 
     @Override
-    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
+    protected void floSerializeToStream(OutputStream stream) throws IOException {
 <span class="pc bpc" id="L85" title="1 of 2 branches missed.">        stream.write(new byte[]{includeMempool ? (byte) 1 : 0});  // include mempool.</span>
 <span class="fc" id="L86">        stream.write(new VarInt(outPoints.size()).encode());</span>
 <span class="fc bfc" id="L87" title="All 2 branches covered.">        for (TransactionOutPoint outPoint : outPoints) {</span>
-<span class="fc" id="L88">            outPoint.bitcoinSerializeToStream(stream);</span>
+<span class="fc" id="L88">            outPoint.floSerializeToStream(stream);</span>
 <span class="fc" id="L89">        }</span>
 <span class="fc" id="L90">    }</span>
 

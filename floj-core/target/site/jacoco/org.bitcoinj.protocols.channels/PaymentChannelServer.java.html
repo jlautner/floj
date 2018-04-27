@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaymentChannelServer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.protocols.channels</a> &gt; <span class="el_source">PaymentChannelServer.java</span></div><h1>PaymentChannelServer.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>PaymentChannelServer.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.protocols.channels</a> &gt; <span class="el_source">PaymentChannelServer.java</span></div><h1>PaymentChannelServer.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.protocols.channels;
+package org.floj.protocols.channels;
 
 import com.google.common.collect.ImmutableMap;
-import org.bitcoinj.core.*;
-import org.bitcoinj.protocols.channels.PaymentChannelCloseException.CloseReason;
-import org.bitcoinj.utils.Threading;
-import org.bitcoinj.wallet.Wallet;
+import org.floj.core.*;
+import org.floj.protocols.channels.PaymentChannelCloseException.CloseReason;
+import org.floj.utils.Threading;
+import org.floj.wallet.Wallet;
 
 import com.google.common.util.concurrent.FutureCallback;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 import com.google.protobuf.ByteString;
 import net.jcip.annotations.GuardedBy;
-import org.bitcoin.paymentchannel.Protos;
+import org.flo.paymentchannel.Protos;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nullable;
@@ -172,7 +172,7 @@ public class PaymentChannelServer {
      *                               rejected by clients, and a value too low will require excessive channel reopening
      *                               and may cause fees to be require to settle the channel. A reasonable value depends
      *                               entirely on the expected maximum for the channel, and should likely be somewhere
-     *                               between a few bitcents and a bitcoin.
+     *                               between a few bitcents and a flo.
      * @param conn A callback listener which represents the connection to the client (forwards messages we generate to
      *             the client and will close the connection on request)
      */
@@ -191,7 +191,7 @@ public class PaymentChannelServer {
      *                               rejected by clients, and a value too low will require excessive channel reopening
      *                               and may cause fees to be require to settle the channel. A reasonable value depends
      *                               entirely on the expected maximum for the channel, and should likely be somewhere
-     *                               between a few bitcents and a bitcoin.
+     *                               between a few bitcents and a flo.
      * @param minTimeWindow The minimum allowed channel time window in seconds, must be larger than 7200.
      * @param maxTimeWindow The maximum allowed channel time window in seconds. Note that the server need to be online for the whole time the channel is open.
      *                              Failure to do this could cause loss of all payments received on the channel.

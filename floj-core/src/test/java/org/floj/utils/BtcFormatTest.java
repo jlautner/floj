@@ -1221,7 +1221,7 @@ public class BtcFormatTest {
         // FRANCE and GERMANY have different pattterns
         assertNotEquals(BtcFormat.getInstance(FRANCE).hashCode(), BtcFormat.getInstance(GERMANY).hashCode());
         // TAIWAN and CHINA differ only in the Locale and Currency, i.e. the patterns and symbols are
-        // all the same (after setting the currency symbols to bitcoins)
+        // all the same (after setting the currency symbols to flos)
         assertNotEquals(BtcFormat.getInstance(TAIWAN), BtcFormat.getInstance(CHINA));
         // but they hash the same because of the DecimalFormatSymbols.hashCode() implementation
 

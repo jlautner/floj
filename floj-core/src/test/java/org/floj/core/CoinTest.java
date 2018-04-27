@@ -116,7 +116,7 @@ public class CoinTest {
     }
 
     /**
-     * Test the bitcoinValueToPlainString amount formatter
+     * Test the floValueToPlainString amount formatter
      */
     @Test
     public void testToPlainString() {

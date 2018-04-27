@@ -240,7 +240,7 @@ public class PaymentSession {
     }
 
     /**
-     * Returns the total amount of bitcoins requested.
+     * Returns the total amount of flos requested.
      */
     public Coin getValue() {
         return totalValue;

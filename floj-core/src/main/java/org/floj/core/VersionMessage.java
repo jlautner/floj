@@ -153,7 +153,7 @@ public class VersionMessage extends Message {
     }
 
     @Override
-    public void bitcoinSerializeToStream(OutputStream buf) throws IOException {
+    public void floSerializeToStream(OutputStream buf) throws IOException {
         Utils.uint32ToByteStreamLE(clientVersion, buf);
         Utils.uint32ToByteStreamLE(localServices, buf);
         Utils.uint32ToByteStreamLE(localServices >> 32, buf);
@@ -161,9 +161,9 @@ public class VersionMessage extends Message {
         Utils.uint32ToByteStreamLE(time >> 32, buf);
         try {
             // My address.
-            myAddr.bitcoinSerialize(buf);
+            myAddr.floSerialize(buf);
             // Their address.
-            theirAddr.bitcoinSerialize(buf);
+            theirAddr.floSerialize(buf);
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);  // Can't happen.
         } catch (IOException e) {
@@ -241,8 +241,8 @@ public class VersionMessage extends Message {
 
     /**
      * Appends the given user-agent information to the subVer field. The subVer is composed of a series of
-     * name:version pairs separated by slashes in the form of a path. For example a typical subVer field for bitcoinj
-     * users might look like "/bitcoinj:0.13/MultiBit:1.2/" where libraries come further to the left.<p>
+     * name:version pairs separated by slashes in the form of a path. For example a typical subVer field for floj
+     * users might look like "/floj:0.13/MultiBit:1.2/" where libraries come further to the left.<p>
      *
      * There can be as many components as you feel a need for, and the version string can be anything, but it is
      * recommended to use A.B.C where A = major, B = minor and C = revision for software releases, and dates for
@@ -251,7 +251,7 @@ public class VersionMessage extends Message {
      *
      * Anything put in the "comments" field will appear in brackets and may be used for platform info, or anything
      * else. For example, calling <tt>appendToSubVer("MultiBit", "1.0", "Windows")</tt> will result in a subVer being
-     * set of "/bitcoinj:1.0/MultiBit:1.0(Windows)/". Therefore the / ( and ) characters are reserved in all these
+     * set of "/floj:1.0/MultiBit:1.0(Windows)/". Therefore the / ( and ) characters are reserved in all these
      * components. If you don't want to add a comment (recommended), pass null.<p>
      *
      * See <a href="https://github.com/flo/bips/blob/master/bip-0014.mediawiki">BIP 14</a> for more information.

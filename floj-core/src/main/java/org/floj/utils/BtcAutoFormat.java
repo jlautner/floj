@@ -173,7 +173,7 @@ public final class BtcAutoFormat extends BtcFormat {
 
     /** Returns the {@code int} value indicating coin denomination.  This is what causes
      *  the number in a parsed value that lacks a units indicator to be interpreted as a quantity
-     *  of bitcoins. */
+     *  of flos. */
     @Override
     protected int scale() { return COIN_SCALE; }
 

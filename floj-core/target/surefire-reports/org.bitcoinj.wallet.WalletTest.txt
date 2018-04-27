@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.bitcoinj.wallet.WalletTest
+Test set: org.floj.wallet.WalletTest
 -------------------------------------------------------------------------------
-Tests run: 122, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 17.43 sec - in org.bitcoinj.wallet.WalletTest
+Tests run: 122, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 17.43 sec - in org.floj.wallet.WalletTest

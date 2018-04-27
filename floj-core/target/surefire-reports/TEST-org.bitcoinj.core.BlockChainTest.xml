@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.bitcoinj.core.BlockChainTest" time="2.413" tests="13" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.floj.core.BlockChainTest" time="2.413" tests="13" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_162\jre\bin"/>
     <property name="java.vm.version" value="25.162-b12"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\bitcoinj"/>
+    <property name="maven.multiModuleProjectDirectory" value="E:\FLO\desoto\floj"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\FLO\desoto\bitcoinj"/>
+    <property name="user.dir" value="E:\FLO\desoto\floj"/>
     <property name="java.runtime.version" value="1.8.0_162-b12"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_162\jre\lib\endorsed"/>
@@ -64,17 +64,17 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="difficultyTransitions" classname="org.bitcoinj.core.BlockChainTest" time="1.177"/>
-  <testcase name="duplicates" classname="org.bitcoinj.core.BlockChainTest" time="0.101"/>
-  <testcase name="estimatedBlockTime" classname="org.bitcoinj.core.BlockChainTest" time="0.064"/>
-  <testcase name="intraBlockDependencies" classname="org.bitcoinj.core.BlockChainTest" time="0.103"/>
-  <testcase name="badBip66Version" classname="org.bitcoinj.core.BlockChainTest" time="0.101"/>
-  <testcase name="falsePositives" classname="org.bitcoinj.core.BlockChainTest" time="0.211"/>
-  <testcase name="unconnectedBlocks" classname="org.bitcoinj.core.BlockChainTest" time="0.084"/>
-  <testcase name="receiveCoins" classname="org.bitcoinj.core.BlockChainTest" time="0.093"/>
-  <testcase name="coinbaseTransactionAvailability" classname="org.bitcoinj.core.BlockChainTest" time="0.191"/>
-  <testcase name="badDifficulty" classname="org.bitcoinj.core.BlockChainTest" time="0.057"/>
-  <testcase name="badBip65Version" classname="org.bitcoinj.core.BlockChainTest" time="0.086"/>
-  <testcase name="rollbackBlockStore" classname="org.bitcoinj.core.BlockChainTest" time="0.086"/>
-  <testcase name="testBasicChaining" classname="org.bitcoinj.core.BlockChainTest" time="0.054"/>
+  <testcase name="difficultyTransitions" classname="org.floj.core.BlockChainTest" time="1.177"/>
+  <testcase name="duplicates" classname="org.floj.core.BlockChainTest" time="0.101"/>
+  <testcase name="estimatedBlockTime" classname="org.floj.core.BlockChainTest" time="0.064"/>
+  <testcase name="intraBlockDependencies" classname="org.floj.core.BlockChainTest" time="0.103"/>
+  <testcase name="badBip66Version" classname="org.floj.core.BlockChainTest" time="0.101"/>
+  <testcase name="falsePositives" classname="org.floj.core.BlockChainTest" time="0.211"/>
+  <testcase name="unconnectedBlocks" classname="org.floj.core.BlockChainTest" time="0.084"/>
+  <testcase name="receiveCoins" classname="org.floj.core.BlockChainTest" time="0.093"/>
+  <testcase name="coinbaseTransactionAvailability" classname="org.floj.core.BlockChainTest" time="0.191"/>
+  <testcase name="badDifficulty" classname="org.floj.core.BlockChainTest" time="0.057"/>
+  <testcase name="badBip65Version" classname="org.floj.core.BlockChainTest" time="0.086"/>
+  <testcase name="rollbackBlockStore" classname="org.floj.core.BlockChainTest" time="0.086"/>
+  <testcase name="testBasicChaining" classname="org.floj.core.BlockChainTest" time="0.054"/>
 </testsuite>

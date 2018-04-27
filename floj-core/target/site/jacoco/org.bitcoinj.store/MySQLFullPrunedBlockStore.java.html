@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MySQLFullPrunedBlockStore.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.store</a> &gt; <span class="el_source">MySQLFullPrunedBlockStore.java</span></div><h1>MySQLFullPrunedBlockStore.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>MySQLFullPrunedBlockStore.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.store</a> &gt; <span class="el_source">MySQLFullPrunedBlockStore.java</span></div><h1>MySQLFullPrunedBlockStore.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Kalpesh Parmar
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.store;
+package org.floj.store;
 
-import org.bitcoinj.core.NetworkParameters;
+import org.floj.core.NetworkParameters;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,8 +24,8 @@ import java.util.List;
 
 /**
  * &lt;p&gt;A full pruned block store using the MySQL database engine. As an added bonus an address index is calculated,
- * so you can use {@link #calculateBalanceForAddress(org.bitcoinj.core.Address)} to quickly look up
- * the quantity of bitcoins controlled by that address.&lt;/p&gt;
+ * so you can use {@link #calculateBalanceForAddress(org.floj.core.Address)} to quickly look up
+ * the quantity of flos controlled by that address.&lt;/p&gt;
  */
 public class MySQLFullPrunedBlockStore extends DatabaseFullPrunedBlockStore {
     private static final String MYSQL_DUPLICATE_KEY_ERROR_CODE = &quot;23000&quot;;

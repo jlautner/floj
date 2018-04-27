@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SendRequest.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.wallet</a> &gt; <span class="el_source">SendRequest.java</span></div><h1>SendRequest.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>SendRequest.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.wallet</a> &gt; <span class="el_source">SendRequest.java</span></div><h1>SendRequest.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.wallet;
+package org.floj.wallet;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -23,19 +23,19 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.math.BigInteger;
 import java.util.Date;
 
-import org.bitcoin.protocols.payments.Protos.PaymentDetails;
-import org.bitcoinj.core.Address;
-import org.bitcoinj.core.Coin;
-import org.bitcoinj.core.Context;
-import org.bitcoinj.core.ECKey;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.core.Transaction;
-import org.bitcoinj.core.TransactionOutput;
-import org.bitcoinj.script.Script;
-import org.bitcoinj.script.ScriptBuilder;
-import org.bitcoinj.utils.ExchangeRate;
-import org.bitcoinj.wallet.KeyChain.KeyPurpose;
-import org.bitcoinj.wallet.Wallet.MissingSigsMode;
+import org.flo.protocols.payments.Protos.PaymentDetails;
+import org.floj.core.Address;
+import org.floj.core.Coin;
+import org.floj.core.Context;
+import org.floj.core.ECKey;
+import org.floj.core.NetworkParameters;
+import org.floj.core.Transaction;
+import org.floj.core.TransactionOutput;
+import org.floj.script.Script;
+import org.floj.script.ScriptBuilder;
+import org.floj.utils.ExchangeRate;
+import org.floj.wallet.KeyChain.KeyPurpose;
+import org.floj.wallet.Wallet.MissingSigsMode;
 import org.spongycastle.crypto.params.KeyParameter;
 
 import com.google.common.base.MoreObjects;
@@ -65,7 +65,7 @@ public class SendRequest {
 
     /**
      * When emptyWallet is set, all coins selected by the coin selector are sent to the first output in tx
-     * (its value is ignored and set to {@link org.bitcoinj.wallet.Wallet#getBalance()} - the fees required
+     * (its value is ignored and set to {@link org.floj.wallet.Wallet#getBalance()} - the fees required
      * for the transaction). Any additional outputs are removed.
      */
 <span class="fc" id="L71">    public boolean emptyWallet = false;</span>
@@ -115,7 +115,7 @@ public class SendRequest {
 <span class="fc" id="L115">    public KeyParameter aesKey = null;</span>
 
     /**
-     * If not null, the {@link org.bitcoinj.wallet.CoinSelector} to use instead of the wallets default. Coin selectors are
+     * If not null, the {@link org.floj.wallet.CoinSelector} to use instead of the wallets default. Coin selectors are
      * responsible for choosing which transaction outputs (coins) in a wallet to use given the desired send value
      * amount.
      */

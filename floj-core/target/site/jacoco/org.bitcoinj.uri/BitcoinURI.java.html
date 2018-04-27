@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FLOURI.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.uri</a> &gt; <span class="el_source">FLOURI.java</span></div><h1>FLOURI.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>FLOURI.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.uri</a> &gt; <span class="el_source">FLOURI.java</span></div><h1>FLOURI.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2012, 2014 the original author or authors.
  * 
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.uri;
+package org.floj.uri;
 
-import org.bitcoinj.core.Address;
-import org.bitcoinj.core.AddressFormatException;
-import org.bitcoinj.core.Coin;
-import org.bitcoinj.core.NetworkParameters;
-import org.bitcoinj.params.AbstractFLONetParams;
+import org.floj.core.Address;
+import org.floj.core.AddressFormatException;
+import org.floj.core.Coin;
+import org.floj.core.NetworkParameters;
+import org.floj.params.AbstractFLONetParams;
 
 import javax.annotation.Nullable;
 
@@ -50,8 +50,8 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * &lt;p&gt;The following input forms are accepted:&lt;/p&gt;
  *
  * &lt;ul&gt;
- * &lt;li&gt;{@code bitcoin:&lt;address&gt;}&lt;/li&gt;
- * &lt;li&gt;{@code bitcoin:&lt;address&gt;?&lt;name1&gt;=&lt;value1&gt;&amp;&lt;name2&gt;=&lt;value2&gt;} with multiple
+ * &lt;li&gt;{@code flo:&lt;address&gt;}&lt;/li&gt;
+ * &lt;li&gt;{@code flo:&lt;address&gt;?&lt;name1&gt;=&lt;value1&gt;&amp;&lt;name2&gt;=&lt;value2&gt;} with multiple
  * additional name/value pairs&lt;/li&gt;
  * &lt;/ul&gt;
  *
@@ -74,7 +74,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
  * @author Andreas Schildbach (initial code)
  * @author Jim Burton (enhancements for MultiBit)
  * @author Gary Rowe (BIP21 support)
- * @see &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki&quot;&gt;BIP 0021&lt;/a&gt;
+ * @see &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0021.mediawiki&quot;&gt;BIP 0021&lt;/a&gt;
  */
 public class FLOURI {
     // Not worth turning into an enum
@@ -85,12 +85,12 @@ public class FLOURI {
     public static final String FIELD_PAYMENT_REQUEST_URL = &quot;r&quot;;
 
     /**
-     * URI for FLO network. Use {@link org.bitcoinj.params.AbstractFLONetParams#BITCOIN_SCHEME} if you specifically
-     * need FLO, or use {@link org.bitcoinj.core.NetworkParameters#getUriScheme} to get the scheme
+     * URI for FLO network. Use {@link org.floj.params.AbstractFLONetParams#BITCOIN_SCHEME} if you specifically
+     * need FLO, or use {@link org.floj.core.NetworkParameters#getUriScheme} to get the scheme
      * from network parameters.
      */
     @Deprecated
-    public static final String BITCOIN_SCHEME = &quot;bitcoin&quot;;
+    public static final String BITCOIN_SCHEME = &quot;flo&quot;;
     private static final String ENCODED_SPACE_CHARACTER = &quot;%20&quot;;
     private static final String AMPERSAND_SEPARATOR = &quot;&amp;&quot;;
     private static final String QUESTION_MARK_SEPARATOR = &quot;?&quot;;
@@ -134,13 +134,13 @@ public class FLOURI {
 <span class="fc" id="L134">            throw new FLOURIParseException(&quot;Bad URI syntax&quot;, e);</span>
 <span class="fc" id="L135">        }</span>
 
-        // URI is formed as  bitcoin:&lt;address&gt;?&lt;query parameters&gt;
-        // blockchain.info generates URIs of non-BIP compliant form bitcoin://address?....
+        // URI is formed as  flo:&lt;address&gt;?&lt;query parameters&gt;
+        // blockchain.info generates URIs of non-BIP compliant form flo://address?....
         // We support both until Ben fixes his code.
         
-        // Remove the bitcoin scheme.
+        // Remove the flo scheme.
         // (Note: getSchemeSpecificPart() is not used as it unescapes the label and parse then fails.
-        // For instance with : bitcoin:129mVqKUmJ9uwPxKJBnNdABbuaaNfho4Ha?amount=0.06&amp;label=Tom%20%26%20Jerry
+        // For instance with : flo:129mVqKUmJ9uwPxKJBnNdABbuaaNfho4Ha?amount=0.06&amp;label=Tom%20%26%20Jerry
         // the &amp; (%26) in Tom and Jerry gets interpreted as a separator and the label then gets parsed
         // as 'Tom ' instead of 'Tom &amp; Jerry')
 <span class="fc" id="L146">        String blockchainInfoScheme = scheme + &quot;://&quot;;</span>
@@ -157,7 +157,7 @@ public class FLOURI {
         // Split off the address from the rest of the query parameters.
 <span class="fc" id="L158">        String[] addressSplitTokens = schemeSpecificPart.split(&quot;\\?&quot;, 2);</span>
 <span class="pc bpc" id="L159" title="1 of 2 branches missed.">        if (addressSplitTokens.length == 0)</span>
-<span class="nc" id="L160">            throw new FLOURIParseException(&quot;No data found after the bitcoin: prefix&quot;);</span>
+<span class="nc" id="L160">            throw new FLOURIParseException(&quot;No data found after the flo: prefix&quot;);</span>
 <span class="fc" id="L161">        String addressToken = addressSplitTokens[0];  // may be empty!</span>
 
         String[] nameValuePairTokens;

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: org.bitcoinj.core.TransactionTest
+Test set: org.floj.core.TransactionTest
 -------------------------------------------------------------------------------
-Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 sec - in org.bitcoinj.core.TransactionTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 sec - in org.floj.core.TransactionTest

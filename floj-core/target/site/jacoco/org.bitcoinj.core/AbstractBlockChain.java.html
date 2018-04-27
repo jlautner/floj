@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractBlockChain.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">AbstractBlockChain.java</span></div><h1>AbstractBlockChain.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>AbstractBlockChain.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">AbstractBlockChain.java</span></div><h1>AbstractBlockChain.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2012 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,15 +15,15 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import com.google.common.base.*;
 import com.google.common.collect.*;
 import com.google.common.util.concurrent.*;
-import org.bitcoinj.core.listeners.*;
-import org.bitcoinj.store.*;
-import org.bitcoinj.utils.*;
-import org.bitcoinj.wallet.Wallet;
+import org.floj.core.listeners.*;
+import org.floj.store.*;
+import org.floj.utils.*;
+import org.floj.wallet.Wallet;
 import org.slf4j.*;
 
 import javax.annotation.*;
@@ -43,7 +43,7 @@ import static com.google.common.base.Preconditions.*;
  * &lt;p&gt;An AbstractBlockChain implementation must be connected to a {@link BlockStore} implementation. The chain object
  * by itself doesn't store any data, that's delegated to the store. Which store you use is a decision best made by
  * reading the getting started guide, but briefly, fully validating block chains need fully validating stores. In
- * the lightweight SPV mode, a {@link org.bitcoinj.store.SPVBlockStore} is the right choice.&lt;/p&gt;
+ * the lightweight SPV mode, a {@link org.floj.store.SPVBlockStore} is the right choice.&lt;/p&gt;
  *
  * &lt;p&gt;This class implements an abstract class which makes it simple to create a BlockChain that does/doesn't do full
  * verification.  It verifies headers and is implements most of what is required to implement SPV mode, but
@@ -52,7 +52,7 @@ import static com.google.common.base.Preconditions.*;
  * &lt;p&gt;There are two subclasses of AbstractBlockChain that are useful: {@link BlockChain}, which is the simplest
  * class and implements &lt;i&gt;simplified payment verification&lt;/i&gt;. This is a lightweight and efficient mode that does
  * not verify the contents of blocks, just their headers. A {@link FullPrunedBlockChain} paired with a
- * {@link org.bitcoinj.store.H2FullPrunedBlockStore} implements full verification, which is equivalent to
+ * {@link org.floj.store.H2FullPrunedBlockStore} implements full verification, which is equivalent to
  * FLO Core. To learn more about the alternative security models, please consult the articles on the
  * website.&lt;/p&gt;
  *
@@ -454,7 +454,7 @@ public abstract class AbstractBlockChain {
             // Prove the block is internally valid: hash is lower than target, etc. This only checks the block contents
             // if there is a tx sending or receiving coins using an address in one of our wallets. And those transactions
             // are only lightly verified: presence in a valid connecting block is taken as proof of validity. See the
-            // article here for more details: https://bitcoinj.github.io/security-model
+            // article here for more details: https://floj.github.io/security-model
             try {
 <span class="fc" id="L459">                block.verifyHeader();</span>
 <span class="fc" id="L460">                storedPrev = getStoredBlockInCurrentScope(block.getPrevBlockHash());</span>
@@ -877,7 +877,7 @@ public abstract class AbstractBlockChain {
             try {
 <span class="fc" id="L878">                falsePositives.remove(tx.getHash());</span>
 <span class="fc bfc" id="L879" title="All 2 branches covered.">                if (clone)</span>
-<span class="fc" id="L880">                    tx = tx.params.getDefaultSerializer().makeTransaction(tx.bitcoinSerialize());</span>
+<span class="fc" id="L880">                    tx = tx.params.getDefaultSerializer().makeTransaction(tx.floSerialize());</span>
 <span class="fc" id="L881">                listener.receiveFromBlock(tx, block, blockType, relativityOffset++);</span>
 <span class="nc" id="L882">            } catch (ScriptException e) {</span>
                 // We don't want scripts we don't understand to break the block chain so just note that this tx was

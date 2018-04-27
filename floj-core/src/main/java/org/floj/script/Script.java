@@ -45,7 +45,7 @@ import static org.floj.script.ScriptOpCodes.*;
 /**
  * <p>Programs embedded inside transactions that control redemption of payments.</p>
  *
- * <p>FLO transactions don't specify what they do directly. Instead <a href="https://en.flo.it/wiki/Script">a
+ * <p>FLO transactions don't specify what they do directly. Instead <a href="https://en.bitcoin.it/wiki/Script">a
  * small binary stack language</a> is used to define programs that when evaluated return whether the transaction
  * "accepts" or rejects the other transactions connected to it.</p>
  *
@@ -677,7 +677,7 @@ public class Script {
      * correctly are considered valid, but won't be mined upon, so they'll be rapidly re-orgd out of the chain. This
      * logic is defined by <a href="https://github.com/flo/bips/blob/master/bip-0016.mediawiki">BIP 16</a>.</p>
      *
-     * <p>bitcoinj does not support creation of P2SH transactions today. The goal of P2SH is to allow short addresses
+     * <p>floj does not support creation of P2SH transactions today. The goal of P2SH is to allow short addresses
      * even for complex scripts (eg, multi-sig outputs) so they are convenient to work with in things like QRcodes or
      * with copy/paste, and also to minimize the size of the unspent output set (which improves performance of the
      * FLO system).</p>
@@ -1586,7 +1586,7 @@ public class Script {
         // Clone the transaction because executing the script involves editing it, and if we die, we'll leave
         // the tx half broken (also it's not so thread safe to work on it directly.
         try {
-            txContainingThis = txContainingThis.getParams().getDefaultSerializer().makeTransaction(txContainingThis.bitcoinSerialize());
+            txContainingThis = txContainingThis.getParams().getDefaultSerializer().makeTransaction(txContainingThis.floSerialize());
         } catch (ProtocolException e) {
             throw new RuntimeException(e);   // Should not happen unless we were given a totally broken transaction.
         }

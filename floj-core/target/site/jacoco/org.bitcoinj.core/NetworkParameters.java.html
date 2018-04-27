@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NetworkParameters.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">NetworkParameters.java</span></div><h1>NetworkParameters.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>NetworkParameters.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">NetworkParameters.java</span></div><h1>NetworkParameters.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,27 +15,27 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import com.google.common.base.Objects;
-import org.bitcoinj.core.Block;
-import org.bitcoinj.core.StoredBlock;
-import org.bitcoinj.core.VerificationException;
-import org.bitcoinj.net.discovery.*;
-import org.bitcoinj.params.*;
-import org.bitcoinj.script.*;
-import org.bitcoinj.store.BlockStore;
-import org.bitcoinj.store.BlockStoreException;
+import org.floj.core.Block;
+import org.floj.core.StoredBlock;
+import org.floj.core.VerificationException;
+import org.floj.net.discovery.*;
+import org.floj.params.*;
+import org.floj.script.*;
+import org.floj.store.BlockStore;
+import org.floj.store.BlockStoreException;
 
-import org.bitcoinj.utils.MonetaryFormat;
+import org.floj.utils.MonetaryFormat;
 
 import javax.annotation.*;
 import java.io.*;
 import java.math.*;
 import java.util.*;
 
-import static org.bitcoinj.core.Coin.*;
-import org.bitcoinj.utils.VersionTally;
+import static org.floj.core.Coin.*;
+import org.floj.utils.VersionTally;
 
 /**
  * &lt;p&gt;NetworkParameters contains the data needed for working with an instantiation of a FLO chain.&lt;/p&gt;
@@ -52,13 +52,13 @@ public abstract class NetworkParameters {
 <span class="fc" id="L52">    public static final byte[] SATOSHI_KEY = Utils.HEX.decode(&quot;04fc9702847840aaf195de8442ebecedf5b095cdbb9bc716bda9110971b28a49e0ead8564ff0db22209e0374782c093bb899692d524e9d6a6956e7c5ecbcd68284&quot;);</span>
 
     /** The string returned by getId() for the main, production network where people trade things. */
-    public static final String ID_MAINNET = &quot;org.bitcoin.production&quot;;
+    public static final String ID_MAINNET = &quot;org.flo.production&quot;;
     /** The string returned by getId() for the testnet. */
-    public static final String ID_TESTNET = &quot;org.bitcoin.test&quot;;
+    public static final String ID_TESTNET = &quot;org.flo.test&quot;;
     /** The string returned by getId() for regtest mode. */
-    public static final String ID_REGTEST = &quot;org.bitcoin.regtest&quot;;
+    public static final String ID_REGTEST = &quot;org.flo.regtest&quot;;
     /** Unit test network. */
-    public static final String ID_UNITTESTNET = &quot;org.bitcoinj.unittest&quot;;
+    public static final String ID_UNITTESTNET = &quot;org.floj.unittest&quot;;
 
     /** The string used by the payment protocol to represent the main net. */
     public static final String PAYMENT_PROTOCOL_ID_MAINNET = &quot;main&quot;;
@@ -286,7 +286,7 @@ public abstract class NetworkParameters {
 <span class="fc" id="L286">        return addrSeeds;</span>
     }
 
-    /** Returns discovery objects for seeds implementing the Cartographer protocol. See {@link org.bitcoinj.net.discovery.HttpDiscovery} for more info. */
+    /** Returns discovery objects for seeds implementing the Cartographer protocol. See {@link org.floj.net.discovery.HttpDiscovery} for more info. */
     public HttpDiscovery.Details[] getHttpSeeds() {
 <span class="nc" id="L291">        return httpSeeds;</span>
     }
@@ -317,7 +317,7 @@ public abstract class NetworkParameters {
     }
 
     /**
-     * First byte of a base58 encoded address. See {@link org.bitcoinj.core.Address}. This is the same as acceptableAddressCodes[0] and
+     * First byte of a base58 encoded address. See {@link org.floj.core.Address}. This is the same as acceptableAddressCodes[0] and
      * is the one used for &quot;normal&quot; addresses. Other types of address may be encountered with version codes found in
      * the acceptableAddressCodes array.
      */
@@ -332,7 +332,7 @@ public abstract class NetworkParameters {
 <span class="fc" id="L332">        return p2shHeader;</span>
     }
 
-    /** First byte of a base58 encoded dumped private key. See {@link org.bitcoinj.core.DumpedPrivateKey}. */
+    /** First byte of a base58 encoded dumped private key. See {@link org.floj.core.DumpedPrivateKey}. */
     public int getDumpedPrivateKeyHeader() {
 <span class="fc" id="L337">        return dumpedPrivateKeyHeader;</span>
     }
@@ -373,7 +373,7 @@ public abstract class NetworkParameters {
     }
 
     /**
-     * The key used to sign {@link org.bitcoinj.core.AlertMessage}s. You can use {@link org.bitcoinj.core.ECKey#verify(byte[], byte[], byte[])} to verify
+     * The key used to sign {@link org.floj.core.AlertMessage}s. You can use {@link org.floj.core.ECKey#verify(byte[], byte[], byte[])} to verify
      * signatures using it.
      */
     public byte[] getAlertSigningKey() {
@@ -409,7 +409,7 @@ public abstract class NetworkParameters {
     public abstract MonetaryFormat getMonetaryFormat();
 
     /**
-     * Scheme part for URIs, for example &quot;bitcoin&quot;.
+     * Scheme part for URIs, for example &quot;flo&quot;.
      */
     public abstract String getUriScheme();
 
@@ -529,14 +529,14 @@ public abstract class NetworkParameters {
 <span class="fc" id="L529">        BLOOM_FILTER(70000),</span>
 <span class="fc" id="L530">        CURRENT(70001);</span>
 
-        private final int bitcoinProtocol;
+        private final int floProtocol;
 
-<span class="fc" id="L534">        ProtocolVersion(final int bitcoinProtocol) {</span>
-<span class="fc" id="L535">            this.bitcoinProtocol = bitcoinProtocol;</span>
+<span class="fc" id="L534">        ProtocolVersion(final int floProtocol) {</span>
+<span class="fc" id="L535">            this.floProtocol = floProtocol;</span>
 <span class="fc" id="L536">        }</span>
 
         public int getFLOProtocolVersion() {
-<span class="fc" id="L539">            return bitcoinProtocol;</span>
+<span class="fc" id="L539">            return floProtocol;</span>
         }
     }
 }

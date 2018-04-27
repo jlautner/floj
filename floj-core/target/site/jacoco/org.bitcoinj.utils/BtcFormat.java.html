@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BtcFormat.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.utils</a> &gt; <span class="el_source">BtcFormat.java</span></div><h1>BtcFormat.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>BtcFormat.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.utils</a> &gt; <span class="el_source">BtcFormat.java</span></div><h1>BtcFormat.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2014 Adam Mackler
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.utils;
+package org.floj.utils;
 
-import org.bitcoinj.utils.BtcAutoFormat.Style;
-import static org.bitcoinj.utils.BtcAutoFormat.Style.*;
+import org.floj.utils.BtcAutoFormat.Style;
+import static org.floj.utils.BtcAutoFormat.Style.*;
 
-import org.bitcoinj.core.Coin;
+import org.floj.core.Coin;
 import com.google.common.base.Objects;
 import com.google.common.collect.ImmutableList;
 import static com.google.common.base.Preconditions.checkArgument;
@@ -101,10 +101,10 @@ import java.util.regex.Pattern;
  * {@code SYMBOL} style uses a possibly-ambiguous currency symbol such as
  * {@code &quot;฿&quot;}.
  *
- * &lt;p&gt;The denomination used when formatting will be either bitcoin, millicoin
+ * &lt;p&gt;The denomination used when formatting will be either flo, millicoin
  * or microcoin, depending on the value being represented, chosen so as to minimize the number
  * of consecutive zeros displayed without losing precision.  For example, depending on the
- * locale, a value of one bitcoin might be formatted as &lt;pre&gt;฿1.00&lt;/pre&gt; where a value
+ * locale, a value of one flo might be formatted as &lt;pre&gt;฿1.00&lt;/pre&gt; where a value
  * exceeding that by one satoshi would be &lt;pre&gt;µ฿1,000,000.01&lt;/pre&gt;
  *
  * &lt;h5&gt;Fixed Denomination&lt;/h5&gt;
@@ -112,10 +112,10 @@ import java.util.regex.Pattern;
  * Fixed denomination means that the same denomination of units is used for every value that is
  * formatted or parsed by a given formatter instance.  A fixed-denomination formatter is
  * defined by its scale, which is the number of places one must shift the decimal point in
- * increasing precision to convert the representation of a given quantity of bitcoins into a
+ * increasing precision to convert the representation of a given quantity of flos into a
  * representation of the same value denominated in the formatter's units.  For example, a scale
- * value of {@code 3} specifies a denomination of millibitcoins, because to represent
- * {@code 1.0000 BTC}, or one bitcoin, in millibitcoins, one shifts the decimal point
+ * value of {@code 3} specifies a denomination of milliflos, because to represent
+ * {@code 1.0000 BTC}, or one flo, in milliflos, one shifts the decimal point
  * three places, that is, to {@code 1000.0 mBTC}.
  *
  * &lt;h3&gt;Construction&lt;/h3&gt;
@@ -157,7 +157,7 @@ import java.util.regex.Pattern;
  * of that {@code int} will be interpreted as the decimal-place scale of
  * the {@link BtcFixedFormat} instance that is returned, and thus will
  * determine its denomination.  For example, if you want to format
- * values in units of microbitcoins:
+ * values in units of microflos:
  *
  * &lt;blockquote&gt;&lt;pre&gt;BtcFormat m = BtcFormat.getInstance(6);
  *String s = m.format(Coin.COIN); &lt;strong&gt;// &quot;1,000,000.00&quot;&lt;/strong&gt;
@@ -196,7 +196,7 @@ import java.util.regex.Pattern;
  * is an optional {@link Locale} value.
  *
  * For example, here we construct four instances for the same locale that each format
- * differently the same one-bitcoin value:
+ * differently the same one-flo value:
  *
  * &lt;blockquote&gt;&lt;pre&gt;
  * &lt;strong&gt;// Next line returns &quot;1,00 BTC&quot;&lt;/strong&gt;
@@ -261,11 +261,11 @@ import java.util.regex.Pattern;
  * &lt;h3&gt;Formatting&lt;/h3&gt;
  *
  * &lt;p&gt;You format a FLO monetary value by passing it to the {@link BtcFormat#format(Object)}
- * method.  This argument can be either a {@link org.bitcoinj.core.Coin}-type object or a
+ * method.  This argument can be either a {@link org.floj.core.Coin}-type object or a
  * numerical object such as {@link java.lang.Long} or {@link java.math.BigDecimal}.
  * Integer-based types such as {@link java.math.BigInteger} are interpreted as representing a
  * number of satoshis, while a {@link java.math.BigDecimal} is interpreted as representing a
- * number of bitcoins.  A value having a fractional amount of satoshis is rounded to the
+ * number of flos.  A value having a fractional amount of satoshis is rounded to the
  * nearest whole satoshi at least, and possibly to a greater unit depending on the number of
  * fractional decimal-places displayed.  The {@code format()} method will not accept an
  * argument whose type is {@link String}, {@link Float} nor {@link Double}.
@@ -425,7 +425,7 @@ import java.util.regex.Pattern;
  * parsed {@link String}s.
  *
  * &lt;p&gt;When parsing, if the currency-units indicator is absent, then a {@link BtcAutoFormat}
- * instance will infer a denomination of bitcoins while a {@link BtcFixedFormat} will infer the
+ * instance will infer a denomination of flos while a {@link BtcFixedFormat} will infer the
  * denomination in which it expresses formatted values.  Note: by default (unless overridden by
  * a custom pattern), if the locale or style requires a space to separate the number from the
  * units indicator, that space must be present in the String to be parsed, even if the units
@@ -464,7 +464,7 @@ import java.util.regex.Pattern;
  * @see          java.text.DecimalFormat
  * @see          java.text.DecimalFormatSymbols
  * @see          java.text.FieldPosition
- * @see          org.bitcoinj.core.Coin
+ * @see          org.floj.core.Coin
  */
 
 public abstract class BtcFormat extends Format {
@@ -493,9 +493,9 @@ public abstract class BtcFormat extends Format {
      * comparisons.
      */
 
-    /** The conventional international currency code for bitcoins: &quot;BTC&quot; */
+    /** The conventional international currency code for flos: &quot;BTC&quot; */
     private static final String COIN_CODE = &quot;BTC&quot;;
-    /** The default currency symbols for bitcoins */
+    /** The default currency symbols for flos */
     private static final String COIN_SYMBOL = &quot;฿&quot;;
     /** An alternative currency symbol to use in locales where the default symbol is used for the national currency. */
     protected static final String COIN_SYMBOL_ALT = &quot;Ƀ&quot;;
@@ -504,16 +504,16 @@ public abstract class BtcFormat extends Format {
     protected final int minimumFractionDigits;
     protected final List&lt;Integer&gt; decimalGroups;
 
-    /* Scale is the number of decimal-places difference from same value in bitcoins */
-    /** A constant useful for specifying a denomination of bitcoins, the {@code int} value
+    /* Scale is the number of decimal-places difference from same value in flos */
+    /** A constant useful for specifying a denomination of flos, the {@code int} value
      *  {@code 0}. */
     public static final int COIN_SCALE = 0;
 
-    /** A constant useful for specifying a denomination of millibitcoins, the {@code int}
+    /** A constant useful for specifying a denomination of milliflos, the {@code int}
      *  value {@code 3}. */
     public static final int MILLICOIN_SCALE = 3;
 
-    /** A constant useful for specifying a denomination of microbitcoins, the {@code int}
+    /** A constant useful for specifying a denomination of microflos, the {@code int}
      *  value {@code 6}. */
     public static final int MICROCOIN_SCALE = 6;
 
@@ -591,7 +591,7 @@ public abstract class BtcFormat extends Format {
         /** Specify a fixed-denomination of units to use when formatting and parsing values.
          *  The argument specifies the number of decimal places, in increasing
          *  precision, by which each formatted value will differ from that same value
-         *  denominated in bitcoins.  For example, a denomination of millibitcoins is specified
+         *  denominated in flos.  For example, a denomination of milliflos is specified
          *  with a value of {@code 3}.
          *
          * &lt;p&gt;The {@code BtcFormat} class provides appropriately named
@@ -600,7 +600,7 @@ public abstract class BtcFormat extends Format {
          *
          * &lt;p&gt;If neither this method nor {@link #style(BtcAutoFormat.Style)} is invoked on a
          * {@link Builder}, then the {@link BtcFormat} will default to a
-         * fixed-denomination of bitcoins, equivalent to invoking this method with an argument
+         * fixed-denomination of flos, equivalent to invoking this method with an argument
          * of {@code 0}. */
         public Builder scale(int val) {
 <span class="fc bfc" id="L606" title="All 2 branches covered.">            if (variant == Variant.AUTO)</span>
@@ -954,7 +954,7 @@ public abstract class BtcFormat extends Format {
 
     /**
      * Return a newly-constructed instance for the given locale that will format
-     * values in terms of bitcoins, with the given minimum number of fractional
+     * values in terms of flos, with the given minimum number of fractional
      * decimal places.  Optionally, repeating integer arguments can be passed, each
      * indicating the size of an additional group of fractional decimal places to be
      * used as necessary to avoid rounding, to a limiting precision of satoshis.
@@ -1110,7 +1110,7 @@ public abstract class BtcFormat extends Format {
     // ****** FORMATTING *****
 
     /**
-     * Formats a bitcoin monetary value and returns an {@link java.text.AttributedCharacterIterator}.
+     * Formats a flo monetary value and returns an {@link java.text.AttributedCharacterIterator}.
      * By iterating, you can examine what fields apply to each character.  This can be useful
      * since a character may be part of more than one field, for example a grouping separator
      * that is also part of the integer field.
@@ -1129,13 +1129,13 @@ public abstract class BtcFormat extends Format {
 <span class="nc" id="L1129">    }}</span>
 
     /**
-     * Formats a bitcoin value as a number and possibly a units indicator and appends the
+     * Formats a flo value as a number and possibly a units indicator and appends the
      * resulting text to the given string buffer.  The type of monetary value argument can be
      * any one of any of the following classes: {@link Coin},
      * {@link Integer}, {@link Long}, {@link BigInteger},
      * {@link BigDecimal}.  Numeric types that can represent only an integer are interpreted
      * as that number of satoshis.  The value of a {@link BigDecimal} is interpreted as that
-     * number of bitcoins, rounded to the nearest satoshi as necessary.
+     * number of flos, rounded to the nearest satoshi as necessary.
      *
      * @return the {@link StringBuffer} passed in as {@code toAppendTo}
      */
@@ -1145,12 +1145,12 @@ public abstract class BtcFormat extends Format {
     }
 
     /**
-     * Formats a bitcoin value as a number and possibly a units indicator to a
+     * Formats a flo value as a number and possibly a units indicator to a
      * {@link String}.The type of monetary value argument can be any one of any of the
      * following classes: {@link Coin}, {@link Integer}, {@link Long},
      * {@link BigInteger}, {@link BigDecimal}.  Numeric types that can represent only
      * an integer are interpreted as that number of satoshis.  The value of a
-     * {@link BigDecimal} is interpreted as that number of bitcoins, rounded to the
+     * {@link BigDecimal} is interpreted as that number of flos, rounded to the
      * nearest satoshi as necessary.
      *
      * @param minDecimals The minimum number of decimal places in the fractional part of the formatted number
@@ -1162,13 +1162,13 @@ public abstract class BtcFormat extends Format {
     }
 
     /**
-     * Formats a bitcoin value as a number and possibly a units indicator and appends the
+     * Formats a flo value as a number and possibly a units indicator and appends the
      * resulting text to the given string buffer.  The type of monetary value argument can be
      * any one of any of the following classes: {@link Coin},
      * {@link Integer}, {@link Long}, {@link BigInteger},
      * {@link BigDecimal}.  Numeric types that can represent only an integer are interpreted
      * as that number of satoshis.  The value of a {@link BigDecimal} is interpreted as that
-     * number of bitcoins, rounded to the nearest satoshi as necessary.
+     * number of flos, rounded to the nearest satoshi as necessary.
      *
      * @param minDecimals The minimum number of decimal places in the fractional part of the formatted number
      * @param fractionGroups The sizes of optional additional fractional decimal-place groups
@@ -1197,7 +1197,7 @@ public abstract class BtcFormat extends Format {
     /**
      * Return the denomination for formatting the given value.  The returned {@code int}
      * is the size of the decimal-place shift between the given FLO-value denominated in
-     * bitcoins and that same value as formatted.  A fixed-denomination formatter will ignore
+     * flos and that same value as formatted.  A fixed-denomination formatter will ignore
      * the arguments.
      *
      * @param satoshis The number of satoshis having the value for which the shift is calculated
@@ -1213,7 +1213,7 @@ public abstract class BtcFormat extends Format {
     protected abstract int scale();
 
     /**
-     * Takes a bitcoin monetary value that the client wants to format and returns the number of
+     * Takes a flo monetary value that the client wants to format and returns the number of
      * denominational units having the equal value, rounded to the appropriate number of
      * decimal places.  Calls the scale() method of the subclass, which may have the
      * side-effect of changing the currency symbol and code of the underlying `NumberFormat`
@@ -1272,12 +1272,12 @@ public abstract class BtcFormat extends Format {
     }
 
     /**
-     * Takes an object representing a bitcoin quantity of any type the
+     * Takes an object representing a flo quantity of any type the
      * client is permitted to pass us, and return a BigInteger representing the
      * number of satoshis having the equivalent value. */
     private static BigInteger inSatoshis(Object qty) {
 	BigInteger satoshis;
-        // the value might be bitcoins or satoshis
+        // the value might be flos or satoshis
 <span class="fc bfc" id="L1281" title="All 4 branches covered.">	if (qty instanceof Long || qty instanceof Integer)</span>
 <span class="fc" id="L1282">	    satoshis = BigInteger.valueOf(((Number)qty).longValue());</span>
 <span class="fc bfc" id="L1283" title="All 2 branches covered.">	else if (qty instanceof BigInteger)</span>
@@ -1297,7 +1297,7 @@ public abstract class BtcFormat extends Format {
 
     /**
       * Parse a {@link String} representation of a FLO monetary value.  Returns a
-      * {@link org.bitcoinj.core.Coin} object that represents the parsed value.
+      * {@link org.floj.core.Coin} object that represents the parsed value.
       * @see java.text.NumberFormat */
     @Override
 <span class="fc" id="L1303">    public final Object parseObject(String source, ParsePosition pos) { return parse(source, pos); }</span>
@@ -1391,9 +1391,9 @@ public abstract class BtcFormat extends Format {
      * will be recognized, and the parsed number will be interpreted as a quantity of units
      * having that recognized denomination.
      * &lt;p&gt;If the pattern includes a currency sign but no currency sign is detected in the parsed
-     * String, then the number is interpreted as a quatity of bitcoins.
+     * String, then the number is interpreted as a quatity of flos.
      * &lt;p&gt;If the pattern contains neither a currency symbol nor sign, then instances of {@link
-     * BtcAutoFormat} will interpret the parsed number as a quantity of bitcoins, and instances
+     * BtcAutoFormat} will interpret the parsed number as a quantity of flos, and instances
      * of {@link BtcAutoFormat} will interpret the number as a quantity of that instance's
      * configured denomination, which can be ascertained by invoking the {@link
      * BtcFixedFormat#symbol()} or {@link BtcFixedFormat#code()} method.
@@ -1445,9 +1445,9 @@ public abstract class BtcFormat extends Format {
      * will be recognized, and the parsed number will be interpreted as a quantity of units
      * having that recognized denomination.
      * &lt;p&gt;If the pattern includes a currency sign but no currency sign is detected in the parsed
-     * String, then the number is interpreted as a quatity of bitcoins.
+     * String, then the number is interpreted as a quatity of flos.
      * &lt;p&gt;If the pattern contains neither a currency symbol nor sign, then instances of {@link
-     * BtcAutoFormat} will interpret the parsed number as a quantity of bitcoins, and instances
+     * BtcAutoFormat} will interpret the parsed number as a quantity of flos, and instances
      * of {@link BtcAutoFormat} will interpret the number as a quantity of that instance's
      * configured denomination, which can be ascertained by invoking the {@link
      * BtcFixedFormat#symbol()} or {@link BtcFixedFormat#code()} method.
@@ -1520,13 +1520,13 @@ public abstract class BtcFormat extends Format {
      */
 <span class="fc" id="L1521">    public static Locale[] getAvailableLocales() { return NumberFormat.getAvailableLocales(); }</span>
 
-    /** Return the unprefixed currency symbol for bitcoins configured for this object.  The
+    /** Return the unprefixed currency symbol for flos configured for this object.  The
      *  return value of this method is constant throughough the life of an instance.  */
 <span class="fc" id="L1525">    public String coinSymbol() { synchronized(numberFormat) {</span>
 <span class="fc" id="L1526">        return numberFormat.getDecimalFormatSymbols().getCurrencySymbol();</span>
 <span class="nc" id="L1527">    }}</span>
 
-    /** Return the unprefixed international currency code for bitcoins configured for this
+    /** Return the unprefixed international currency code for flos configured for this
      * object.  The return value of this method is constant throughough the life of an instance.  */
 <span class="fc" id="L1531">    public String coinCode() { synchronized(numberFormat) {</span>
 <span class="fc" id="L1532">        return numberFormat.getDecimalFormatSymbols().getInternationalCurrencySymbol();</span>

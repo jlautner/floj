@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Block.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">Block.java</span></div><h1>Block.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Block.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">Block.java</span></div><h1>Block.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  *
@@ -15,12 +15,12 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import com.google.common.annotations.*;
 import com.google.common.base.*;
 import com.google.common.collect.*;
-import org.bitcoinj.script.*;
+import org.floj.script.*;
 import org.slf4j.*;
 
 import javax.annotation.*;
@@ -28,14 +28,14 @@ import java.io.*;
 import java.math.*;
 import java.util.*;
 
-import static org.bitcoinj.core.Coin.*;
-import static org.bitcoinj.core.Sha256Hash.*;
+import static org.floj.core.Coin.*;
+import static org.floj.core.Sha256Hash.*;
 
 /**
  * &lt;p&gt;A block is a group of transactions, and is one of the fundamental data structures of the FLO system.
  * It records a set of {@link Transaction}s together with some data that links it into a place in the global block
  * chain, and proves that a difficult calculation was done over its contents. See
- * &lt;a href=&quot;http://www.bitcoin.org/bitcoin.pdf&quot;&gt;the FLO technical paper&lt;/a&gt; for
+ * &lt;a href=&quot;http://www.flo.org/flo.pdf&quot;&gt;the FLO technical paper&lt;/a&gt; for
  * more detail on blocks. &lt;p/&gt;
  *
  * &lt;p&gt;To get a block, you can either build one from the raw bytes you can get from another implementation, or request one
@@ -212,7 +212,7 @@ public class Block extends Message {
      * the system it was 50 coins per block, in late 2012 it went to 25 coins per block, and so on. The size of
      * a coinbase transaction is inflation plus fees.&lt;/p&gt;
      *
-     * &lt;p&gt;The half-life is controlled by {@link org.bitcoinj.core.NetworkParameters#getSubsidyDecreaseBlockCount()}.
+     * &lt;p&gt;The half-life is controlled by {@link org.floj.core.NetworkParameters#getSubsidyDecreaseBlockCount()}.
      * &lt;/p&gt;
      */
     public Coin getBlockInflation(int height) {
@@ -270,7 +270,7 @@ public class Block extends Message {
     public int getOptimalEncodingMessageSize() {
 <span class="fc bfc" id="L271" title="All 2 branches covered.">        if (optimalEncodingMessageSize != 0)</span>
 <span class="fc" id="L272">            return optimalEncodingMessageSize;</span>
-<span class="fc" id="L273">        optimalEncodingMessageSize = bitcoinSerialize().length;</span>
+<span class="fc" id="L273">        optimalEncodingMessageSize = floSerialize().length;</span>
 <span class="fc" id="L274">        return optimalEncodingMessageSize;</span>
     }
 
@@ -306,7 +306,7 @@ public class Block extends Message {
 <span class="pc bpc" id="L306" title="1 of 2 branches missed.">        if (transactions != null) {</span>
 <span class="fc" id="L307">            stream.write(new VarInt(transactions.size()).encode());</span>
 <span class="fc bfc" id="L308" title="All 2 branches covered.">            for (Transaction tx : transactions) {</span>
-<span class="fc" id="L309">                tx.bitcoinSerialize(stream);</span>
+<span class="fc" id="L309">                tx.floSerialize(stream);</span>
 <span class="fc" id="L310">            }</span>
         }
 <span class="fc" id="L312">    }</span>
@@ -316,7 +316,7 @@ public class Block extends Message {
      * and transactions
      */
     @Override
-    public byte[] bitcoinSerialize() {
+    public byte[] floSerialize() {
         // we have completely cached byte array.
 <span class="pc bpc" id="L321" title="1 of 4 branches missed.">        if (headerBytesValid &amp;&amp; transactionBytesValid) {</span>
 <span class="fc" id="L322">            Preconditions.checkNotNull(payload, &quot;Bytes should never be null if headerBytesValid &amp;&amp; transactionBytesValid&quot;);</span>
@@ -343,7 +343,7 @@ public class Block extends Message {
     }
 
     @Override
-    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
+    protected void floSerializeToStream(OutputStream stream) throws IOException {
 <span class="fc" id="L347">        writeHeader(stream);</span>
         // We may only have enough data to write the header.
 <span class="fc" id="L349">        writeTransactions(stream);</span>
@@ -814,7 +814,7 @@ public class Block extends Message {
      * Returns the difficulty of the proof of work that this block should meet encoded &lt;b&gt;in compact form&lt;/b&gt;. The {@link
      * BlockChain} verifies that this is not too easy by looking at the length of the chain when the block is added.
      * To find the actual value the hash should be compared against, use
-     * {@link org.bitcoinj.core.Block#getDifficultyTargetAsInteger()}. Note that this is &lt;b&gt;not&lt;/b&gt; the same as
+     * {@link org.floj.core.Block#getDifficultyTargetAsInteger()}. Note that this is &lt;b&gt;not&lt;/b&gt; the same as
      * the difficulty value reported by the FLO &quot;getdifficulty&quot; RPC that you may see on various block explorers.
      * That number is the result of applying a formula to the underlying difficulty to normalize the minimum to 1.
      * Calculating the difficulty that way is currently unsupported.
@@ -1007,7 +1007,7 @@ public class Block extends Message {
 
     /**
      * Returns whether this block conforms to
-     * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0034.mediawiki&quot;&gt;BIP34: Height in Coinbase&lt;/a&gt;.
+     * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0034.mediawiki&quot;&gt;BIP34: Height in Coinbase&lt;/a&gt;.
      */
     public boolean isBIP34() {
 <span class="fc bfc" id="L1013" title="All 2 branches covered.">        return version &gt;= BLOCK_VERSION_BIP34;</span>
@@ -1015,7 +1015,7 @@ public class Block extends Message {
 
     /**
      * Returns whether this block conforms to
-     * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0066.mediawiki&quot;&gt;BIP66: Strict DER signatures&lt;/a&gt;.
+     * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0066.mediawiki&quot;&gt;BIP66: Strict DER signatures&lt;/a&gt;.
      */
     public boolean isBIP66() {
 <span class="fc bfc" id="L1021" title="All 2 branches covered.">        return version &gt;= BLOCK_VERSION_BIP66;</span>
@@ -1023,7 +1023,7 @@ public class Block extends Message {
 
     /**
      * Returns whether this block conforms to
-     * &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki&quot;&gt;BIP65: OP_CHECKLOCKTIMEVERIFY&lt;/a&gt;.
+     * &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0065.mediawiki&quot;&gt;BIP65: OP_CHECKLOCKTIMEVERIFY&lt;/a&gt;.
      */
     public boolean isBIP65() {
 <span class="fc bfc" id="L1029" title="All 2 branches covered.">        return version &gt;= BLOCK_VERSION_BIP65;</span>

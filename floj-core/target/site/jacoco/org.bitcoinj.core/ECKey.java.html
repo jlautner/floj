@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ECKey.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">ECKey.java</span></div><h1>ECKey.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>ECKey.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">ECKey.java</span></div><h1>ECKey.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2011 Google Inc.
  * Copyright 2014 Andreas Schildbach
  * Copyright 2014-2016 the libsecp256k1 contributors
@@ -16,20 +16,20 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
-import org.bitcoinj.crypto.*;
+import org.floj.crypto.*;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import com.google.common.base.Preconditions;
 import com.google.common.primitives.Ints;
 import com.google.common.primitives.UnsignedBytes;
-import org.bitcoin.NativeSecp256k1;
-import org.bitcoin.NativeSecp256k1Util;
-import org.bitcoin.Secp256k1Context;
-import org.bitcoinj.wallet.Protos;
-import org.bitcoinj.wallet.Wallet;
+import org.flo.NativeSecp256k1;
+import org.flo.NativeSecp256k1Util;
+import org.flo.Secp256k1Context;
+import org.floj.wallet.Protos;
+import org.floj.wallet.Wallet;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongycastle.asn1.*;
@@ -420,7 +420,7 @@ public class ECKey implements EncryptableItem {
     /**
      * Output this ECKey as an ASN.1 encoded private key, as understood by OpenSSL or used by FLO Core
      * in its wallet storage format.
-     * @throws org.bitcoinj.core.ECKey.MissingPrivateKeyException if the private key is missing or encrypted.
+     * @throws org.floj.core.ECKey.MissingPrivateKeyException if the private key is missing or encrypted.
      */
     public byte[] toASN1() {
         try {
@@ -535,7 +535,7 @@ public class ECKey implements EncryptableItem {
 
         /**
          * Returns true if the S component is &quot;low&quot;, that means it is below {@link ECKey#HALF_CURVE_ORDER}. See &lt;a
-         * href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0062.mediawiki#Low_S_values_in_signatures&quot;&gt;BIP62&lt;/a&gt;.
+         * href=&quot;https://github.com/flo/bips/blob/master/bip-0062.mediawiki#Low_S_values_in_signatures&quot;&gt;BIP62&lt;/a&gt;.
          */
         public boolean isCanonical() {
 <span class="fc bfc" id="L541" title="All 2 branches covered.">            return s.compareTo(HALF_CURVE_ORDER) &lt;= 0;</span>
@@ -625,7 +625,7 @@ public class ECKey implements EncryptableItem {
 
     /**
      * Signs the given hash and returns the R and S components as BigIntegers. In the FLO protocol, they are
-     * usually encoded using ASN.1 format, so you want {@link org.bitcoinj.core.ECKey.ECDSASignature#toASN1()}
+     * usually encoded using ASN.1 format, so you want {@link org.floj.core.ECKey.ECDSASignature#toASN1()}
      * instead. However sometimes the independent components can be useful, for instance, if you're going to do
      * further EC maths on them.
      * @throws KeyCrypterException if this ECKey doesn't have a private part.
@@ -644,7 +644,7 @@ public class ECKey implements EncryptableItem {
 
     /**
      * Signs the given hash and returns the R and S components as BigIntegers. In the FLO protocol, they are
-     * usually encoded using DER format, so you want {@link org.bitcoinj.core.ECKey.ECDSASignature#encodeToDER()}
+     * usually encoded using DER format, so you want {@link org.floj.core.ECKey.ECDSASignature#encodeToDER()}
      * instead. However sometimes the independent components can be useful, for instance, if you're doing to do further
      * EC maths on them.
      *
@@ -888,7 +888,7 @@ public class ECKey implements EncryptableItem {
     /**
      * Given an arbitrary piece of text and a FLO-format message signature encoded in base64, returns an ECKey
      * containing the public key that was used to sign it. This can then be compared to the expected public key to
-     * determine if the signature was correct. These sorts of signatures are compatible with the FLO-Qt/bitcoind
+     * determine if the signature was correct. These sorts of signatures are compatible with the FLO-Qt/flod
      * format generated by signmessage/verifymessage RPCs and GUI menu options. They are intended for humans to verify
      * their communications with each other, hence the base64 format and the fact that the input is text.
      *
@@ -1021,7 +1021,7 @@ public class ECKey implements EncryptableItem {
 
     /**
      * Returns a 32 byte array containing the private key.
-     * @throws org.bitcoinj.core.ECKey.MissingPrivateKeyException if the private key bytes are missing/encrypted.
+     * @throws org.floj.core.ECKey.MissingPrivateKeyException if the private key bytes are missing/encrypted.
      */
     public byte[] getPrivKeyBytes() {
 <span class="fc" id="L1027">        return Utils.bigIntegerToBytes(getPrivKey(), 32);</span>
@@ -1029,7 +1029,7 @@ public class ECKey implements EncryptableItem {
 
     /**
      * Exports the private key in the form used by FLO Core's &quot;dumpprivkey&quot; and &quot;importprivkey&quot; commands. Use
-     * the {@link org.bitcoinj.core.DumpedPrivateKey#toString()} method to get the string.
+     * the {@link org.floj.core.DumpedPrivateKey#toString()} method to get the string.
      *
      * @param params The network this key is intended for use on.
      * @return Private key bytes as a {@link DumpedPrivateKey}.
@@ -1124,7 +1124,7 @@ public class ECKey implements EncryptableItem {
      * &lt;p&gt;Check that it is possible to decrypt the key with the keyCrypter and that the original key is returned.&lt;/p&gt;
      *
      * &lt;p&gt;Because it is a critical failure if the private keys cannot be decrypted successfully (resulting of loss of all
-     * bitcoins controlled by the private key) you can use this method to check when you *encrypt* a wallet that
+     * flos controlled by the private key) you can use this method to check when you *encrypt* a wallet that
      * it can definitely be decrypted successfully.&lt;/p&gt;
      *
      * &lt;p&gt;See {@link Wallet#encrypt(KeyCrypter keyCrypter, KeyParameter aesKey)} for example usage.&lt;/p&gt;

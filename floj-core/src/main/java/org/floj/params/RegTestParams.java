@@ -23,7 +23,7 @@ import org.floj.core.Block;
 import static com.google.common.base.Preconditions.checkState;
 
 /**
- * Network parameters for the regression test mode of bitcoind in which all blocks are trivially solvable.
+ * Network parameters for the regression test mode of flod in which all blocks are trivially solvable.
  */
 public class RegTestParams extends TestNet2Params {
     private static final BigInteger MAX_TARGET = new BigInteger("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 16);

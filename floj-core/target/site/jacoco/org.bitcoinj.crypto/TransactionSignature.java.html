@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionSignature.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.crypto</a> &gt; <span class="el_source">TransactionSignature.java</span></div><h1>TransactionSignature.java</h1><pre class="source lang-java linenums">/*
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TransactionSignature.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.crypto</a> &gt; <span class="el_source">TransactionSignature.java</span></div><h1>TransactionSignature.java</h1><pre class="source lang-java linenums">/*
  * Copyright 2013 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.crypto;
+package org.floj.crypto;
 
-import org.bitcoinj.core.ECKey;
-import org.bitcoinj.core.Transaction;
-import org.bitcoinj.core.VerificationException;
-import org.bitcoinj.core.Transaction.SigHash;
+import org.floj.core.ECKey;
+import org.floj.core.Transaction;
+import org.floj.core.VerificationException;
+import org.floj.core.Transaction.SigHash;
 import com.google.common.base.Preconditions;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 
 /**
- * A TransactionSignature wraps an {@link org.bitcoinj.core.ECKey.ECDSASignature} and adds methods for handling
+ * A TransactionSignature wraps an {@link org.floj.core.ECKey.ECDSASignature} and adds methods for handling
  * the additional SIGHASH mode byte that is used.
  */
 public class TransactionSignature extends ECKey.ECDSASignature {
@@ -84,7 +84,7 @@ public class TransactionSignature extends ECKey.ECDSASignature {
      * not relayed by default.
      */
     public static boolean isEncodingCanonical(byte[] signature) {
-        // See FLO Core's IsCanonicalSignature, https://bitcointalk.org/index.php?topic=8392.msg127623#msg127623
+        // See FLO Core's IsCanonicalSignature, https://flotalk.org/index.php?topic=8392.msg127623#msg127623
         // A canonical signature exists of: &lt;30&gt; &lt;total len&gt; &lt;02&gt; &lt;len R&gt; &lt;R&gt; &lt;02&gt; &lt;len S&gt; &lt;S&gt; &lt;hashtype&gt;
         // Where R and S are not negative (their first byte has its highest bit not set), and not
         // excessively padded (do not start with a 0 byte, unless an otherwise negative number follows,

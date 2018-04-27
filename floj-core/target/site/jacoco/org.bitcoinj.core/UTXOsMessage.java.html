@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UTXOsMessage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">bitcoinj</a> &gt; <a href="index.source.html" class="el_package">org.bitcoinj.core</a> &gt; <span class="el_source">UTXOsMessage.java</span></div><h1>UTXOsMessage.java</h1><pre class="source lang-java linenums">/*
- * Copyright 2014 the bitcoinj authors
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>UTXOsMessage.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">floj</a> &gt; <a href="index.source.html" class="el_package">org.floj.core</a> &gt; <span class="el_source">UTXOsMessage.java</span></div><h1>UTXOsMessage.java</h1><pre class="source lang-java linenums">/*
+ * Copyright 2014 the floj authors
  *
  * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.bitcoinj.core;
+package org.floj.core;
 
 import com.google.common.base.Objects;
 import java.io.IOException;
@@ -26,11 +26,11 @@ import java.util.List;
 /**
  * &lt;p&gt;Message representing a list of unspent transaction outputs (&quot;utxos&quot;), returned in response to sending a
  * {@link GetUTXOsMessage} (&quot;getutxos&quot;). Note that both this message and the query that generates it are not
- * supported by FLO Core. An implementation is available in &lt;a href=&quot;https://github.com/bitcoinxt/bitcoinxt&quot;&gt;FLO XT&lt;/a&gt;,
+ * supported by FLO Core. An implementation is available in &lt;a href=&quot;https://github.com/floxt/floxt&quot;&gt;FLO XT&lt;/a&gt;,
  * a patch set on top of Core. Thus if you want to use it, you must find some XT peers to connect to. This can be done
- * using a {@link org.bitcoinj.net.discovery.HttpDiscovery} class combined with an HTTP/Cartographer seed.&lt;/p&gt;
+ * using a {@link org.floj.net.discovery.HttpDiscovery} class combined with an HTTP/Cartographer seed.&lt;/p&gt;
  *
- * &lt;p&gt;The getutxos/utxos protocol is defined in &lt;a href=&quot;https://github.com/bitcoin/bips/blob/master/bip-0065.mediawiki&quot;&gt;BIP 65&lt;/a&gt;.
+ * &lt;p&gt;The getutxos/utxos protocol is defined in &lt;a href=&quot;https://github.com/flo/bips/blob/master/bip-0065.mediawiki&quot;&gt;BIP 65&lt;/a&gt;.
  * In that document you can find a discussion of the security of this protocol (briefly, there is none). Because the
  * data found in this message is not authenticated it should be used carefully. Places where it can be useful are if
  * you're querying your own trusted node, if you're comparing answers from multiple nodes simultaneously and don't
@@ -77,7 +77,7 @@ public class UTXOsMessage extends Message {
 <span class="fc" id="L77">    }</span>
 
     @Override
-    protected void bitcoinSerializeToStream(OutputStream stream) throws IOException {
+    protected void floSerializeToStream(OutputStream stream) throws IOException {
 <span class="fc" id="L81">        Utils.uint32ToByteStreamLE(height, stream);</span>
 <span class="fc" id="L82">        stream.write(chainHead.getBytes());</span>
 <span class="fc" id="L83">        stream.write(new VarInt(hits.length).encode());</span>
@@ -88,7 +88,7 @@ public class UTXOsMessage extends Message {
 <span class="fc" id="L88">            Transaction tx = output.getParentTransaction();</span>
 <span class="pc bpc" id="L89" title="1 of 2 branches missed.">            Utils.uint32ToByteStreamLE(tx != null ? tx.getVersion() : 0L, stream);  // Version</span>
 <span class="fc" id="L90">            Utils.uint32ToByteStreamLE(heights[i], stream);  // Height</span>
-<span class="fc" id="L91">            output.bitcoinSerializeToStream(stream);</span>
+<span class="fc" id="L91">            output.floSerializeToStream(stream);</span>
         }
 <span class="fc" id="L93">    }</span>
 
